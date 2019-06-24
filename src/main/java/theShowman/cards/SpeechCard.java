@@ -47,146 +47,21 @@ public class SpeechCard extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[0], 2.0F, 2.0F));
         screwYourFastMode();
 
-        int i = (int)(Math.random() * 9);
-        switch(i)
-        {
-            case 0:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[1], 2.0F, 2.0F));
-                break;
-            case 1:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[2], 2.0F, 2.0F));
-                break;
-            case 2:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[3], 2.0F, 2.0F));
-                break;
-            case 3:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[4], 2.0F, 2.0F));
-                break;
-            case 4:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[5], 2.0F, 2.0F));
-                break;
-            case 5:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[6], 2.0F, 2.0F));
-                break;
-            case 6:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[7], 2.0F, 2.0F));
-                break;
-            case 7:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[8], 2.0F, 2.0F));
-                break;
-            case 8:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[9], 2.0F, 2.0F));
-                break;
-            default:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[28], 2.0F, 2.0F));
-                break;
-        }
+        int i = (int)(Math.random() * 9) + 1;
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
         screwYourFastMode();
 
-        i = (int)(Math.random() * 9);
-        switch(i)
-        {
-            case 0:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[10], 2.0F, 2.0F));
-                break;
-            case 1:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[11], 2.0F, 2.0F));
-                break;
-            case 2:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[12], 2.0F, 2.0F));
-                break;
-            case 3:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[13], 2.0F, 2.0F));
-                break;
-            case 4:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[14], 2.0F, 2.0F));
-                break;
-            case 5:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[15], 2.0F, 2.0F));
-                break;
-            case 6:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[16], 2.0F, 2.0F));
-                break;
-            case 7:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[17], 2.0F, 2.0F));
-                break;
-            case 8:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[18], 2.0F, 2.0F));
-                break;
-            default:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[28], 2.0F, 2.0F));
-                break;
-        }
+        i = (int)(Math.random() * 9) + 10;
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
         screwYourFastMode();
 
-        i = (int)(Math.random() * 9);
-        switch(i)
+        i = (int)(Math.random() * 9) + 19;
+        if(i == 21)
         {
-            case 0:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[19], 2.0F, 2.0F));
-                break;
-            case 1:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[20], 2.0F, 2.0F));
-                break;
-            case 2:
-                i = (int)(Math.random() * 9);
-                switch(i)
-                {
-                    case 0:
-                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[19], 2.0F, 2.0F));
-                        break;
-                    case 1:
-                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[20], 2.0F, 2.0F));
-                        break;
-                    case 2:
-                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[21], 2.0F, 2.0F));
-                        break;
-                    case 3:
-                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[22], 2.0F, 2.0F));
-                        break;
-                    case 4:
-                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[23], 2.0F, 2.0F));
-                        break;
-                    case 5:
-                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[24], 2.0F, 2.0F));
-                        break;
-                    case 6:
-                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[25], 2.0F, 2.0F));
-                        break;
-                    case 7:
-                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[26], 2.0F, 2.0F));
-                        break;
-                    case 8:
-                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[27], 2.0F, 2.0F));
-                        break;
-                    default:
-                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[28], 2.0F, 2.0F));
-                        break;
-                }
-                break;
-            case 3:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[22], 2.0F, 2.0F));
-                break;
-            case 4:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[23], 2.0F, 2.0F));
-                break;
-            case 5:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[24], 2.0F, 2.0F));
-                break;
-            case 6:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[25], 2.0F, 2.0F));
-                break;
-            case 7:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[26], 2.0F, 2.0F));
-                break;
-            case 8:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[27], 2.0F, 2.0F));
-                break;
-            default:
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[28], 2.0F, 2.0F));
-                break;
+            i = (int)(Math.random() * 9) + 19;
         }
-        //screwYourFastMode();
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
+        screwYourFastMode();
 
 
     }
