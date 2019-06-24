@@ -1,0 +1,151 @@
+{
+  "theShowman:CommonPower": {
+    "NAME": "Placeholder Power",
+    "DESCRIPTIONS": [
+      "You applied #b",
+      " keyword.",
+      " keywords."
+    ]
+  },
+  "theShowman:RarePower": {
+    "NAME": "Placeholder Power",
+    "DESCRIPTIONS": [
+      "At the start of your turn, TOUCH #b",
+      " enemy.",
+      " enemies."
+    ]
+  },
+  "theShowman:RetainThisTurnPower": {
+    "NAME": "Retain Cards This Turn",
+    "DESCRIPTIONS": [
+      "At the end of your turn, #yRetain up to ",
+      " card.",
+      " cards."
+    ]
+  },
+  "theShowman:ForMyNextTrickPower": {
+    "NAME": "For My Next Trick!",
+    "DESCRIPTIONS": [
+      "They cost #b1 less that turn.",
+      "You shouldn't be seeing this (2)"
+    ]
+  },
+  "theShowman:StackTheDeckPower": {
+    "NAME": "Stack The Deck",
+    "DESCRIPTIONS": [
+      "At the end of your turn, put up to #b",
+      " card from your hand on top of your deck.",
+      " cards from your hand on top of your deck."
+    ]
+  },
+  "theShowman:ByrdBGonePower": {
+    "NAME": "Byrd-B-Gone",
+    "DESCRIPTIONS": [
+      "Whenever you are attacked and don't lose health, gain #b",
+      " #yThorns."
+    ]
+  },
+  "theShowman:PotentialUnleashedPower": {
+    "NAME": "Potential Unleashed",
+    "DESCRIPTIONS": [
+      "Whenever you draw a card, deal #b",
+      " damage to ALL enemies."
+    ]
+  },
+  "theShowman:DivertingDisplayPower": {
+    "NAME": "Diverting Display",
+    "DESCRIPTIONS": [
+      "Whenever you exhaust a card, apply #b",
+      " #yVulnerable to a random enemy."
+    ]
+  },
+  "theShowman:MirrorMirrorPower": {
+    "NAME": "Mirror Mirror",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " card you play this turn adds a copy of itself to your hand.",
+      " cards you play this turn adds a copy of itself to your hand."
+    ]
+  },
+  "theShowman:CurtainCallPower": {
+    "NAME": "Curtain Call",
+    "DESCRIPTIONS": [
+      "Whenever you #yExhaust a card this turn, gain #b",
+      " Block."
+    ]
+  },
+  "theShowman:HatTrickPower": {
+    "NAME": "Buffer Down",
+    "DESCRIPTIONS": [
+      "Losing #b",
+      " #yBuffer at the start of your turn."
+    ]
+  },
+  "theShowman:WillingVolunteerPower": {
+    "NAME": "Willing Volunteer",
+    "DESCRIPTIONS": [
+      "has #rwillingly #rvolunteered to take the next #b",
+      " hit for you, until the start of your next turn.",
+      " hits for you, until the start of your next turn."
+    ]
+  },
+  "theShowman:MaximumDistractionPower": {
+    "NAME": "Maximum Distraction",
+    "DESCRIPTIONS": [
+      "For every #b",
+      " stacks of #yVulnerable an enemy has, they take an additional #b25% damage.",
+      " (Taking #b",
+      "% additional damage, for a total of #b",
+      "% damage.)"
+    ]
+  },
+  "theShowman:NothingInMyHandsPower": {
+    "NAME": "Nothing In My Hands...",
+    "DESCRIPTIONS": [
+      "At the end of your turn, #yExhaust your hand instead of discarding it."
+    ]
+  },
+  "theShowman:ThrowingCardsPower": {
+    "NAME": "Throwing Cards",
+    "DESCRIPTIONS": [
+      "Whenever you #yExhaust a card, deal #b",
+      " damage to a random enemy."
+    ]
+  },
+  "theShowman:ToroPower": {
+    "NAME": "Toro!",
+    "DESCRIPTIONS": [
+      "Whenever you are attacked, apply #b",
+      " Vulnerable to the attacker."
+    ]
+  },
+  "theShowman:ColumbifiedPower": {
+    "NAME": "Columbified",
+    "DESCRIPTIONS": [
+      "has been turned into a #yByrd [REMOVE_SPACE]!"
+    ]
+  },
+  "theShowman:ObjectPermanencePower": {
+    "NAME": "Object Permanence",
+    "DESCRIPTIONS": [
+      "#yTemporary effects applied to ", " become permanent"
+    ]
+  },
+  "theShowman:SubtleMisdirectionsPower": {
+    "NAME": "Subtle Misdirections",
+    "DESCRIPTIONS": [
+      "Whenever you draw the first #b",
+      " #yStatus cards each turn, exhaust it",
+      " and draw a card",
+      ".",
+      " (Has #yExhausted #b",
+      " cards this turn)"
+    ]
+  },
+  "theShowman:ApplyTempStrengthNextTurn": {
+    "NAME": "Temp Strength Next Turn ",
+    "DESCRIPTIONS": [
+      "Gaining #b", " temporary #yStrength at the start of next turn."
+    ]
+  }
+}

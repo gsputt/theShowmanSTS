@@ -1,0 +1,59 @@
+package theShowman.cards;
+
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theShowman.ShowmanMod;
+import theShowman.actions.ShowAction;
+
+import static theShowman.ShowmanMod.makeCardPath;
+import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
+
+public class Showstopper extends AbstractDynamicCard {
+
+
+    // TEXT DECLARATION
+    public static final String ID = ShowmanMod.makeID("Showstopper");
+    public static final String IMG = makeCardPath("Skill.png");
+    // /TEXT DECLARATION/
+
+
+    // STAT DECLARATION
+    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardTarget TARGET = CardTarget.NONE;
+    private static final CardType TYPE = CardType.SKILL;
+    public static final CardColor COLOR = COLOR_PURPLE;
+
+    private static final int COST = 3;
+    private static final int UPGRADE_COST = 2;
+
+    // /STAT DECLARATION/
+
+
+    public Showstopper() {
+        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+    }
+
+
+    // Actions the card should do.
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new ShowAction(p.exhaustPile.size()));
+    }
+
+
+    @Override
+    public AbstractDynamicCard makeCopy() {
+        return new Showstopper();
+    }
+
+    // Upgraded stats.
+    @Override
+    public void upgrade() {
+        if (!upgraded) {
+            upgradeName();
+            this.upgradeBaseCost(UPGRADE_COST);
+            initializeDescription();
+        }
+    }
+}

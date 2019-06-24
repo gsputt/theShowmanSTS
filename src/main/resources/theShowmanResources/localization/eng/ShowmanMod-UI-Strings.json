@@ -1,0 +1,29 @@
+{
+  "theShowman:NowYouDontAction": {
+    "TEXT": ["Choose a card to Exhaust", "Choose any number of cards to Exhaust"]
+  },
+  "theShowman:AndBehindCurtainAction": {
+    "TEXT": ["Select a Card to Return to Your Hand", "Select ", " Cards to Return to Your Hand"]
+  },
+  "theShowman:ForMyNextTrickAction": {
+    "TEXT": ["Exhaust"]
+  },
+  "theShowman:NowYouSeeMeAction": {
+    "TEXT": ["Choose a card to Exhaust"]
+  },
+  "theShowman:StackTheDeckAction": {
+    "TEXT": ["put on the top of your draw pile"]
+  },
+  "theShowman:VanishingActAction": {
+    "TEXT": ["Remove from your hand and deck."]
+  },
+  "theShowman:KnockThePileAction": {
+    "TEXT": ["Choose any number of cards to Exhaust"]
+  },
+  "theShowman:GrandGambitAction": {
+    "TEXT": ["Exhaust"]
+  },
+  "theShowman:BottomDoubleDealAction": {
+    "TEXT": ["Choose a Skill or Attack to put into your hand.", "Choose a Skill to put into your hand.", "Choose an Attack to put into your hand."]
+  }
+}

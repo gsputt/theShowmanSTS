@@ -1,0 +1,44 @@
+[
+  {
+    "NAMES": [
+      "keyword",
+      "keywords"
+    ],
+    "DESCRIPTION": "Whenever you play a card, gain 1 dexterity this turn only."
+  },
+  {
+    "PROPER_NAME": "Multiword Keyword",
+    "NAMES": [
+      "Multiword Keyword",
+      "multiword_keyword",
+      "multiword_keywords",
+      "multikey",
+      "multikeyword"
+    ],
+    "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
+  },
+  {
+    "PROPER_NAME": "Stacked",
+    "NAMES": [
+      "Stacked",
+      "stacked"
+    ],
+    "DESCRIPTION": "Reduce the effect of this card for each card remaining in your draw pile."
+  },
+  {
+    "PROPER_NAME": "Purple",
+    "NAMES": [
+      "Purple",
+      "purple"
+    ],
+    "DESCRIPTION": "Card color for the Showman."
+  },
+  {
+    "PROPER_NAME": "Temporary",
+    "NAMES": [
+      "Temporary",
+      "temporary"
+    ],
+    "DESCRIPTION": "The following Effects: Strength Down, Shackled, Dexterity Down, Buffer Down, Retain Cards This Turn, Blur, Thorns Down"
+  }
+]
