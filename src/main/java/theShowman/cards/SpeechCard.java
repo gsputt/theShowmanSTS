@@ -2,6 +2,7 @@ package theShowman.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -61,9 +62,7 @@ public class SpeechCard extends AbstractDynamicCard {
             i = (int)(Math.random() * 9) + 19;
         }
         AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
-        screwYourFastMode();
-
-
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
     }
 
     private void screwYourFastMode()
