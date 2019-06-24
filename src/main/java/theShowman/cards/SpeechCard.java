@@ -47,7 +47,7 @@ public class SpeechCard extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[0], 2.0F, 2.0F));
         screwYourFastMode();
 
-        int i = (int)(Math.random() * 8);
+        int i = (int)(Math.random() * 9);
         switch(i)
         {
             case 0:
@@ -83,7 +83,7 @@ public class SpeechCard extends AbstractDynamicCard {
         }
         screwYourFastMode();
 
-        i = (int)(Math.random() * 8);
+        i = (int)(Math.random() * 9);
         switch(i)
         {
             case 0:
@@ -119,7 +119,7 @@ public class SpeechCard extends AbstractDynamicCard {
         }
         screwYourFastMode();
 
-        i = (int)(Math.random() * 8);
+        i = (int)(Math.random() * 9);
         switch(i)
         {
             case 0:
@@ -129,7 +129,7 @@ public class SpeechCard extends AbstractDynamicCard {
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[20], 2.0F, 2.0F));
                 break;
             case 2:
-                i = (int)(Math.random() * 8);
+                i = (int)(Math.random() * 9);
                 switch(i)
                 {
                     case 0:
