@@ -264,7 +264,7 @@ public class ShowmanMod implements
     public static void initialize() {
         logger.info("Initializing theShowman Mod. Feed Cookies to continue");
         ShowmanMod defaultmod = new ShowmanMod();
-        logger.info(" theShowman Mod Initialized - Cookies have been fed");
+        logger.info("theShowman Mod Initialized - Cookies have been fed");
     }
 
     // ============== /SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE/ =================
