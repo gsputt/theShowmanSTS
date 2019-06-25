@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -302,17 +303,19 @@ public class TheShowman extends CustomPlayer implements CustomSavable<Integer> {
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY};
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT};
     }
+
 
     // Should return a string containing what text is shown when your character is
     // about to attack the heart. For example, the defect is "NL You charge your
     // core to its maximum..."
     @Override
     public String getSpireHeartText() {
-        return TEXT[1];
+        if(AbstractDungeon.player.masterDeck.getCardNames().contains(Columbify.ID)) {
+            return TEXT[3];
+        }
+            return TEXT[1];
     }
 
     // The vampire events refer to the base game characters as "brother", "sister",

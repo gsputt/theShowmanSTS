@@ -45,11 +45,29 @@ public class TossCardEffect extends AbstractGameEffect {
         this.scale = 0.3F * Settings.scale;
     }
 
+    public TossCardEffect(float x, float y, float mX, float mY, int damage) {
+        if (this.img == null) {
+            this.img = new TextureRegion(texture);
+        }
+
+        this.damage = damage;
+
+        this.x = x;
+        this.y = y;
+        this.targetX = mX;
+        this.targetY = mY;
+        this.color = Color.WHITE.cpy();
+        this.duration = 0.1F;
+        this.startingDuration = 0.1F;
+        this.scale = 0.3F * Settings.scale;
+    }
+
     public void update() {
-        if(this.m.isDead || this.m.halfDead || this.m.isDying)
-        {
-            this.isDone = true;
-            return;
+        if(m != null) {
+            if (this.m.isDead || this.m.halfDead || this.m.isDying) {
+                this.isDone = true;
+                return;
+            }
         }
         this.duration -= Gdx.graphics.getDeltaTime();
         this.progress += Gdx.graphics.getDeltaTime();
