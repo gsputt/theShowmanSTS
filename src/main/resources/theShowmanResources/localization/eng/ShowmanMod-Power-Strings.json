@@ -60,7 +60,7 @@
     ]
   },
   "theShowman:MirrorMirrorPower": {
-    "NAME": "Mirror Mirror",
+    "NAME": "Encore!",
     "DESCRIPTIONS": [
       "The next #b",
       " card you play this turn adds a copy of itself to your hand.",
@@ -100,7 +100,7 @@
     ]
   },
   "theShowman:NothingInMyHandsPower": {
-    "NAME": "Nothing In My Hands...",
+    "NAME": "Begone Thought",
     "DESCRIPTIONS": [
       "At the end of your turn, #yExhaust your hand instead of discarding it."
     ]

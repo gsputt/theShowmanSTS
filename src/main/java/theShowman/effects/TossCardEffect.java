@@ -1,6 +1,7 @@
 
 package theShowman.effects;
 
+import com.badlogic.gdx.math.Interpolation;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
@@ -71,6 +72,10 @@ public class TossCardEffect extends AbstractGameEffect {
         }
         this.duration -= Gdx.graphics.getDeltaTime();
         this.progress += Gdx.graphics.getDeltaTime();
+
+        this.x = Interpolation.linear.apply(this.x, this.targetX, Math.min(1F, this.progress/this.startingDuration));
+        this.y = Interpolation.linear.apply(this.y, this.targetY, Math.min(1F, this.progress/this.startingDuration));
+
         if (this.duration < 0.0F) {
             int j = this.damage;
             if(j > 20)
@@ -82,12 +87,11 @@ public class TossCardEffect extends AbstractGameEffect {
             }
             this.isDone = true;
         }
-        this.x = MathUtils.lerp(this.x, this.targetX, progress / this.startingDuration);
     }
 
     public void render(SpriteBatch sb) {
         sb.setColor(this.color);
-        sb.draw(this.img, this.x, this.y, (float)this.img.getRegionWidth() /2.0F * this.scale, (float)this.img.getRegionHeight() /2.0F * this.scale, (float)this.img.getRegionWidth(), (float)this.img.getRegionHeight(), this.scale, this.scale, 90F);
+        sb.draw(this.img, this.x - ((float)this.img.getRegionWidth() /2.0F), this.y - ((float)this.img.getRegionHeight() /2.0F), (float)this.img.getRegionWidth() /2.0F, (float)this.img.getRegionHeight() /2.0F, (float)this.img.getRegionWidth(), (float)this.img.getRegionHeight(), this.scale, this.scale, 90F);
     }
 
     public void dispose() {

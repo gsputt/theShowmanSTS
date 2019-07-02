@@ -195,7 +195,7 @@
     "DESCRIPTION": "Gain !B! Block. NL Shuffle a Dazed into your draw pile."
   },
   "theShowman:MirrorMirror": {
-    "NAME": "Mirror Mirror",
+    "NAME": "Encore!",
     "DESCRIPTION": "Gain !B! Block. NL Add a copy of the next card you play this turn to your hand."
   },
   "theShowman:SecondAct": {
@@ -279,7 +279,7 @@
     "DESCRIPTION": "For every !M! stacks of Vulnerable an enemy has, they take an additional 25% damage."
   },
   "theShowman:NothingInMyHands": {
-    "NAME": "Nothing In My Hands...",
+    "NAME": "Begone Thought",
     "DESCRIPTION": "Innate. NL At the end of your turn, Exhaust your hand instead of discarding it."
   },
   "theShowman:ThrowingCards": {

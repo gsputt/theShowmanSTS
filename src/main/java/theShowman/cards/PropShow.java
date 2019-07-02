@@ -1,5 +1,6 @@
 package theShowman.cards;
 
+import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -47,6 +48,7 @@ public class PropShow extends AbstractDynamicCard {
         this.baseDamage = DAMAGE;
         this.baseBlock = BLOCK;
         this.magicNumber = this.baseMagicNumber = ENERGY;
+        this.isMultiDamage = true;
     }
 
 
@@ -82,9 +84,12 @@ public class PropShow extends AbstractDynamicCard {
                 AbstractCard c = new PropShow();
                 this.isDone = true;
                 c.resetAttributes();
+                ReflectionHacks.setPrivate(c, AbstractCard.class, "isMultiDamage", true);
                 c.applyPowers();
+                c.calculateCardDamage(null);
                 AbstractDungeon.actionManager.addToBottom(
-                        new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(c.damage, false), c.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
+                        new DamageAllEnemiesAction(AbstractDungeon.player, (int[])ReflectionHacks.getPrivate(c, AbstractCard.class, "multiDamage"), c.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
+                ReflectionHacks.setPrivate(c, AbstractCard.class, "isMultiDamage", false);
             }
         });
 

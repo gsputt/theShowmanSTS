@@ -50,9 +50,12 @@ public class WildFlourish extends AbstractDynamicCard {
     @Override
     public void triggerOnExhaust()
     {
+        this.isMultiDamage = true;
         this.applyPowers();
+        this.calculateCardDamage(null);
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(this.damage, false), damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true));
+                new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true));
+        this.isMultiDamage = false;
     }
 
     @Override

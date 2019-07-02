@@ -15,36 +15,8 @@ import theShowman.cards.Columbify;
 import theShowman.characters.TheShowman;
 import theShowman.effects.TossCardEffect;
 
-@SpirePatch(
-        clz=DamageHeartEffect.class,
-        method="update"
-)
 public class SpireHeartDamageEffect
 {
-    @SpireInsertPatch(
-            locator=Locator.class
-    )
-    public static void Insert(DamageHeartEffect __instance)
-    {
-        if (AbstractDungeon.player.chosenClass == TheShowman.Enums.THE_SHOWMAN) {
-            AbstractDungeon.effectsQueue.add(new TossCardEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, (float)ReflectionHacks.getPrivate(__instance, DamageHeartEffect.class, "x") + (float)__instance.img.packedWidth / 2.0F, (float)ReflectionHacks.getPrivate(__instance, DamageHeartEffect.class, "y") + (float)__instance.img.packedHeight / 2.0F, 10));
-        }
-    }
-
-    private static class Locator extends SpireInsertLocator
-    {
-        @Override
-        public int[] Locate(CtBehavior ctBehavior) throws Exception
-        {
-            Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractDungeon.class, "effectsQueue");
-            int[] found = LineFinder.findInOrder(ctBehavior, finalMatcher);
-            for(int i = 0; i < found.length; i++)
-            {
-                found[i] += 1;
-            }
-            return found;
-        }
-    }
 
     @SpirePatch(
             clz=DamageHeartEffect.class,
@@ -63,17 +35,21 @@ public class SpireHeartDamageEffect
             clz = SpireHeart.class,
             method = "buttonEffect"
     )
-    public static class swapHeartForByrd
+    public static class customAttackEffectAndSwapHeartForByrd
     {
         @SpireInsertPatch(
                 locator=LocatorTwo.class
         )
         public static void Insert(SpireHeart __instance, int buttonPressed)
         {
+            if (AbstractDungeon.player.chosenClass == TheShowman.Enums.THE_SHOWMAN) {
+                AbstractDungeon.effectsQueue.add(new TossCardEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, (float)ReflectionHacks.getPrivate(__instance, SpireHeart.class, "x"), (float)ReflectionHacks.getPrivate(__instance, SpireHeart.class, "y"), 5));
+            }
+
             if(AbstractDungeon.player.masterDeck.getCardNames().contains(Columbify.ID)) {
                 AnimatedNpc npc = ((AnimatedNpc) ReflectionHacks.getPrivate(__instance, SpireHeart.class, "npc"));
                 npc.dispose();
-                ReflectionHacks.setPrivate(__instance, SpireHeart.class, "npc", new AnimatedNpc(1300.0F * Settings.scale, (float) Settings.HEIGHT - 860.0F * Settings.scale, "images/monsters/theCity/byrd/flying.atlas", "images/monsters/theCity/byrd/flying.json", "idle_flap"));
+                ReflectionHacks.setPrivate(__instance, SpireHeart.class, "npc", new AnimatedNpc((float)ReflectionHacks.getPrivate(__instance, SpireHeart.class, "x"), (float)ReflectionHacks.getPrivate(__instance, SpireHeart.class, "y") - (180F * Settings.scale), "images/monsters/theCity/byrd/flying.atlas", "images/monsters/theCity/byrd/flying.json", "idle_flap"));
             }
         }
     }

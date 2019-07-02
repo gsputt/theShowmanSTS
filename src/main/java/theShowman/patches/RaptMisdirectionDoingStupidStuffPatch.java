@@ -45,7 +45,7 @@ public class RaptMisdirectionDoingStupidStuffPatch {
         )
         public static class whyTho2 {
             @SpireInsertPatch(
-                    loc = 3072,
+                    loc = 3071,
                     localvars = {"tmp"}
             )
             public static void InsertrEEEEEEEEEEE(AbstractCard __instance, AbstractMonster mo, @ByRef float[] tmp) {

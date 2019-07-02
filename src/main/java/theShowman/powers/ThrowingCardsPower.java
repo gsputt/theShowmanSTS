@@ -4,6 +4,7 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -50,9 +51,10 @@ public class ThrowingCardsPower extends AbstractPower implements CloneablePowerI
     public void onExhaust(AbstractCard card) {
         AbstractMonster m = AbstractDungeon.getRandomMonster();
         if(m != null) {
-            AbstractDungeon.actionManager.addToBottom(
+            AbstractDungeon.actionManager.addToTop(new VFXAction(new TossCardEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, m, this.amount)));
+            AbstractDungeon.actionManager.addToTop(
                     new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-            AbstractDungeon.effectsQueue.add(new TossCardEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, m, this.amount));
+
         }
     }
 
