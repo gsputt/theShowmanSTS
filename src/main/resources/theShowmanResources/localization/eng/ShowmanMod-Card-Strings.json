@@ -87,7 +87,7 @@
   },
   "theShowman:CardPickup52": {
     "NAME": "52 Card Pickup",
-    "DESCRIPTION": "Shuffle !M! random theshowman:Purple cards from your Exhaust pile into your draw pile."
+    "DESCRIPTION": "Shuffle !M! random theshowman:Class cards from your Exhaust pile into your draw pile."
   },
   "theShowman:SleeveStash": {
     "NAME": "Sleeve Stash",
@@ -134,8 +134,8 @@
   },
   "theShowman:AndBehindCurtain": {
     "NAME": "Behind Curtain #3...",
-    "DESCRIPTION": "Select a theshowman:Purple Card in your Exhaust Pile and add it to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Select !M! theshowman:Purple Cards in your Exhaust Pile and add them to your hand. NL Exhaust."
+    "DESCRIPTION": "Select a theshowman:Class Card in your Exhaust Pile and add it to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Select !M! theshowman:Class Cards in your Exhaust Pile and add them to your hand. NL Exhaust."
   },
   "theShowman:ThreeCardMonty": {
     "NAME": "Three Card Monty",
@@ -315,12 +315,12 @@
   },
   "theShowman:Showstopper": {
     "NAME": "Showstopper",
-    "DESCRIPTION": "Replay in a random order, ALL theshowman:Purple cards in your Exhaust pile."
+    "DESCRIPTION": "Replay in a random order, ALL theshowman:Class cards in your Exhaust pile."
   },
   "theShowman:ItsShowtime": {
     "NAME": "It's Showtime",
-    "DESCRIPTION": "Replay X random theshowman:Purple cards from your Exhaust pile.",
-    "UPGRADE_DESCRIPTION": "Replay X+1 theshowman:Purple cards from your Exhaust pile."
+    "DESCRIPTION": "Replay X random theshowman:Class cards from your Exhaust pile.",
+    "UPGRADE_DESCRIPTION": "Replay X+1 theshowman:Class cards from your Exhaust pile."
   },
   "theShowman:BaitedBreath": {
     "NAME": "Baited Breath",
@@ -334,8 +334,8 @@
   },
   "theShowman:ObjectPermanence": {
     "NAME": "Object Permanence",
-    "DESCRIPTION": "ALL theshowman:temporary effects become permanent for this combat. NL Purge. NL Grave.",
-    "UPGRADE_DESCRIPTION": "ALL theshowman:temporary effects become permanent for this combat. NL Purge."
+    "DESCRIPTION": "ALL theshowman:temporary effects become permanent for this combat. NL Ethereal",
+    "UPGRADE_DESCRIPTION": "ALL theshowman:temporary effects become permanent for this combat."
   },
   "theShowman:BottomDoubleDeal": {
     "NAME": "Bottom Deal",

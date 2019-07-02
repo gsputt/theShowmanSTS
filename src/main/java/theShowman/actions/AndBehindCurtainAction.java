@@ -15,15 +15,12 @@ import theShowman.ShowmanMod;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
-
 public class AndBehindCurtainAction extends AbstractGameAction {
     private AbstractPlayer p;
     public static final String ID = ShowmanMod.makeID("AndBehindCurtainAction");
     public static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
     private static final String[] TEXT = UI_STRINGS.TEXT;
-    private ArrayList<AbstractCard> exhumes = new ArrayList();
-    private ArrayList<AbstractCard> notPurple = new ArrayList<>();
+    private ArrayList<AbstractCard> notClassCard = new ArrayList<>();
 
     public AndBehindCurtainAction(int amount) {
         this.amount = amount;
@@ -43,19 +40,6 @@ public class AndBehindCurtainAction extends AbstractGameAction {
                 this.isDone = true;
             } else if (this.p.exhaustPile.isEmpty()) {
                 this.isDone = true;
-            } else if (this.p.exhaustPile.size() == 1) {
-                AbstractCard card = this.p.exhaustPile.getTopCard();
-                card.unfadeOut();
-                this.p.hand.addToHand(card);
-                if (AbstractDungeon.player.hasPower("Corruption") && card.type == CardType.SKILL) {
-                    card.setCostForTurn(-9);
-                }
-
-                this.p.exhaustPile.removeCard(card);
-
-                card.unhover();
-                card.fadingOut = false;
-                this.isDone = true;
             } else {
                 c = this.p.exhaustPile.group.iterator();
 
@@ -70,15 +54,27 @@ public class AndBehindCurtainAction extends AbstractGameAction {
 
                 while(c.hasNext()) {
                     noRagrets = (AbstractCard)c.next();
-                    if (noRagrets.color != COLOR_PURPLE) {
-                        c.remove();
-                        this.notPurple.add(noRagrets);
+
+                    boolean addThisCard = false;
+                    AbstractCard.CardColor colorToCheck;
+                    for(AbstractPlayer player : CardCrawlGame.characterManager.getAllCharacters()) {
+                        colorToCheck = player.getCardColor();
+                        if (noRagrets.color == colorToCheck) {
+                            addThisCard = true;
+                            break;
+                        }
                     }
+                    if(!addThisCard)
+                    {
+                        c.remove();
+                        this.notClassCard.add(noRagrets);
+                    }
+
                 }
 
                 if (this.p.exhaustPile.isEmpty()) {
-                    this.p.exhaustPile.group.addAll(this.notPurple);
-                    this.notPurple.clear();
+                    this.p.exhaustPile.group.addAll(this.notClassCard);
+                    this.notClassCard.clear();
                     this.isDone = true;
                 } else {
 
@@ -114,11 +110,13 @@ public class AndBehindCurtainAction extends AbstractGameAction {
             }
         } else {
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+                AbstractCard cardToAddToHand;
                 for(c = AbstractDungeon.gridSelectScreen.selectedCards.iterator(); c.hasNext(); noRagrets.unhover()) {
                     noRagrets = (AbstractCard)c.next();
-                    this.p.hand.addToHand(noRagrets);
+                     cardToAddToHand = noRagrets.makeSameInstanceOf();
+                    this.p.hand.addToHand(cardToAddToHand);
                     if (AbstractDungeon.player.hasPower("Corruption") && noRagrets.type == CardType.SKILL) {
-                        noRagrets.setCostForTurn(-9);
+                        cardToAddToHand.setCostForTurn(-9);
                     }
 
                     this.p.exhaustPile.removeCard(noRagrets);
@@ -131,8 +129,8 @@ public class AndBehindCurtainAction extends AbstractGameAction {
                 this.p.hand.refreshHandLayout();
                 //this.p.exhaustPile.group.addAll(this.exhumes);
                 //this.exhumes.clear();
-                this.p.exhaustPile.group.addAll(this.notPurple);
-                this.notPurple.clear();
+                this.p.exhaustPile.group.addAll(this.notClassCard);
+                this.notClassCard.clear();
 
                 for(c = this.p.exhaustPile.group.iterator(); c.hasNext(); noRagrets.target_y = 0.0F) {
                     noRagrets = (AbstractCard)c.next();

@@ -36,14 +36,13 @@ public class ObjectPermanence extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = COLOR_PURPLE;
 
-    private static final int COST = 3;
+    private static final int COST = 2;
     // /STAT DECLARATION/
 
 
     public ObjectPermanence() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        GraveField.grave.set(this, true);
-        this.purgeOnUse = true;
+        this.isEthereal = true;
     }
 
 
@@ -76,7 +75,7 @@ public class ObjectPermanence extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
-            GraveField.grave.set(this, false);
+            this.isEthereal = false;
             initializeDescription();
         }
     }

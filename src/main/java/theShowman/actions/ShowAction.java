@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -37,11 +38,20 @@ public class ShowAction extends AbstractGameAction {
         CardGroup exhaustList = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for(AbstractCard c : p.exhaustPile.group)
         {
-            if(c.type != AbstractCard.CardType.CURSE && c.type != AbstractCard.CardType.STATUS)
+            if(c.type != AbstractCard.CardType.CURSE && c.type != AbstractCard.CardType.STATUS && !(c instanceof Showstopper) && !(c instanceof ItsShowtime))
             {
-                if(c.color == COLOR_PURPLE && !(c.cardID.equals(Showstopper.ID) || c.cardID.equals(ItsShowtime.ID)))
+                boolean addThisCard = false;
+                AbstractCard.CardColor colorToCheck;
+                for(AbstractPlayer player : CardCrawlGame.characterManager.getAllCharacters()) {
+                    colorToCheck = player.getCardColor();
+                    if (c.color == colorToCheck) {
+                        addThisCard = true;
+                        break;
+                    }
+                }
+                if(addThisCard)
                 {
-                    exhaustList.addToRandomSpot(c.makeStatEquivalentCopy());
+                    exhaustList.addToRandomSpot(c.makeSameInstanceOf());
                 }
             }
         }

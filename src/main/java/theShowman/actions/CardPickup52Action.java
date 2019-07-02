@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
@@ -37,7 +38,16 @@ public class CardPickup52Action extends AbstractGameAction {
             c.unhover();
             c.unfadeOut();
 
-            if(c.color == COLOR_PURPLE)
+            boolean addThisCard = false;
+            AbstractCard.CardColor colorToCheck;
+            for(AbstractPlayer player : CardCrawlGame.characterManager.getAllCharacters()) {
+                colorToCheck = player.getCardColor();
+                if (c.color == colorToCheck) {
+                    addThisCard = true;
+                    break;
+                }
+            }
+            if(addThisCard)
             {
                 exhaustList.add(c);
             }

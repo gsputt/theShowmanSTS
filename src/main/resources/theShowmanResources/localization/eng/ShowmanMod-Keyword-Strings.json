@@ -26,12 +26,12 @@
     "DESCRIPTION": "Reduce the effect of this card for each card remaining in your draw pile."
   },
   {
-    "PROPER_NAME": "Purple",
+    "PROPER_NAME": "Class",
     "NAMES": [
-      "Purple",
-      "purple"
+      "Class",
+      "class"
     ],
-    "DESCRIPTION": "Card color for the Showman."
+    "DESCRIPTION": "Cards from any and all Characters."
   },
   {
     "PROPER_NAME": "Temporary",
