@@ -237,7 +237,7 @@
   },
   "theShowman:KnockThePile": {
     "NAME": "Knock The Pile",
-    "DESCRIPTION": "Deal !D! damage. NL Look at the top !M! cards of your draw pile. NL Exhaust any number of shown cards."
+    "DESCRIPTION": "Deal !D! damage. NL Look at the top !M! cards of your draw pile. NL Exhaust any number of them."
   },
   "theShowman:DapperFlourish": {
     "NAME": "Dapper Flourish",

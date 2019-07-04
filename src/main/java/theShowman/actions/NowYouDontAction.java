@@ -1,6 +1,9 @@
 package theShowman.actions;
 
+import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.utility.ShowCardAndPoofAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -8,8 +11,13 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
+import com.megacrit.cardcrawl.vfx.ExhaustBlurEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 import theShowman.ShowmanMod;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class NowYouDontAction extends AbstractGameAction {
@@ -53,7 +61,9 @@ public class NowYouDontAction extends AbstractGameAction {
         else if(this.isRandom)
         {
             AbstractCard card1 = (AbstractCard)this.p.drawPile.group.get(AbstractDungeon.cardRandomRng.random(AbstractDungeon.player.drawPile.group.size() - 1));
+            positionCard(card1);
             this.p.drawPile.moveToExhaustPile(card1);
+            //AbstractDungeon.actionManager.addToBottom(new ShowCardAndPoofAction(card1.makeStatEquivalentCopy()));
             card1.lighten(false);
             this.isDone = true;
             return;
@@ -80,7 +90,10 @@ public class NowYouDontAction extends AbstractGameAction {
                 while(var1.hasNext())
                 {
                     c = (AbstractCard)var1.next();
+                    positionCard(c);
                     this.p.drawPile.moveToExhaustPile(c);
+
+                    //AbstractDungeon.actionManager.addToBottom(new ShowCardAndPoofAction(c.makeStatEquivalentCopy()));
                     c.lighten(false);
                     c.unhover();
                 }
@@ -97,6 +110,13 @@ public class NowYouDontAction extends AbstractGameAction {
             }
             this.tickDuration();
         }
+    }
+
+    private void positionCard(AbstractCard card) {
+        card.current_x = (float) Settings.WIDTH / 3.0F;
+        card.target_x = (float) Settings.WIDTH / 3.0F;
+        card.current_y = (float) Settings.HEIGHT / 2.0F;
+        card.target_y = (float) Settings.HEIGHT / 2.0F;
     }
 }
 

@@ -1,6 +1,8 @@
 package theShowman.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.utility.ShowCardAndPoofAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import theShowman.ShowmanMod;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class NowYouSeeMeAction extends AbstractGameAction {
@@ -48,7 +51,9 @@ public class NowYouSeeMeAction extends AbstractGameAction {
         else if(this.isRandom)
         {
             AbstractCard card1 = (AbstractCard)this.p.discardPile.group.get(AbstractDungeon.cardRandomRng.random(AbstractDungeon.player.discardPile.group.size() - 1));
+            positionCard(card1);
             this.p.discardPile.moveToExhaustPile(card1);
+            //AbstractDungeon.actionManager.addToBottom(new ShowCardAndPoofAction(card1.makeStatEquivalentCopy()));
             card1.lighten(false);
             this.isDone = true;
             return;
@@ -68,7 +73,10 @@ public class NowYouSeeMeAction extends AbstractGameAction {
                 while(var1.hasNext())
                 {
                     c = (AbstractCard)var1.next();
+
+                    positionCard(c);
                     this.p.discardPile.moveToExhaustPile(c);
+                    //AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.discardPile));
                     c.lighten(false);
                     c.unhover();
                 }
@@ -85,6 +93,13 @@ public class NowYouSeeMeAction extends AbstractGameAction {
             }
             this.tickDuration();
         }
+    }
+
+    private void positionCard(AbstractCard card) {
+        card.current_x = (float) (Settings.WIDTH / 3.0F) * 2.0F;
+        card.target_x = (float) (Settings.WIDTH / 3.0F) * 2.0F;
+        card.current_y = (float) Settings.HEIGHT / 2.0F;
+        card.target_y = (float) Settings.HEIGHT / 2.0F;
     }
 }
 
