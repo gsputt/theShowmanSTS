@@ -1,4 +1,4 @@
-package theShowman.actions;
+package theShowman.actions.Unused;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;

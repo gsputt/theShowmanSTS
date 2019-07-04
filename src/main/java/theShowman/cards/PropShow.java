@@ -3,10 +3,10 @@ package theShowman.cards;
 import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,10 +14,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import theShowman.ShowmanMod;
-import theShowman.actions.PropShowAction;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
+import static theShowman.patches.PropShowField.PropShowRecording;
 
 public class PropShow extends AbstractDynamicCard {
 
@@ -70,7 +70,22 @@ public class PropShow extends AbstractDynamicCard {
         {
             energyTotalUsed += 1;
         }
-        AbstractDungeon.actionManager.addToBottom(new PropShowAction(p, energyTotalUsed));
+
+
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            public void update() {
+                this.isDone = true;
+                PropShowRecording.set(p, true);
+            }
+        });
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, energyTotalUsed));
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            public void update() {
+                this.isDone = true;
+                PropShowRecording.set(p, false);
+            }
+        });
+
 
         if (!this.freeToPlayOnce) {
             p.energy.use(EnergyPanel.totalCount);

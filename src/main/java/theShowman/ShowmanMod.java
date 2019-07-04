@@ -482,6 +482,8 @@ public class ShowmanMod implements
         BaseMod.addCard(new MischiefManaged());
         BaseMod.addCard(new KiblerFlick());
         BaseMod.addCard(new SpeechCard());
+        BaseMod.addCard(new SleightedFlourish());
+        BaseMod.addCard(new SleeveAces());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -571,6 +573,8 @@ public class ShowmanMod implements
         UnlockTracker.unlockCard(MischiefManaged.ID);
         UnlockTracker.unlockCard(KiblerFlick.ID);
         UnlockTracker.unlockCard(SpeechCard.ID);
+        UnlockTracker.unlockCard(SleightedFlourish.ID);
+        UnlockTracker.unlockCard(SleeveAces.ID);
 
         logger.info("Done adding cards!");
     }

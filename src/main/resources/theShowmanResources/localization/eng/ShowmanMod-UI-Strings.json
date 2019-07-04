@@ -5,6 +5,9 @@
   "theShowman:AndBehindCurtainAction": {
     "TEXT": ["Select a Card to Return to Your Hand", "Select ", " Cards to Return to Your Hand"]
   },
+  "theShowman:SleeveAcesAction": {
+    "TEXT": ["Select a Card to add a copy of to your Hand, Discard pile, and Draw pile.", "Select a Card to add ", " copies of to your Hand, Discard pile, and Draw pile."]
+  },
   "theShowman:ForMyNextTrickAction": {
     "TEXT": ["Exhaust"]
   },
