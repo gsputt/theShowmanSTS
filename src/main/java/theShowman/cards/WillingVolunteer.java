@@ -1,5 +1,6 @@
 package theShowman.cards;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -7,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
+import theShowman.effects.WillingVolunteerEffect;
 import theShowman.powers.WillingVolunteerPower;
 
 import static theShowman.ShowmanMod.makeCardPath;
@@ -44,7 +46,10 @@ public class WillingVolunteer extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WillingVolunteerPower(p, this.magicNumber, m), this.magicNumber));
+        if(m != null) {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new WillingVolunteerEffect(m)));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WillingVolunteerPower(p, this.magicNumber, m), this.magicNumber));
+        }
     }
 
 

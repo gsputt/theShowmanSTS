@@ -1,5 +1,6 @@
 package theShowman.cards;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.status.Dazed;
@@ -7,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
+import theShowman.effects.CurtainVFX;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
@@ -43,6 +45,7 @@ public class OpenTheCurtain extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainVFX()));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Dazed(), DAZED_AMOUNT, true, true));
     }
