@@ -25,8 +25,8 @@ public class ObjectPermanence extends AbstractDynamicCard {
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("ObjectPermanence");
     public static final String IMG = makeCardPath("Skill.png");
-    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    //public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    //public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     // /TEXT DECLARATION/
 
 
@@ -37,12 +37,13 @@ public class ObjectPermanence extends AbstractDynamicCard {
     public static final CardColor COLOR = COLOR_PURPLE;
 
     private static final int COST = 2;
+    private static final int UPGRADE_COST = 1;
     // /STAT DECLARATION/
 
 
     public ObjectPermanence() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.isEthereal = true;
+        this.purgeOnUse = true;
     }
 
 
@@ -74,8 +75,8 @@ public class ObjectPermanence extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.isEthereal = false;
+            this.upgradeBaseCost(UPGRADE_COST);
+            //this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

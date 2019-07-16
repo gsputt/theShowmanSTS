@@ -33,7 +33,7 @@ public class SleeveAces extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = COLOR_PURPLE;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
 
     private static final int COPY_AMOUNT = 1;
     private static final int UPGRADE_COPY_AMOUNT = 1;

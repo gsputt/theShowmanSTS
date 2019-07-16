@@ -44,7 +44,7 @@ public class FistFullOfCards extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for(int i = 0; i < AbstractDungeon.player.hand.size(); i++) {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new TossCardEffect(p.hb.cX, p.hb.cY, m, this.damage), 0.1F));
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new TossCardEffect(p.hb.cX, p.hb.cY, m, this.damage, -1), 0.1F));
             AbstractDungeon.actionManager.addToBottom(
                     new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }

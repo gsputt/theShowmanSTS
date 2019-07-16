@@ -37,9 +37,9 @@ public class ExplodeCardEffect extends AbstractGameEffect {
     private float x;
     private float y;
 
-    public ExplodeCardEffect(float x, float y) {
+    public ExplodeCardEffect(float x, float y, TextureRegion texture) {
         if (this.img == null) {
-            this.img = new TextureRegion(texture);
+            this.img = texture;
         }
         this.x = x;
         this.y = y;
@@ -53,7 +53,7 @@ public class ExplodeCardEffect extends AbstractGameEffect {
         }
 
         this.vY = MathUtils.random(START_VY, START_VY_JITTER);
-        this.scale = 0.3F * Settings.scale;
+        this.scale = 1.2F * Settings.scale;
         this.color = Color.WHITE.cpy();
 
         this.duration = this.startingDuration = 1.5F;

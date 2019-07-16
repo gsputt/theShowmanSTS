@@ -34,6 +34,15 @@
     "DESCRIPTION": "Cards from any and ALL Colors."
   },
   {
+    "PROPER_NAME": "Buffer",
+    "NAMES": [
+      "Buffer",
+      "buffer",
+      "buffers"
+    ],
+    "DESCRIPTION": "A Power that prevents the next time you would lose HP."
+  },
+  {
     "PROPER_NAME": "Temporary",
     "NAMES": [
       "Temporary",

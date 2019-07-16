@@ -2,6 +2,7 @@ package theShowman.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,7 +10,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.SpotlightEffect;
 import theShowman.ShowmanMod;
+import theShowman.effects.CurtainVFX;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
@@ -45,6 +48,8 @@ public class SpeechCard extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainVFX()));
+        screwYourFastMode();
         AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[0], 2.0F, 2.0F));
         screwYourFastMode();
 

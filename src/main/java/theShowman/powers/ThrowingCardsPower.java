@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theShowman.ShowmanMod;
-import theShowman.effects.ExplodeCardEffect;
 import theShowman.effects.TossCardEffect;
 import theShowman.util.TextureLoader;
 
@@ -51,7 +50,7 @@ public class ThrowingCardsPower extends AbstractPower implements CloneablePowerI
     public void onExhaust(AbstractCard card) {
         AbstractMonster m = AbstractDungeon.getRandomMonster();
         if(m != null) {
-            AbstractDungeon.actionManager.addToTop(new VFXAction(new TossCardEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, m, this.amount)));
+            AbstractDungeon.actionManager.addToTop(new VFXAction(new TossCardEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, m, this.amount, -1)));
             AbstractDungeon.actionManager.addToTop(
                     new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 

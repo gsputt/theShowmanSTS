@@ -58,7 +58,9 @@ public class GrandGambitAction extends AbstractGameAction {
                 this.p.hand.moveToExhaustPile(c);
                 i++;
             }
+            AbstractDungeon.handCardSelectScreen.selectedCards.clear();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
+
 
             i += this.plusAmount;
 

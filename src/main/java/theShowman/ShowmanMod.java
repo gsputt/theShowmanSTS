@@ -3,21 +3,25 @@ package theShowman;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.ReflectionHacks;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.OverlayMenu;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.ui.panels.ExhaustPanel;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -57,7 +61,8 @@ public class ShowmanMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
-        PostInitializeSubscriber {
+        PostInitializeSubscriber
+        {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(ShowmanMod.class.getName());
@@ -105,18 +110,19 @@ public class ShowmanMod implements
     private static final String ENERGY_ORB_SHOWMAN_PURPLE_PORTRAIT = "theShowmanResources/images/1024/card_default_gray_orb.png";
 
     // Character assets
-    private static final String THE_DEFAULT_BUTTON = "theShowmanResources/images/charSelect/DefaultCharacterButton.png";
-    private static final String THE_DEFAULT_PORTRAIT = "theShowmanResources/images/charSelect/DefaultCharacterPortraitBG.png";
-    public static final String THE_DEFAULT_SHOULDER_1 = "theShowmanResources/images/char/defaultCharacter/shoulder.png";
-    public static final String THE_DEFAULT_SHOULDER_2 = "theShowmanResources/images/char/defaultCharacter/shoulder2.png";
-    public static final String THE_DEFAULT_CORPSE = "theShowmanResources/images/char/defaultCharacter/corpse.png";
+    private static final String THE_SHOWMAN_BUTTON = "theShowmanResources/images/charSelect/DefaultCharacterButton.png";
+    private static final String THE_SHOWMAN_PORTRAIT = "theShowmanResources/images/charSelect/DefaultCharacterPortraitBG.png";
+    public static final String THE_SHOWMAN_SHOULDER_1 = "theShowmanResources/images/char/showmanCharacter/shoulder.png";
+    public static final String THE_SHOWMAN_SHOULDER_2 = "theShowmanResources/images/char/showmanCharacter/shoulder2.png";
+    public static final String THE_SHOWMAN_CORPSE = "theShowmanResources/images/char/showmanCharacter/corpse.png";
+
 
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "theShowmanResources/images/Badge.png";
 
     // Atlas and JSON files for the Animations
-    public static final String THE_DEFAULT_SKELETON_ATLAS = "theShowmanResources/images/char/defaultCharacter/skeleton.atlas";
-    public static final String THE_DEFAULT_SKELETON_JSON = "theShowmanResources/images/char/defaultCharacter/skeleton.json";
+    public static final String THE_DEFAULT_SKELETON_ATLAS = "theShowmanResources/images/char/showmanCharacter/skeleton.atlas";
+    public static final String THE_DEFAULT_SKELETON_JSON = "theShowmanResources/images/char/showmanCharacter/skeleton.json";
 
     // =============== MAKE IMAGE PATHS =================
 
@@ -277,7 +283,7 @@ public class ShowmanMod implements
         logger.info("Beginning to edit characters. " + "Add " + TheShowman.Enums.THE_SHOWMAN.toString());
         TheShowmanObject = new TheShowman("the Showman", TheShowman.Enums.THE_SHOWMAN);
         BaseMod.addCharacter(TheShowmanObject,
-                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheShowman.Enums.THE_SHOWMAN);
+                THE_SHOWMAN_BUTTON, THE_SHOWMAN_PORTRAIT, TheShowman.Enums.THE_SHOWMAN);
 
         receiveEditPotions();
         logger.info("Added " + TheShowman.Enums.THE_SHOWMAN.toString());
@@ -660,4 +666,5 @@ public class ShowmanMod implements
     public static String makeID(String idText) {
         return getModID() + ":" + idText;
     }
+
 }

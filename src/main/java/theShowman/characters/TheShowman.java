@@ -84,17 +84,17 @@ public class TheShowman extends CustomPlayer implements CustomSavable<Integer> {
     // =============== TEXTURES OF BIG ENERGY ORB ===============
 
     public static final String[] orbTextures = {
-            "theShowmanResources/images/char/defaultCharacter/orb/layer1.png",
-            "theShowmanResources/images/char/defaultCharacter/orb/layer2.png",
-            "theShowmanResources/images/char/defaultCharacter/orb/layer3.png",
-            "theShowmanResources/images/char/defaultCharacter/orb/layer4.png",
-            "theShowmanResources/images/char/defaultCharacter/orb/layer5.png",
-            "theShowmanResources/images/char/defaultCharacter/orb/layer6.png",
-            "theShowmanResources/images/char/defaultCharacter/orb/layer1d.png",
-            "theShowmanResources/images/char/defaultCharacter/orb/layer2d.png",
-            "theShowmanResources/images/char/defaultCharacter/orb/layer3d.png",
-            "theShowmanResources/images/char/defaultCharacter/orb/layer4d.png",
-            "theShowmanResources/images/char/defaultCharacter/orb/layer5d.png",};
+            "theShowmanResources/images/char/showmanCharacter/orb/layer1.png",
+            "theShowmanResources/images/char/showmanCharacter/orb/layer2.png",
+            "theShowmanResources/images/char/showmanCharacter/orb/layer3.png",
+            "theShowmanResources/images/char/showmanCharacter/orb/layer4.png",
+            "theShowmanResources/images/char/showmanCharacter/orb/layer5.png",
+            "theShowmanResources/images/char/showmanCharacter/orb/layer6.png",
+            "theShowmanResources/images/char/showmanCharacter/orb/layer1d.png",
+            "theShowmanResources/images/char/showmanCharacter/orb/layer2d.png",
+            "theShowmanResources/images/char/showmanCharacter/orb/layer3d.png",
+            "theShowmanResources/images/char/showmanCharacter/orb/layer4d.png",
+            "theShowmanResources/images/char/showmanCharacter/orb/layer5d.png",};
 
     // =============== /TEXTURES OF BIG ENERGY ORB/ ===============
 
@@ -102,18 +102,18 @@ public class TheShowman extends CustomPlayer implements CustomSavable<Integer> {
 
     public TheShowman(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
-                "theShowmanResources/images/char/defaultCharacter/orb/vfx.png", null,
+                "theShowmanResources/images/char/showmanCharacter/orb/vfx.png", null,
                 new SpriterAnimation(
-                        "theShowmanResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
+                        "theShowmanResources/images/char/showmanCharacter/Spriter/theDefaultAnimation.scml"));
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
 
         initializeClass(null, // required call to load textures and setup energy/loadout.
                 // I left these in ShowmanMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-                THE_DEFAULT_SHOULDER_1, // campfire pose
-                THE_DEFAULT_SHOULDER_2, // another campfire pose
-                THE_DEFAULT_CORPSE, // dead corpse
+                THE_SHOWMAN_SHOULDER_1, // campfire pose
+                THE_SHOWMAN_SHOULDER_2, // another campfire pose
+                THE_SHOWMAN_CORPSE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================

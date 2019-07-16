@@ -1,20 +1,26 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
 
 package theShowman.effects;
 
-import com.badlogic.gdx.math.Interpolation;
-import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theShowman.ShowmanMod;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import com.megacrit.cardcrawl.vfx.SpeechBubble;
+import theShowman.ShowmanMod;
 
-public class TossCardEffect extends AbstractGameEffect {
+public class SayCardEffect extends AbstractGameEffect {
 
     public static final String IMG0 = ShowmanMod.makeEffectPath("card_back_mk2.png");
     public static final String IMG1 = ShowmanMod.makeEffectPath("card_face_clubs.png");
@@ -42,17 +48,21 @@ public class TossCardEffect extends AbstractGameEffect {
     private Texture texture10 = new Texture(IMG10);
     private Texture texture11 = new Texture(IMG11);
 
-    private static final int TOTAL_CHOICE_AMOUNT = 11;
-
     private TextureRegion img = null;
 
     private AbstractMonster m;
+
+    private float a;
+
     private float x;
     private float y;
-    private float targetX;
-    private float targetY;
-    private float progress;
-    private int damage;
+
+    private float scaleTimer;
+    private float scale_x;
+    private float scale_y;
+
+    private static float ADJUST_X;
+    private static float ADJUST_Y;
 
     private void chooseImage(int img)
     {
@@ -96,90 +106,60 @@ public class TossCardEffect extends AbstractGameEffect {
         }
     }
 
-    public TossCardEffect(float x, float y, AbstractMonster m, int damage, int specifyImg) {
+    public SayCardEffect(AbstractMonster m, int specifiedCard) {
         if (this.img == null) {
-            if(specifyImg == -1) {
-                if(MathUtils.randomBoolean()) {
-                    chooseImage(MathUtils.random(1, TOTAL_CHOICE_AMOUNT));
-                }
-                else
-                {
-                    this.img = new TextureRegion(texture0);
-                }
-            }
-            else
-            {
-                chooseImage(specifyImg);
-            }
+            chooseImage(specifiedCard);
         }
-
-        this.damage = damage;
-
-        this.x = x;
-        this.y = y;
-        this.targetX = m.hb.cX;
-        this.targetY = m.hb.cY;
         this.m = m;
-        this.color = Color.WHITE.cpy();
-        this.duration = 0.1F;
-        this.startingDuration = 0.1F;
-        this.scale = 1.2F * Settings.scale;
-    }
+        this.duration = this.startingDuration =  2.0F;
+        this.a = 1.0F;
+        this.x = m.hb.cX + m.dialogX - ADJUST_X;
+        this.y = m.hb.cY + m.dialogY + ADJUST_Y;
 
-    public TossCardEffect(float x, float y, float mX, float mY, int damage) {
-        if (this.img == null) {
-            if(MathUtils.randomBoolean()) {
-                chooseImage(MathUtils.random(1, TOTAL_CHOICE_AMOUNT));
-            }
-            else
-            {
-                this.img = new TextureRegion(texture0);
-            }
-        }
+        this.scaleTimer = 0.3F;
 
-        this.damage = damage;
-
-        this.x = x;
-        this.y = y;
-        this.targetX = mX;
-        this.targetY = mY;
-        this.color = Color.WHITE.cpy();
-        this.duration = 0.1F;
-        this.startingDuration = 0.1F;
-        this.scale = 0.3F * Settings.scale;
     }
 
     public void update() {
-        if(m != null) {
-            if (this.m.isDead || this.m.halfDead || this.m.isDying) {
-                this.isDone = true;
-                return;
+        updateScale();
+        if(this.duration <= 0.5F)
+        {
+            a -= Gdx.graphics.getDeltaTime() * 2.0F;
+            if(a < 0.0F)
+            {
+                a = 0.0F;
             }
         }
         this.duration -= Gdx.graphics.getDeltaTime();
-        this.progress += Gdx.graphics.getDeltaTime();
-
-        this.x = Interpolation.linear.apply(this.x, this.targetX, Math.min(1F, this.progress/this.startingDuration));
-        this.y = Interpolation.linear.apply(this.y, this.targetY, Math.min(1F, this.progress/this.startingDuration));
-
-        if (this.duration < 0.0F) {
-            int j = this.damage;
-            if(j > 20)
-            {
-                j = 20;
-            }
-            for (int i = 0; i < j; i++) {
-                AbstractDungeon.effectsQueue.add(new ExplodeCardEffect(this.targetX, this.targetY, this.img));
-            }
+        if(this.duration <= 0.0F)
+        {
             this.isDone = true;
         }
     }
 
+    private void updateScale() {
+        this.scaleTimer -= Gdx.graphics.getDeltaTime();
+        if (this.scaleTimer < 0.0F) {
+            this.scaleTimer = 0.0F;
+        }
+
+        this.scale_x = Interpolation.circleIn.apply(Settings.scale, Settings.scale * 0.5F, this.scaleTimer / 0.3F);// 78
+        this.scale_y = Interpolation.swingIn.apply(Settings.scale, Settings.scale * 0.8F, this.scaleTimer / 0.3F);// 79
+    }
+
     public void render(SpriteBatch sb) {
-        sb.setColor(this.color);
-        sb.draw(this.img, this.x - ((float)this.img.getRegionWidth() /2.0F), this.y - ((float)this.img.getRegionHeight() /2.0F), (float)this.img.getRegionWidth() /2.0F, (float)this.img.getRegionHeight() /2.0F, (float)this.img.getRegionWidth(), (float)this.img.getRegionHeight(), this.scale, this.scale, 90F);
+        Color whiteMaybe = Color.WHITE.cpy();
+        whiteMaybe.a = this.a;
+        sb.setColor(whiteMaybe);
+        sb.draw(this.img, this.x - this.img.getRegionWidth() / (2.0F * Settings.scale) * Settings.scale, this.y - this.img.getRegionHeight() / (2.0F * Settings.scale) * Settings.scale, this.img.getRegionWidth() / 2.0F, this.img.getRegionHeight() / 2.0F, this.img.getRegionWidth(), this.img.getRegionHeight(), 1.5F * scale_x, 1.5F * scale_y, 0.0F);
     }
 
     public void dispose() {
     }
+
+    static {
+        ADJUST_X = 170.0F * Settings.scale;
+        ADJUST_Y = 116.0F * Settings.scale;
+    }
+
 }
