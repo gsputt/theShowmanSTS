@@ -1,11 +1,13 @@
 package theShowman.cards;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
+import theShowman.effects.CurtainCallVFX;
 import theShowman.powers.CurtainCallPower;
 
 import static theShowman.ShowmanMod.makeCardPath;
@@ -43,6 +45,7 @@ public class CurtainCall extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainCallVFX(p)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new CurtainCallPower(p, this.block), this.block));
         AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, this.magicNumber, false, true, true));
     }
