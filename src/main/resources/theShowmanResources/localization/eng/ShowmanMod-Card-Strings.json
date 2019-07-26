@@ -95,8 +95,8 @@
   },
   "theShowman:NowYouSeeMe": {
     "NAME": "Now You See Me",
-    "DESCRIPTION": "Gain !B! Block. NL Exhaust a random card in your discard pile.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust a card in your discard pile."
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust a random card in your draw pile.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust a card in your draw pile."
   },
   "theShowman:SleightedHand": {
     "NAME": "Sleighted Hand",
@@ -223,8 +223,8 @@
   },
   "theShowman:AGrossDisplay": {
     "NAME": "A Gross Display",
-    "DESCRIPTION": "Innate. NL Deal !D! damage !M! times. NL theshowman:Stacked.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times. NL theshowman:Stacked."
+    "DESCRIPTION": "Innate. NL Ethereal. NL Deal !D! damage !M! times. NL theshowman:Stacked.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage !M! times. NL theshowman:Stacked."
   },
   "theShowman:HatTrick": {
     "NAME": "Hat Trick",
@@ -249,8 +249,7 @@
   },
   "theShowman:PropShow": {
     "NAME": "Prop Show",
-    "DESCRIPTION": "Draw X cards. NL Deal !D! damage to ALL enemies for each Attack drawn. NL Gain !B! block for each Skill drawn. NL Gain [E] for each non-Skill / Attack drawn.",
-    "UPGRADE_DESCRIPTION": "Draw X+1 cards. NL Deal !D! damage to ALL enemies for each Attack drawn. NL Gain !B! block for each Skill drawn. NL Gain [E] for each non-Skill / Attack drawn."
+    "DESCRIPTION": "Draw !M! cards. NL theshowman:Improvise"
   },
   "theShowman:WhirlingDervish": {
     "NAME": "Whirling Dervish",
@@ -304,8 +303,7 @@
   },
   "theShowman:BafflingShuffle": {
     "NAME": "Baffling Shuffle",
-    "DESCRIPTION": "Draw a card. NL Apply Vulnerable equal to its cost.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Apply Vulnerable equal to their combined cost."
+    "DESCRIPTION": "Draw a card. NL theshowman:Improvise."
   },
   "theShowman:Columbify": {
     "NAME": "Columbify",
@@ -348,12 +346,12 @@
   },
   "theShowman:SubtleMisdirections": {
     "NAME": "Subtle Misdirections",
-    "DESCRIPTION": "Whenever you draw the first status each turn, Exhaust it.",
-    "UPGRADE_DESCRIPTION": "Whenever you draw the first status each turn, Exhaust it and draw a card."
+    "DESCRIPTION": "Whenever you draw a status for the first time in a turn, Exhaust it and draw a card.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw a status for the first two times in a turn, Exhaust it and draw a card."
   },
   "theShowman:RaptMisdirection": {
-    "NAME": "Rapt Misdirection",
-    "DESCRIPTION": "Deal !D! damage. NL Vulnerable stacks additively for this attack."
+    "NAME": "Juxtaposed Juggling",
+    "DESCRIPTION": "Deal !D! damage. NL Vulnerability stacks additively for this attack."
   },
   "theShowman:ReappearingTrick": {
     "NAME": "Reappearing Trick",
@@ -361,7 +359,7 @@
   },
   "theShowman:MischiefManaged": {
     "NAME": "Mischief Managed",
-    "DESCRIPTION": "Deal !D! damage. NL If this deals unblocked damage to a Vulnerable enemy, gain that much temporary Strength at the start of your next turn."
+    "DESCRIPTION": "Deal !D! damage. NL If this deals unblocked damage to a Vulnerable enemy, gain that much temporary Strength next turn equal to that enemy's Vulnerable."
   },
   "theShowman:KiblerFlick": {
     "NAME": "Kibler Flick",
@@ -385,5 +383,18 @@
     "NAME": "Sleeve Aces",
     "DESCRIPTION": "Add a copy of a non-Status, non-Curse card from your Exhaust pile to your Hand, Discard pile and Draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Add !M! copies of a non-Status, non-Curse card from your Exhaust pile to your Hand, Discard pile and Draw pile. NL Exhaust."
+  },
+  "theShowman:PerfectedPerformance": {
+    "NAME": "Perfected Performance",
+    "DESCRIPTION": "The first !M! cards you draw each turn theshowman:Improvise."
+  },
+  "theShowman:HareBrainedScheme": {
+    "NAME": "Hare-Brained Scheme",
+    "DESCRIPTION": "Draw !M! cards. NL theshowman:Improvise."
+  },
+  "theShowman:ThespianForm": {
+    "NAME": "Thespian Form",
+    "DESCRIPTION": "Whenever you Exhaust a card, it triggers on-Exhaust effects !M! additional time.",
+    "UPGRADE_DESCRIPTION": "Whenever you Exhaust a card, it triggers on-Exhaust effects !M! additional times."
   }
 }

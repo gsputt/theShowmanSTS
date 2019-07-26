@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
 import theShowman.powers.SubtleMisdirectionsPower;
+
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
 
@@ -30,6 +31,7 @@ public class SubtleMisdirections extends AbstractDynamicCard {
 
     private static final int COST = 1;
     private static final int POWER = 1;
+    private static final int UPGRADE_POWER = 1;
     // /STAT DECLARATION/
 
 
@@ -42,11 +44,7 @@ public class SubtleMisdirections extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SubtleMisdirectionsPower(p, this.magicNumber, this.upgraded), this.magicNumber));
-        if(p.hasPower(SubtleMisdirectionsPower.POWER_ID) && this.upgraded)
-        {
-            ((SubtleMisdirectionsPower)p.getPower(SubtleMisdirectionsPower.POWER_ID)).upgrade();
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SubtleMisdirectionsPower(p, this.magicNumber), this.magicNumber));
     }
 
 
@@ -60,7 +58,7 @@ public class SubtleMisdirections extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.isInnate = true;
+            upgradeMagicNumber(UPGRADE_POWER);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

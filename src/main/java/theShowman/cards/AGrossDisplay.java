@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
+import theShowman.effects.AGrossDisplayEffect;
 import theShowman.effects.TossCardEffect;
 
 import static theShowman.ShowmanMod.makeCardPath;
@@ -45,12 +46,17 @@ public class AGrossDisplay extends AbstractDynamicCard {
         this.magicNumber = this.baseMagicNumber = HIT_TIMES;
         Stacked.set(this, 1);
         this.isInnate = true;
+        this.isEthereal = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if(this.magicNumber == HIT_TIMES)
+        {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new AGrossDisplayEffect(m, this.damage * this.magicNumber)));
+        }
         for(int i = 0; i < this.magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new TossCardEffect(p.hb.cX, p.hb.cY, m, this.damage, -1), 0.1F));
             AbstractDungeon.actionManager.addToBottom(

@@ -1,11 +1,6 @@
 package theShowman.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
-import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
@@ -16,8 +11,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.cards.ItsShowtime;
 import theShowman.cards.Showstopper;
-
-import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
 
 public class ShowAction extends AbstractGameAction {
 
@@ -61,23 +54,30 @@ public class ShowAction extends AbstractGameAction {
         }
         for(int i = 0; i < this.amount; i++)
         {
-            AbstractMonster targetMonster = AbstractDungeon.getRandomMonster();
-            AbstractCard card = exhaustList.getTopCard().makeSameInstanceOf();
+            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    this.isDone = true;
+                    AbstractMonster targetMonster = AbstractDungeon.getRandomMonster();
+                    AbstractCard card = exhaustList.getTopCard().makeSameInstanceOf();
 
-            card.current_x = card.target_x = Settings.WIDTH / 2.0f - 300.0f * Settings.scale;
-            card.current_y = card.target_y = Settings.HEIGHT / 2.0f;
-            card.freeToPlayOnce = true;
-            if(card.canUse(p, targetMonster)) {
-                card.applyPowers();
-                if (targetMonster != null) {
-                    card.calculateCardDamage(targetMonster);
+                    card.current_x = card.target_x = Settings.WIDTH / 2.0f - 300.0f * Settings.scale;
+                    card.current_y = card.target_y = Settings.HEIGHT / 2.0f;
+                    card.freeToPlayOnce = true;
+                    if(card.canUse(p, targetMonster)) {
+                        card.applyPowers();
+                        if (targetMonster != null) {
+                            card.calculateCardDamage(targetMonster);
+                        }
+                        card.purgeOnUse = true;
+                        AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(card, targetMonster));
+                    }
+
+
+                    exhaustList.removeCard(exhaustList.getTopCard());
                 }
-                card.purgeOnUse = true;
-                AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(card, targetMonster));
-            }
+            });
 
-
-            exhaustList.removeCard(exhaustList.getTopCard());
         }
         exhaustList.clear();
         this.isDone = true;

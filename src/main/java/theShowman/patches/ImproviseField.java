@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
         clz = AbstractPlayer.class,
         method = SpirePatch.CLASS
 )
-public class PropShowField {
+public class ImproviseField {
 
-    public static SpireField<Boolean> PropShowRecording = new SpireField<>(() -> false);
+    public static SpireField<Boolean> ImproviseRecording = new SpireField<>(() -> false);
 
 }

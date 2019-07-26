@@ -102,7 +102,8 @@
   "theShowman:NothingInMyHandsPower": {
     "NAME": "Begone Thought",
     "DESCRIPTIONS": [
-      "At the end of your turn, #yExhaust your hand instead of discarding it."
+      "At the end of your turn, #yExhaust your hand instead of discarding it.",
+      " Then create and exhaust a #yDaze for each card."
     ]
   },
   "theShowman:ThrowingCardsPower": {
@@ -146,6 +147,26 @@
     "NAME": "Temp Strength Next Turn ",
     "DESCRIPTIONS": [
       "Gaining #b", " temporary #yStrength at the start of next turn."
+    ]
+  },
+  "theShowman:PerfectedPerformancePower": {
+    "NAME": "Perfected Performance",
+    "DESCRIPTIONS": [
+      "When you draw the first #b",
+      " cards each turn, deal #b",
+      " damage to ALL enemies for each Attack drawn, gain #b",
+      " Block for each Skill drawn, gain [E] for each Power drawn, and apply #b",
+      " Weak and Vulnerable to ALL enemies for each Status or Curse drawn.",
+      " #b",
+      " more cards will be affected this turn."
+    ]
+  },
+  "theShowman:ThespianFormPower": {
+    "NAME": "Thespian Form",
+    "DESCRIPTIONS": [
+      "Whenever you #yExhaust a card, it triggers on-#yExhaust effects #b",
+      " additional time.",
+      " additional times."
     ]
   }
 }

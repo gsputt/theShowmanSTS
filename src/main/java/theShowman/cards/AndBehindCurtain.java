@@ -1,5 +1,6 @@
 package theShowman.cards;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -7,6 +8,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
 import theShowman.actions.AndBehindCurtainAction;
+import theShowman.effects.AndBehindCurtainVFX;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
@@ -45,6 +47,8 @@ public class AndBehindCurtain extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new AndBehindCurtainVFX()));
+
         AbstractDungeon.actionManager.addToBottom(new AndBehindCurtainAction(this.magicNumber));
     }
 

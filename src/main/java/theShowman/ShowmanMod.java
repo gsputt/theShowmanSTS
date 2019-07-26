@@ -3,31 +3,29 @@ package theShowman;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
-import basemod.ReflectionHacks;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.core.OverlayMenu;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.ui.panels.ExhaustPanel;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theShowman.cards.*;
 import theShowman.characters.TheShowman;
-import theShowman.relics.*;
+import theShowman.effects.RenderOverEverythingInterface;
+import theShowman.relics.ThirdTimeCharm;
 import theShowman.util.IDCheckDontTouchPls;
 import theShowman.util.TextureLoader;
 import theShowman.variables.DefaultCustomVariable;
@@ -61,7 +59,8 @@ public class ShowmanMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
-        PostInitializeSubscriber
+        PostInitializeSubscriber,
+        PostRenderSubscriber
         {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
@@ -456,7 +455,7 @@ public class ShowmanMod implements
         BaseMod.addCard(new WardrobeWarding());
         BaseMod.addCard(new AGrossDisplay());
         BaseMod.addCard(new HatTrick());
-        BaseMod.addCard(new SawnInHalf());
+        //BaseMod.addCard(new SawnInHalf());
         BaseMod.addCard(new KnockThePile());
         BaseMod.addCard(new DapperFlourish());
         BaseMod.addCard(new UpMySleeve());
@@ -490,6 +489,9 @@ public class ShowmanMod implements
         BaseMod.addCard(new SpeechCard());
         BaseMod.addCard(new SleightedFlourish());
         BaseMod.addCard(new SleeveAces());
+        BaseMod.addCard(new PerfectedPerformance());
+        BaseMod.addCard(new HareBrainedScheme());
+        BaseMod.addCard(new ThespianForm());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -547,7 +549,7 @@ public class ShowmanMod implements
         UnlockTracker.unlockCard(WardrobeWarding.ID);
         UnlockTracker.unlockCard(AGrossDisplay.ID);
         UnlockTracker.unlockCard(HatTrick.ID);
-        UnlockTracker.unlockCard(SawnInHalf.ID);
+        //UnlockTracker.unlockCard(SawnInHalf.ID);
         UnlockTracker.unlockCard(KnockThePile.ID);
         UnlockTracker.unlockCard(DapperFlourish.ID);
         UnlockTracker.unlockCard(UpMySleeve.ID);
@@ -581,6 +583,9 @@ public class ShowmanMod implements
         UnlockTracker.unlockCard(SpeechCard.ID);
         UnlockTracker.unlockCard(SleightedFlourish.ID);
         UnlockTracker.unlockCard(SleeveAces.ID);
+        UnlockTracker.unlockCard(PerfectedPerformance.ID);
+        UnlockTracker.unlockCard(HareBrainedScheme.ID);
+        UnlockTracker.unlockCard(ThespianForm.ID);
 
         logger.info("Done adding cards!");
     }
@@ -665,6 +670,20 @@ public class ShowmanMod implements
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {
         return getModID() + ":" + idText;
+    }
+
+    public void receivePostRender(SpriteBatch sb)
+    {
+        if(AbstractDungeon.effectList != null)
+        {
+            for(AbstractGameEffect e : AbstractDungeon.effectList)
+            {
+                if(e instanceof RenderOverEverythingInterface)
+                {
+                    ((RenderOverEverythingInterface) e).renderOverOtherStuff(sb);
+                }
+            }
+        }
     }
 
 }

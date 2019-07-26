@@ -11,11 +11,11 @@ import theShowman.patches.ImproviseField;
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
 
-public class PropShow extends AbstractDynamicCard {
+public class HareBrainedScheme extends AbstractDynamicCard {
 
 
     // TEXT DECLARATION
-    public static final String ID = ShowmanMod.makeID("PropShow");
+    public static final String ID = ShowmanMod.makeID("HareBrainedScheme");
     public static final String IMG = makeCardPath("Attack.png");
     // /TEXT DECLARATION/
 
@@ -26,15 +26,15 @@ public class PropShow extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = COLOR_PURPLE;
 
-    private static final int COST = 1;
-    private static final int DRAW = 2;
-    private static final int UPGRADE_DRAW = 1;
+    private static final int COST = 3;
+    private static final int DRAW_AMOUNT = 6;
+    private static final int UPGRADE_DRAW_AMOUNT = 2;
     // /STAT DECLARATION/
 
 
-    public PropShow() {
+    public HareBrainedScheme() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = DRAW;
+        this.magicNumber = this.baseMagicNumber = DRAW_AMOUNT;
     }
 
 
@@ -58,9 +58,10 @@ public class PropShow extends AbstractDynamicCard {
         });
     }
 
+
     @Override
     public AbstractDynamicCard makeCopy() {
-        return new PropShow();
+        return new HareBrainedScheme();
     }
 
     // Upgraded stats.
@@ -68,7 +69,7 @@ public class PropShow extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_DRAW);
+            upgradeMagicNumber(UPGRADE_DRAW_AMOUNT);
             initializeDescription();
         }
     }

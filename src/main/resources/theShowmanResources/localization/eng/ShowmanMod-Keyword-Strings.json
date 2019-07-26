@@ -43,11 +43,20 @@
     "DESCRIPTION": "A Power that prevents the next time you would lose HP."
   },
   {
+    "PROPER_NAME": "Improvise",
+    "NAMES": [
+      "Improvise",
+      "improvise",
+      "improvising"
+    ],
+    "DESCRIPTION": "Deal 6 damage to ALL enemies for each Attack drawn. Gain 6 block for each Skill drawn. Gain [E] for each Power drawn. Apply 1 Weak and 1 Vulnerable to ALL enemies for each Status or Curse drawn."
+  },
+  {
     "PROPER_NAME": "Temporary",
     "NAMES": [
       "Temporary",
       "temporary"
     ],
-    "DESCRIPTION": "The following Effects: Strength Down, Shackled, Dexterity Down, Buffer Down, Retain Cards This Turn, Blur, Thorns Down"
+    "DESCRIPTION": "The following Effects: Strength Down, Shackled, Dexterity Down, Buffer Down, Retain Cards This Turn, Blur, Thorns Down, Weak, Vulnerable."
   }
 ]

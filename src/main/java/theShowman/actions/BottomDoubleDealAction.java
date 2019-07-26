@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import theShowman.ShowmanMod;
 
-import java.util.Collections;
 import java.util.Iterator;
 
 public class BottomDoubleDealAction extends AbstractGameAction {
@@ -58,16 +57,22 @@ public class BottomDoubleDealAction extends AbstractGameAction {
             }
 
             if(this.check == 0) {
-                AbstractDungeon.gridSelectScreen.open(skillAndAttackGroup, 1, !(skillAndAttackGroup.size() > 0), TEXT[0]);
+                if(skillAndAttackGroup.size() > 0) {
+                    AbstractDungeon.gridSelectScreen.open(skillAndAttackGroup, 1, !(skillAndAttackGroup.size() > 0), TEXT[0]);
+                }
             }
             else if(this.check == 1)
             {
-                AbstractDungeon.gridSelectScreen.open(skillGroup, 1, !(skillGroup.size() > 0), TEXT[1]);
+                if(skillGroup.size() > 0) {
+                    AbstractDungeon.gridSelectScreen.open(skillGroup, 1, !(skillGroup.size() > 0), TEXT[1]);
+                }
                 AbstractDungeon.actionManager.addToBottom(new BottomDoubleDealAction(2));
             }
             else if(this.check == 2)
             {
-                AbstractDungeon.gridSelectScreen.open(attackGroup, 1, !(attackGroup.size() > 0), TEXT[2]);
+                if(attackGroup.size() > 0) {
+                    AbstractDungeon.gridSelectScreen.open(attackGroup, 1, !(attackGroup.size() > 0), TEXT[2]);
+                }
             }
             this.tickDuration();
         }

@@ -39,28 +39,8 @@ public class MischiefManagedStrikeAction extends AbstractGameAction {
     }
 
     private void gainStrength(DamageInfo damage) {
-        int StrengthAmount = damage.output;
-        if (StrengthAmount >= 0) {
-            StrengthAmount -= this.target.currentBlock;
-            if (StrengthAmount > this.target.currentHealth) {
-                StrengthAmount = this.target.currentHealth;
-            }
-
-            if (StrengthAmount > 0) {
-                if (StrengthAmount > 1 && this.target.hasPower("Buffer")) {
-                    return;
-                }
-
-                if (StrengthAmount > 1 && (this.target.hasPower("IntangiblePlayer") || this.target.hasPower("Intangible"))) {
-                    StrengthAmount = 1;
-                }
-
-                if(this.target.hasPower(VulnerablePower.POWER_ID)) {
-                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.p, this.p, new ApplyTempStrengthNextTurn(p, StrengthAmount), StrengthAmount));
-                }
-
-            }
-
+        if (this.target.hasPower(VulnerablePower.POWER_ID)) {
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.p, this.p, new ApplyTempStrengthNextTurn(p, this.target.getPower(VulnerablePower.POWER_ID).amount), this.target.getPower(VulnerablePower.POWER_ID).amount));
         }
     }
 }
