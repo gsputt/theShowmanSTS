@@ -279,7 +279,8 @@
   },
   "theShowman:NothingInMyHands": {
     "NAME": "Begone Thought",
-    "DESCRIPTION": "Innate. NL At the end of your turn, Exhaust your hand instead of discarding it."
+    "DESCRIPTION": "Innate. NL At the end of your turn, Exhaust your hand instead of discarding it.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the end of your turn, Exhaust your hand instead of discarding it. NL Then create and Exhaust a Daze for each card."
   },
   "theShowman:ThrowingCards": {
     "NAME": "Throwing Cards",
@@ -394,7 +395,7 @@
   },
   "theShowman:ThespianForm": {
     "NAME": "Thespian Form",
-    "DESCRIPTION": "Whenever you Exhaust a card, it triggers on-Exhaust effects !M! additional time.",
-    "UPGRADE_DESCRIPTION": "Whenever you Exhaust a card, it triggers on-Exhaust effects !M! additional times."
+    "DESCRIPTION": "Whenever you Exhaust a card, ALL on-Exhaust effects trigger !M! additional time.",
+    "UPGRADE_DESCRIPTION": "Whenever you Exhaust a card, ALL on-Exhaust effects trigger !M! additional times."
   }
 }

@@ -164,7 +164,7 @@
   "theShowman:ThespianFormPower": {
     "NAME": "Thespian Form",
     "DESCRIPTIONS": [
-      "Whenever you #yExhaust a card, it triggers on-#yExhaust effects #b",
+      "Whenever you #yExhaust a card, ALL on-#yExhaust effects trigger #b",
       " additional time.",
       " additional times."
     ]

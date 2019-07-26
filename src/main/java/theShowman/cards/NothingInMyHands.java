@@ -31,7 +31,7 @@ public class NothingInMyHands extends AbstractDynamicCard {
 
     private static final int COST = 1;
     private static final int POWER = 1;
-    private static final int UPGRADE_COST = 0;
+    //private static final int UPGRADE_COST = 0;
     // /STAT DECLARATION/
 
 
@@ -59,7 +59,8 @@ public class NothingInMyHands extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeBaseCost(UPGRADE_COST);
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            //this.upgradeBaseCost(UPGRADE_COST);
             initializeDescription();
         }
     }
