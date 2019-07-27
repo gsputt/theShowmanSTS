@@ -54,12 +54,13 @@ public class ShowAction extends AbstractGameAction {
         }
         for(int i = 0; i < this.amount; i++)
         {
+            AbstractCard card = exhaustList.getTopCard().makeSameInstanceOf();
             AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
                 @Override
                 public void update() {
                     this.isDone = true;
                     AbstractMonster targetMonster = AbstractDungeon.getRandomMonster();
-                    AbstractCard card = exhaustList.getTopCard().makeSameInstanceOf();
+
 
                     card.current_x = card.target_x = Settings.WIDTH / 2.0f - 300.0f * Settings.scale;
                     card.current_y = card.target_y = Settings.HEIGHT / 2.0f;
@@ -74,10 +75,10 @@ public class ShowAction extends AbstractGameAction {
                     }
 
 
-                    exhaustList.removeCard(exhaustList.getTopCard());
+
                 }
             });
-
+            exhaustList.removeCard(exhaustList.getTopCard());
         }
         exhaustList.clear();
         this.isDone = true;
