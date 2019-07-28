@@ -440,7 +440,7 @@ public class ShowmanMod implements
         BaseMod.addCard(new ParlorTrick());
         BaseMod.addCard(new IsThisYourCard());
         BaseMod.addCard(new StackTheDeck());
-        BaseMod.addCard(new ByrdBGone());
+        //BaseMod.addCard(new ByrdBGone());
         BaseMod.addCard(new PotentialUnleashed());
         BaseMod.addCard(new DivertingDisplay());
         BaseMod.addCard(new SetTheStage());
@@ -534,7 +534,7 @@ public class ShowmanMod implements
         UnlockTracker.unlockCard(ParlorTrick.ID);
         UnlockTracker.unlockCard(IsThisYourCard.ID);
         UnlockTracker.unlockCard(StackTheDeck.ID);
-        UnlockTracker.unlockCard(ByrdBGone.ID);
+        //UnlockTracker.unlockCard(ByrdBGone.ID);
         UnlockTracker.unlockCard(PotentialUnleashed.ID);
         UnlockTracker.unlockCard(DivertingDisplay.ID);
         UnlockTracker.unlockCard(SetTheStage.ID);

@@ -1,4 +1,4 @@
-package theShowman.powers;
+package theShowman.powers.Deprecated;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;

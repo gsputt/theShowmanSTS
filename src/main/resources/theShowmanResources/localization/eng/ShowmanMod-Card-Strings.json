@@ -249,7 +249,7 @@
   },
   "theShowman:PropShow": {
     "NAME": "Prop Show",
-    "DESCRIPTION": "Draw !M! cards. NL theshowman:Improvise"
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Draw !M! cards. NL theshowman:Improvise."
   },
   "theShowman:WhirlingDervish": {
     "NAME": "Whirling Dervish",

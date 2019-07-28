@@ -1,11 +1,12 @@
-package theShowman.cards;
+package theShowman.cards.Deprecated;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
-import theShowman.powers.ByrdBGonePower;
+import theShowman.cards.AbstractDynamicCard;
+import theShowman.powers.Deprecated.ByrdBGonePower;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;

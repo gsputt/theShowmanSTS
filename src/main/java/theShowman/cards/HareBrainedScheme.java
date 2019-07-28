@@ -16,14 +16,14 @@ public class HareBrainedScheme extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("HareBrainedScheme");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("Skill.png");
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL;
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = COLOR_PURPLE;
 
     private static final int COST = 3;

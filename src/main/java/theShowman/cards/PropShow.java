@@ -1,6 +1,7 @@
 package theShowman.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -22,25 +23,32 @@ public class PropShow extends AbstractDynamicCard {
 
     // STAT DECLARATION
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.ALL;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = COLOR_PURPLE;
 
     private static final int COST = 1;
-    private static final int DRAW = 2;
+    private static final int DRAW = 1;
     private static final int UPGRADE_DRAW = 1;
+    private static final int DAMAGE = 6;
+    private static final int UPGRADE_DAMAGE = 2;
     // /STAT DECLARATION/
 
 
     public PropShow() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = DRAW;
+        this.baseDamage = DAMAGE;
+        this.isMultiDamage = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(
+                new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY, true));
+
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             @Override
             public void update() {
@@ -69,6 +77,7 @@ public class PropShow extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_DRAW);
+            upgradeDamage(UPGRADE_DAMAGE);
             initializeDescription();
         }
     }
