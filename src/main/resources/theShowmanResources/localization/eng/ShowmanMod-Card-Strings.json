@@ -356,7 +356,7 @@
   },
   "theShowman:ReappearingTrick": {
     "NAME": "Reappearing Trick",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Shuffle ALL non-Curse, non-Status cards from your Exhaust pile into your Draw pile."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Shuffle ALL non-Curse, non-Status cards from your Exhaust pile into your draw pile."
   },
   "theShowman:MischiefManaged": {
     "NAME": "Mischief Managed",
@@ -378,12 +378,12 @@
   },
   "theShowman:SleightedFlourish": {
     "NAME": "Sleighted Flourish",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL When this card is Exhausted, shuffle it and !theShowman:SecondMagic! random theshowman:Class cards from your Exhaust pile into your Draw pile."
+    "DESCRIPTION": "Apply !M! Vulnerable. NL When this card is Exhausted, shuffle it and !theShowman:SecondMagic! random theshowman:Class cards from your Exhaust pile into your draw pile."
   },
   "theShowman:SleeveAces": {
     "NAME": "Sleeve Aces",
-    "DESCRIPTION": "Add a copy of a non-Status, non-Curse card from your Exhaust pile to your Hand, Discard pile and Draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add !M! copies of a non-Status, non-Curse card from your Exhaust pile to your Hand, Discard pile and Draw pile. NL Exhaust."
+    "DESCRIPTION": "Add a copy of a non-Status, non-Curse card from your Exhaust pile to your discard pile and draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !M! copies of a non-Status, non-Curse card from your Exhaust pile to your discard pile and draw pile. NL Exhaust."
   },
   "theShowman:PerfectedPerformance": {
     "NAME": "Perfected Performance",

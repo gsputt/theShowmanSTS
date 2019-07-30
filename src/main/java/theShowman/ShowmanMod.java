@@ -337,7 +337,7 @@ public class ShowmanMod implements
 
         // =============== /EVENTS/ =================
 
-        BaseMod.addSaveField("TheShowman", TheShowmanObject);
+        //BaseMod.addSaveField("TheShowman", TheShowmanObject);
 
         logger.info("Done loading badge Image and mod options");
     }

@@ -1,9 +1,5 @@
 package theShowman.cards;
 
-import basemod.BaseMod;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,7 +7,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
 import theShowman.actions.SleeveAcesAction;
-import theShowman.powers.RetainThisTurnPower;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
@@ -33,7 +28,7 @@ public class SleeveAces extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = COLOR_PURPLE;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
 
     private static final int COPY_AMOUNT = 1;
     private static final int UPGRADE_COPY_AMOUNT = 1;

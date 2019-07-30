@@ -4,7 +4,6 @@ import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -101,7 +100,7 @@ public class SleeveAcesAction extends AbstractGameAction {
                     if (AbstractDungeon.player.hasPower("Corruption") && noRagrets.type == AbstractCard.CardType.SKILL) {
                         cardToAdd.setCostForTurn(-9);
                     }
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(cardToAdd, this.copyAmount));
+                    //AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(cardToAdd, this.copyAmount));
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(cardToAdd, this.copyAmount));
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(cardToAdd, this.copyAmount, true, true));
 

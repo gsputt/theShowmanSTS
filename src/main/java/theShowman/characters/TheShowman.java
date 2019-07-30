@@ -1,15 +1,16 @@
 package theShowman.characters;
 
 import basemod.abstracts.CustomPlayer;
-import basemod.abstracts.CustomSavable;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -19,12 +20,12 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theShowman.ShowmanMod;
-import theShowman.cards.CardPickup52;
 import theShowman.cards.*;
 import theShowman.relics.ThirdTimeCharm;
 
@@ -33,24 +34,15 @@ import java.util.ArrayList;
 import static theShowman.ShowmanMod.*;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
 
-//Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
-//and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
-//All text (starting description and loadout, anything labeled TEXT[]) can be found in ShowmanMod-character-Strings.json in the resources
-
-public class TheShowman extends CustomPlayer implements CustomSavable<Integer> {
+public class TheShowman extends CustomPlayer {
     public static final Logger logger = LogManager.getLogger(ShowmanMod.class.getName());
 
-    // =============== CHARACTER ENUMERATORS =================
-    // These are enums for your Characters color (both general color and for the card library) as well as
-    // an enum for the name of the player class - IRONCLAD, THE_SILENT, DEFECT, YOUR_CLASS ...
-    // These are all necessary for creating a character. If you want to find out where and how exactly they are used
-    // in the basegame (for fun and education) Ctrl+click on the PlayerClass, CardColor and/or LibraryType below and go down the
-    // Ctrl+click rabbit hole
+    private int playerTimeUntilIdle = 0;
 
     public static class Enums {
         @SpireEnum
         public static AbstractPlayer.PlayerClass THE_SHOWMAN;
-        @SpireEnum(name = "SHOWMAN_PURPLE_COLOR") // These two HAVE to have the same absolutely identical name.
+        @SpireEnum(name = "SHOWMAN_PURPLE_COLOR")
         public static AbstractCard.CardColor COLOR_PURPLE;
         @SpireEnum(name = "SHOWMAN_PURPLE_COLOR") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
@@ -104,13 +96,13 @@ public class TheShowman extends CustomPlayer implements CustomSavable<Integer> {
         super(name, setClass, orbTextures,
                 "theShowmanResources/images/char/showmanCharacter/orb/vfx.png", null,
                 new SpriterAnimation(
-                        "theShowmanResources/images/char/showmanCharacter/Spriter/theDefaultAnimation.scml"));
+                        "theShowmanResources/images/char/showmanCharacter/ShowmanSpriter/Spriter.scml"));
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
 
-        initializeClass(null, // required call to load textures and setup energy/loadout.
-                // I left these in ShowmanMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
+        initializeClass(null,
+
                 THE_SHOWMAN_SHOULDER_1, // campfire pose
                 THE_SHOWMAN_SHOULDER_2, // another campfire pose
                 THE_SHOWMAN_CORPSE, // dead corpse
@@ -141,21 +133,6 @@ public class TheShowman extends CustomPlayer implements CustomSavable<Integer> {
     }
 
     // =============== /CHARACTER CLASS END/ =================
-
-    public int testInteger = 1;
-    @Override
-    public Integer onSave()
-    {
-        return testInteger;
-    }
-    @Override
-    public void onLoad(Integer uhhSomething)
-    {
-        if(uhhSomething != null) {
-            testInteger = uhhSomething * -1;
-        }
-        System.out.println(testInteger);
-    }
 
     // Starting description and loadout
     @Override
@@ -330,4 +307,49 @@ public class TheShowman extends CustomPlayer implements CustomSavable<Integer> {
         return TEXT[2];
     }
 
+
+    @Override
+    public void damage(DamageInfo info) {
+
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output - this.currentBlock > 0) {
+            if(this.animation instanceof SpriterAnimation)
+            {
+                ((SpriterAnimation) this.animation).myPlayer.getFirstPlayer().setAnimation(2); // Hurt
+                ((SpriterAnimation) this.animation).myPlayer.getFirstPlayer().setTime(0);
+                this.playerTimeUntilIdle = 500; // animation lasts 500 ms, 500 ms after is placeholder, total of 1000 ms
+            }
+        }
+        super.damage(info);// 308
+    }
+
+    @Override
+    public void render(SpriteBatch sb)
+    {
+        if(this.animation instanceof SpriterAnimation) {
+            //System.out.println(((SpriterAnimation) this.animation).myPlayer.getFirstPlayer().getTime());
+            if (this.playerTimeUntilIdle > 0 && ((SpriterAnimation) this.animation).myPlayer.getFirstPlayer().getTime() >= this.playerTimeUntilIdle)
+            {
+                //System.out.println("timeUntilIdle has been reached");
+                this.playerTimeUntilIdle = 0;
+                ((SpriterAnimation) this.animation).myPlayer.getFirstPlayer().setAnimation(0); // Idle
+                ((SpriterAnimation) this.animation).myPlayer.getFirstPlayer().setTime(0);
+            }
+        }
+        super.render(sb);
+    }
+
+    @Override
+    public void useCard(AbstractCard c, AbstractMonster m, int energyOnUse)
+    {
+        if(c.type == AbstractCard.CardType.ATTACK)
+        {
+            if(this.animation instanceof SpriterAnimation)
+            {
+                ((SpriterAnimation) this.animation).myPlayer.getFirstPlayer().setAnimation(1); //Attack
+                ((SpriterAnimation) this.animation).myPlayer.getFirstPlayer().setTime(0);
+                this.playerTimeUntilIdle = 500; //animation lasts 500 ms, 500 ms after is placeholder, total of 1000ms
+            }
+        }
+        super.useCard(c, m, energyOnUse);
+    }
 }
