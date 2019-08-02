@@ -501,6 +501,7 @@ public class ShowmanMod implements
         BaseMod.addCard(new ParadigmPerformance());
         BaseMod.addCard(new ImpromptuFlourish());
         BaseMod.addCard(new Ventriloquism());
+        BaseMod.addCard(new ShowOfStrength());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -601,6 +602,7 @@ public class ShowmanMod implements
         UnlockTracker.unlockCard(ParadigmPerformance.ID);
         UnlockTracker.unlockCard(ImpromptuFlourish.ID);
         UnlockTracker.unlockCard(Ventriloquism.ID);
+        UnlockTracker.unlockCard(ShowOfStrength.ID);
 
         logger.info("Done adding cards!");
     }

@@ -144,7 +144,7 @@
     ]
   },
   "theShowman:ApplyTempStrengthNextTurn": {
-    "NAME": "Temp Strength Next Turn ",
+    "NAME": "Delayed Flex",
     "DESCRIPTIONS": [
       "Gaining #b", " temporary #yStrength at the start of next turn."
     ]
@@ -184,6 +184,17 @@
       "At the start of your turn, pick a random card in your Exhaust and draw pile #b",
       " times. When you play one of the picked cards for the first time this turn, play a copy of the other one it's paired with.",
       " times. When you play one of the picked cards this turn, play a copy of the other one it's paired with."
+
+    ]
+  },
+  "theShowman:ShowOfStrengthPower": {
+    "NAME": "Show Of Strength",
+    "DESCRIPTIONS": [
+      "Whenever you #yExhaust a card, ",
+      "gain #b",
+      " #yStrength until end of turn and ",
+      "at the start of next turn, gain #b",
+      " #yStrength until end of turn."
 
     ]
   }

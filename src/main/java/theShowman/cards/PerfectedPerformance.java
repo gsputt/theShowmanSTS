@@ -45,6 +45,7 @@ public class PerfectedPerformance extends AbstractDynamicCard {
         if(AbstractDungeon.player.hasPower(PerfectedPerformancePower.POWER_ID))
         {
             ((TwoAmountPower)AbstractDungeon.player.getPower(PerfectedPerformancePower.POWER_ID)).amount2 += this.magicNumber;
+            AbstractDungeon.player.getPower(PerfectedPerformancePower.POWER_ID).updateDescription();
         }
     }
 
