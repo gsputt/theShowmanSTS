@@ -368,8 +368,8 @@
   },
   "theShowman:SpeechCard": {
     "NAME": "Ladies and Gentlemen...",
-    "DESCRIPTION": "Make a speech. NL Draw a card. NL Innate. NL Fleeting.",
-    "UPGRADE_DESCRIPTION":"Make a speech. NL Draw a card. NL Innate. NL Fleeting.",
+    "DESCRIPTION": "Make a speech. NL Draw a card. NL theshowman:Improvise. NL Innate. NL Fleeting.",
+    "UPGRADE_DESCRIPTION":"Make a speech. NL Draw a card. NL theshowman:Improvise. NL Innate. NL Fleeting.",
     "EXTENDED_DESCRIPTION": ["Ladies and Gentlemen...",
       "Aragolts and Arthropods", "KDX and Potatoes", "Sneckos and Slimes", "Byrds and Byrds", "Boys and Girls", "Constructs and Cultists", "Nobs and Gentlenobs", "Slavers and... Uhh. Slavers?", "BD and BD's stupid Pylons",
       "This is no Jedi trick! This is", "You'll certainly be Vex'd by", "Welcome to", "CAW CAW CAW", "Without futher ado", "We're diving right into", "Prepare to be inSPIREd by", "Please shackle your attention to", "Let your eyes devour",
@@ -397,5 +397,32 @@
     "NAME": "Thespian Form",
     "DESCRIPTION": "Whenever you Exhaust a card, ALL on-Exhaust effects trigger !M! additional time.",
     "UPGRADE_DESCRIPTION": "Whenever you Exhaust a card, ALL on-Exhaust effects trigger !M! additional times."
+  },
+  "theShowman:StageHook": {
+    "NAME": "Stage Hook",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL theshowman:Stacked."
+  },
+  "theShowman:TroublingTrope": {
+    "NAME": "Troubling Trope",
+    "DESCRIPTION": "Innate. NL Autoplay. NL Deal !D! damage to ALL enemies. NL Increase this card's damage by !M! this combat. NL Shuffle this card into your draw pile."
+  },
+  "theShowman:DisembodiedHand": {
+    "NAME": "Disembodied Hand",
+    "DESCRIPTION": "Exhaust a random card in your hand. NL Play it at the start of your next turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust a card in your hand. NL Play it at the start of your next turn. NL Exhaust."
+  },
+  "theShowman:ParadigmPerformance": {
+    "NAME": "Paradigm Sift",
+    "DESCRIPTION": "Deal !D! damage. NL Gain [E] [E]. NL Exhaust your draw pile and shuffle your Exhaust pile into your draw pile simultaneously. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain [E] [E] [E]. NL Exhaust your draw pile and shuffle your Exhaust pile into your draw pile simultaneously. NL Exhaust."
+  },
+  "theShowman:ImpromptuFlourish": {
+    "NAME": "Impromptu Flourish",
+    "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL theshowman:Improvise. NL When you Exhaust this card, gain !B! Block and draw a card. NL theshowman:Improvise."
+  },
+  "theShowman:Ventriloquism": {
+    "NAME": "Ventriloquism",
+    "DESCRIPTION": "At the start of your turn, pick a random card in your Exhaust and draw pile. NL When you play one for the first time this turn, play a copy of the other.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, pick a random card in your Exhaust and draw pile. NL When you play one this turn, play a copy of the other."
   }
 }

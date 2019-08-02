@@ -45,7 +45,7 @@ public class GrandGambitAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
-            AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, this.anyNumber, this.canPickZero);
+            AbstractDungeon.handCardSelectScreen.open(this.plusAmount == 0 ? TEXT[0] : TEXT[1] + this.plusAmount + TEXT[2], this.amount, this.anyNumber, this.canPickZero);
             this.tickDuration();
             return;
         }

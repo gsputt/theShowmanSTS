@@ -5,8 +5,7 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-
-import static theShowman.patches.ImproviseField.ImproviseRecording;
+import theShowman.patches.ImproviseField;
 
 public class PropShowAction extends AbstractGameAction {
 
@@ -26,14 +25,14 @@ public class PropShowAction extends AbstractGameAction {
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             public void update() {
                 this.isDone = true;
-                ImproviseRecording.set(p, true);
+                ImproviseField.ImproviseRecording.set(p, ImproviseField.ImproviseRecording.get(p) + 1);
             }
         });
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, energyTotalUsed));
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             public void update() {
                 this.isDone = true;
-                ImproviseRecording.set(p, false);
+                ImproviseField.ImproviseRecording.set(p, ImproviseField.ImproviseRecording.get(p) - 1);
             }
         });
     }

@@ -1,52 +1,38 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 package theShowman.actions;
 
-import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.utility.ShowCardAndPoofAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import theShowman.ShowmanMod;
+import theShowman.powers.DisembodiedHandPower;
 
 import java.util.Iterator;
 
 
-public class VanishingActAction extends AbstractGameAction {
-    public static final String ID = ShowmanMod.makeID("VanishingActAction");
+public class DisembodiedHandAction extends AbstractGameAction {
+    public static final String ID = ShowmanMod.makeID("DisembodiedHandAction");
     public static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
     private static final String[] TEXT = UI_STRINGS.TEXT;
     private AbstractPlayer p;
     private boolean isRandom;
     private boolean anyNumber;
     private boolean canPickZero;
-    public static int numExhausted;
 
-    public VanishingActAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom) {
-        this(target, source, amount, isRandom, false, false);
-    }
-
-    public VanishingActAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
+    public DisembodiedHandAction(final boolean upgraded) {
         this.canPickZero = false;
-        this.anyNumber = anyNumber;
-        this.canPickZero = canPickZero;
-        this.p = (AbstractPlayer)target;
-        this.isRandom = isRandom;
-        this.setValues(target, source, amount);
+        this.anyNumber = false;
+        this.canPickZero = false;
+        this.p = AbstractDungeon.player;
+        this.isRandom = !upgraded;
+        this.setValues(p, p, 1);
         this.duration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.CARD_MANIPULATION;
-    }
-
-    public VanishingActAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber) {
-        this(target, source, amount, isRandom, anyNumber, false);
     }
 
     public void update() {
@@ -57,9 +43,7 @@ public class VanishingActAction extends AbstractGameAction {
             }
 
             int i;
-            if (!this.anyNumber && this.p.hand.size() <= this.amount) {
-                this.amount = this.p.hand.size();
-                numExhausted = this.amount;
+            if (this.p.hand.size() <= this.amount) {
                 i = this.p.hand.size();
 
                 for(int j = 0; j < i; j++) {
@@ -71,7 +55,6 @@ public class VanishingActAction extends AbstractGameAction {
             }
 
             if (!this.isRandom) {
-                numExhausted = this.amount;
                 AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, this.anyNumber, this.canPickZero);
                 this.tickDuration();
                 return;
@@ -96,17 +79,9 @@ public class VanishingActAction extends AbstractGameAction {
     }
 
 
-    public void doStuff(AbstractCard card)
+    private void doStuff(AbstractCard card)
     {
-        AbstractCard cardToRemove = StSLib.getMasterDeckEquivalent(card);
-        if(cardToRemove != null)
-        {
-            AbstractDungeon.player.masterDeck.removeCard(cardToRemove);
-        }
-        this.p.hand.removeCard(card);
-        AbstractDungeon.getCurrRoom().souls.remove(card);
-        this.p.hand.refreshHandLayout();
-        AbstractDungeon.actionManager.addToTop(new ShowCardAndPoofAction(card));
-
+        AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, this.p.hand));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DisembodiedHandPower(p, card)));
     }
 }

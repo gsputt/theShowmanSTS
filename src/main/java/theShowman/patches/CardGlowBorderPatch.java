@@ -15,9 +15,9 @@ import theShowman.relics.ThirdTimeCharm;
         clz = CardGlowBorder.class,
         method = SpirePatch.CONSTRUCTOR
 )
-public class ThirdTimeCharmCardGlowBorderPatch {
+public class CardGlowBorderPatch {
     @SpirePostfixPatch
-    public static void GlowRedPls(CardGlowBorder __instance, AbstractCard c)
+    public static void GlowPls(CardGlowBorder __instance, AbstractCard c)
     {
         if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)
         {
@@ -27,6 +27,10 @@ public class ThirdTimeCharmCardGlowBorderPatch {
                 {
                     ReflectionHacks.setPrivate(__instance, AbstractGameEffect.class, "color", Color.RED.cpy());
                 }
+            }
+            if(VentriloquismField.linked.get(c) != null)
+            {
+                ReflectionHacks.setPrivate(__instance, AbstractGameEffect.class, "color", Color.YELLOW.cpy());
             }
         }
     }

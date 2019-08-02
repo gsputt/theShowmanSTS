@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import org.apache.logging.log4j.LogManager;
@@ -25,6 +26,7 @@ import org.apache.logging.log4j.Logger;
 import theShowman.cards.*;
 import theShowman.characters.TheShowman;
 import theShowman.effects.RenderOverEverythingInterface;
+import theShowman.patches.ImproviseField;
 import theShowman.relics.ThirdTimeCharm;
 import theShowman.util.IDCheckDontTouchPls;
 import theShowman.util.TextureLoader;
@@ -60,7 +62,8 @@ public class ShowmanMod implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
         PostInitializeSubscriber,
-        PostRenderSubscriber
+        PostRenderSubscriber,
+        OnStartBattleSubscriber
         {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
@@ -476,7 +479,7 @@ public class ShowmanMod implements
         BaseMod.addCard(new Columbify());
         BaseMod.addCard(new Showstopper());
         BaseMod.addCard(new ItsShowtime());
-        BaseMod.addCard(new BaitedBreath());
+        //BaseMod.addCard(new BaitedBreath());
         BaseMod.addCard(new GrandGambit());
         BaseMod.addCard(new ObjectPermanence());
         BaseMod.addCard(new BottomDoubleDeal());
@@ -492,6 +495,12 @@ public class ShowmanMod implements
         BaseMod.addCard(new PerfectedPerformance());
         BaseMod.addCard(new HareBrainedScheme());
         BaseMod.addCard(new ThespianForm());
+        BaseMod.addCard(new StageHook());
+        BaseMod.addCard(new TroublingTrope());
+        BaseMod.addCard(new DisembodiedHand());
+        BaseMod.addCard(new ParadigmPerformance());
+        BaseMod.addCard(new ImpromptuFlourish());
+        BaseMod.addCard(new Ventriloquism());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -570,7 +579,7 @@ public class ShowmanMod implements
         UnlockTracker.unlockCard(Columbify.ID);
         UnlockTracker.unlockCard(Showstopper.ID);
         UnlockTracker.unlockCard(ItsShowtime.ID);
-        UnlockTracker.unlockCard(BaitedBreath.ID);
+        //UnlockTracker.unlockCard(BaitedBreath.ID);
         UnlockTracker.unlockCard(GrandGambit.ID);
         UnlockTracker.unlockCard(ObjectPermanence.ID);
         UnlockTracker.unlockCard(BottomDoubleDeal.ID);
@@ -586,6 +595,12 @@ public class ShowmanMod implements
         UnlockTracker.unlockCard(PerfectedPerformance.ID);
         UnlockTracker.unlockCard(HareBrainedScheme.ID);
         UnlockTracker.unlockCard(ThespianForm.ID);
+        UnlockTracker.unlockCard(StageHook.ID);
+        UnlockTracker.unlockCard(TroublingTrope.ID);
+        UnlockTracker.unlockCard(DisembodiedHand.ID);
+        UnlockTracker.unlockCard(ParadigmPerformance.ID);
+        UnlockTracker.unlockCard(ImpromptuFlourish.ID);
+        UnlockTracker.unlockCard(Ventriloquism.ID);
 
         logger.info("Done adding cards!");
     }
@@ -672,6 +687,7 @@ public class ShowmanMod implements
         return getModID() + ":" + idText;
     }
 
+    @Override
     public void receivePostRender(SpriteBatch sb)
     {
         if(AbstractDungeon.effectList != null)
@@ -686,4 +702,9 @@ public class ShowmanMod implements
         }
     }
 
+    @Override
+    public void receiveOnBattleStart(AbstractRoom room)
+    {
+        ImproviseField.ImproviseRecording.set(AbstractDungeon.player, 0);
+    }
 }

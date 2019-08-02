@@ -171,10 +171,11 @@ public class TheShowman extends CustomPlayer {
         retVal.add(BasicStrike.ID);
         retVal.add(BasicDefend.ID);
         retVal.add(BasicDefend.ID);
-        retVal.add(BasicDefend.ID);
+        //retVal.add(BasicDefend.ID);
         retVal.add(VanishingDefend.ID);
         retVal.add(VanishingDefend.ID);
         retVal.add(CardPickup52.ID);
+        retVal.add(StageHook.ID);
         retVal.add(SpeechCard.ID);
 
 

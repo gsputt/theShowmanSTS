@@ -4,14 +4,16 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theShowman.ShowmanMod;
 import theShowman.util.TextureLoader;
@@ -19,14 +21,12 @@ import theShowman.util.TextureLoader;
 import static theShowman.ShowmanMod.makePowerPath;
 
 
-public class ForMyNextTrickPower extends AbstractPower implements CloneablePowerInterface, NonStackablePower {
+public class DisembodiedHandPower extends AbstractPower implements CloneablePowerInterface, NonStackablePower {
 
-    public static final String POWER_ID = ShowmanMod.makeID("ForMyNextTrickPower");
+    public static final String POWER_ID = ShowmanMod.makeID("DisembodiedHandPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static final PowerStrings NIGHTMARE = CardCrawlGame.languagePack.getPowerStrings("Night Terror");
-    private static final String[] NIGHTMARE_DESCRIPTIONS = NIGHTMARE.DESCRIPTIONS;
 
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
@@ -34,16 +34,14 @@ public class ForMyNextTrickPower extends AbstractPower implements CloneablePower
 
     private AbstractCard card;
 
-    public ForMyNextTrickPower(AbstractCreature owner, int cardAmt, AbstractCard copyMe) {
+    public DisembodiedHandPower(final AbstractCreature owner, final AbstractCard card) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.amount = cardAmt;
+        this.amount = -1;
         this.type = PowerType.BUFF;
         this.isTurnBased = true;
-        this.canGoNegative = false;
-        this.card = copyMe.makeStatEquivalentCopy();
-        this.card.resetAttributes();
+        this.card = card;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
@@ -51,19 +49,36 @@ public class ForMyNextTrickPower extends AbstractPower implements CloneablePower
         this.updateDescription();
     }
 
-    public void atStartOfTurn() {
-        this.card.modifyCostForTurn(-1);
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(this.card, this.amount));
+    @Override
+    public void atStartOfTurn()
+    {
+        if(card != null) {
+            AbstractCard c = card.makeSameInstanceOf();
+            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    this.isDone = true;
+                    AbstractMonster target = AbstractDungeon.getRandomMonster();
+                    if (c.canUse(AbstractDungeon.player, target)) {
+                        c.purgeOnUse = true;
+                        c.freeToPlayOnce = true;
+                        c.applyPowers();
+                        c.calculateCardDamage(target);
+                        AbstractDungeon.actionManager.addToTop(new QueueCardAction(c, target));
+                    }
+                }
+            });
+        }
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }
 
     @Override
     public void updateDescription() {
-        this.description = NIGHTMARE_DESCRIPTIONS[0] + this.amount + " " + FontHelper.colorString(this.card.name, "y") + NIGHTMARE_DESCRIPTIONS[1] + " " + DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] + FontHelper.colorString(this.card.name, "y") + DESCRIPTIONS[1];
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new ForMyNextTrickPower(this.owner, this.amount, this.card);
+        return new DisembodiedHandPower(owner, card);
     }
 }

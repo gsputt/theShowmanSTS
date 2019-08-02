@@ -1,22 +1,23 @@
 package theShowman.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AutoplayField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
-import theShowman.patches.ImproviseField;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
 
-public class PropShow extends AbstractDynamicCard {
+public class TroublingTrope extends AbstractDynamicCard {
 
 
     // TEXT DECLARATION
-    public static final String ID = ShowmanMod.makeID("PropShow");
+    public static final String ID = ShowmanMod.makeID("TroublingTrope");
     public static final String IMG = makeCardPath("Attack.png");
     // /TEXT DECLARATION/
 
@@ -27,18 +28,19 @@ public class PropShow extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = COLOR_PURPLE;
 
-    private static final int COST = 1;
-    private static final int DRAW = 1;
-    private static final int UPGRADE_DRAW = 1;
-    private static final int DAMAGE = 6;
-    private static final int UPGRADE_DAMAGE = 2;
+    private static final int COST = 0;
+    private static final int DAMAGE = 1;
+    private static final int DAMAGE_INCREASE = 1;
+    private static final int UPGRADE_DAMAGE_INCREASE = 1;
     // /STAT DECLARATION/
 
 
-    public PropShow() {
+    public TroublingTrope() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = DRAW;
         this.baseDamage = DAMAGE;
+        this.magicNumber = this.baseMagicNumber = DAMAGE_INCREASE;
+        this.isInnate = true;
+        AutoplayField.autoplay.set(this, true);
         this.isMultiDamage = true;
     }
 
@@ -47,28 +49,31 @@ public class PropShow extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY, true));
-
+                new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT, true));
+        AbstractDungeon.actionManager.addToBottom(new ModifyDamageAction(this.uuid, this.magicNumber));
+        AbstractCard card = this;
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             @Override
             public void update() {
                 this.isDone = true;
-                ImproviseField.ImproviseRecording.set(p, ImproviseField.ImproviseRecording.get(p) + 1);
-            }
-        });
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
-            @Override
-            public void update() {
-                this.isDone = true;
-                ImproviseField.ImproviseRecording.set(p, ImproviseField.ImproviseRecording.get(p) - 1);
+                AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        this.isDone = true;
+                        if(AbstractDungeon.player.discardPile.contains(card))
+                        {
+                            AbstractDungeon.player.discardPile.moveToDeck(card, true);
+                        }
+                    }
+                });
             }
         });
     }
 
+
     @Override
     public AbstractDynamicCard makeCopy() {
-        return new PropShow();
+        return new TroublingTrope();
     }
 
     // Upgraded stats.
@@ -76,8 +81,7 @@ public class PropShow extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_DRAW);
-            upgradeDamage(UPGRADE_DAMAGE);
+            this.upgradeMagicNumber(UPGRADE_DAMAGE_INCREASE);
             initializeDescription();
         }
     }

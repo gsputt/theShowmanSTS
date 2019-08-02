@@ -45,7 +45,7 @@ public class HareBrainedScheme extends AbstractDynamicCard {
             @Override
             public void update() {
                 this.isDone = true;
-                ImproviseField.ImproviseRecording.set(p, true);
+                ImproviseField.ImproviseRecording.set(p, ImproviseField.ImproviseRecording.get(p) + 1);
             }
         });
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
@@ -53,7 +53,7 @@ public class HareBrainedScheme extends AbstractDynamicCard {
             @Override
             public void update() {
                 this.isDone = true;
-                ImproviseField.ImproviseRecording.set(p, false);
+                ImproviseField.ImproviseRecording.set(p, ImproviseField.ImproviseRecording.get(p) - 1);
             }
         });
     }

@@ -11,6 +11,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 )
 public class ImproviseField {
 
-    public static SpireField<Boolean> ImproviseRecording = new SpireField<>(() -> false);
+    public static SpireField<Integer> ImproviseRecording = new SpireField<>(() -> 0);
 
 }

@@ -33,27 +33,22 @@ public class ImproviseOnCardDraw
     )
     public static void Insert(AbstractPlayer __instance, int numCards, AbstractCard drawnCard)
     {
-        if(ImproviseRecording.get(__instance))
+        if(ImproviseRecording.get(__instance) > 0)
         {
-            if(drawnCard.type == AbstractCard.CardType.ATTACK)
-            {
-                ImproviseDoStuff.ImproviseDealDamage();
-                //Deal Damage
-            }
-            else if(drawnCard.type == AbstractCard.CardType.SKILL)
-            {
-                ImproviseDoStuff.ImproviseGainBlock();
-                //Gain Block
-            }
-            else if(drawnCard.type == AbstractCard.CardType.STATUS || drawnCard.type == AbstractCard.CardType.CURSE)
-            {
-                ImproviseDoStuff.ImproviseApplyWeakAndVulnerable();
-                //Apply Weak and Vulnerable
-            }
-            else
-            {
-                ImproviseDoStuff.ImproviseGainEnergy();
-                //Gain Energy
+            for(int i = 0; i < ImproviseRecording.get(__instance); i++) {
+                if (drawnCard.type == AbstractCard.CardType.ATTACK) {
+                    ImproviseDoStuff.ImproviseDealDamage();
+                    //Deal Damage
+                } else if (drawnCard.type == AbstractCard.CardType.SKILL) {
+                    ImproviseDoStuff.ImproviseGainBlock();
+                    //Gain Block
+                } else if (drawnCard.type == AbstractCard.CardType.STATUS || drawnCard.type == AbstractCard.CardType.CURSE) {
+                    ImproviseDoStuff.ImproviseApplyWeakAndVulnerable();
+                    //Apply Weak and Vulnerable
+                } else {
+                    ImproviseDoStuff.ImproviseGainEnergy();
+                    //Gain Energy
+                }
             }
         }
     }

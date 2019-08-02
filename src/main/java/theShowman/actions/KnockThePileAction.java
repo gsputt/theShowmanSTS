@@ -45,7 +45,7 @@ public class KnockThePileAction extends AbstractGameAction {
                 tmpGroup.addToTop((AbstractCard)AbstractDungeon.player.drawPile.group.get(AbstractDungeon.player.drawPile.size() - i - 1));
             }
 
-            AbstractDungeon.gridSelectScreen.open(tmpGroup, this.amount, true, TEXT[0]);
+            AbstractDungeon.gridSelectScreen.open(tmpGroup, this.amount, true, TEXT[0] + this.amount + TEXT[1]);
             this.tickDuration();
         }
         else

@@ -1,32 +1,35 @@
 {
   "theShowman:NowYouDontAction": {
-    "TEXT": ["Choose a card to Exhaust", "Choose any number of cards to Exhaust"]
+    "TEXT": ["Choose a card from your draw pile to Exhaust.", "Choose any number of cards from your draw pile to Exhaust."]
   },
   "theShowman:AndBehindCurtainAction": {
-    "TEXT": ["Select a Card to Return to Your Hand", "Select ", " Cards to Return to Your Hand"]
+    "TEXT": ["Select a Card to Return to Your Hand.", "Select ", " Cards to Return to Your Hand."]
   },
   "theShowman:SleeveAcesAction": {
-    "TEXT": ["Select a Card to add a copy of to your Hand, Discard pile, and Draw pile.", "Select a Card to add ", " copies of to your Hand, Discard pile, and Draw pile."]
+    "TEXT": ["Select a Card to add a copy of to your discard pile and draw pile.", "Select a Card to add ", " copies of to your discard pile and draw pile."]
   },
   "theShowman:ForMyNextTrickAction": {
-    "TEXT": ["Exhaust"]
+    "TEXT": ["Exhaust, and add copies to your hand that cost 1 less next turn."]
   },
   "theShowman:NowYouSeeMeAction": {
-    "TEXT": ["Choose a card to Exhaust"]
+    "TEXT": ["Choose a card from your discard pile to Exhaust."]
   },
   "theShowman:StackTheDeckAction": {
-    "TEXT": ["put on the top of your draw pile"]
+    "TEXT": ["put on the top of your draw pile."]
   },
   "theShowman:VanishingActAction": {
-    "TEXT": ["Remove from your hand and deck."]
+    "TEXT": ["remove from your hand and deck."]
+  },
+  "theShowman:DisembodiedHandAction": {
+    "TEXT": ["Exhaust, and play at the start of your next turn."]
   },
   "theShowman:KnockThePileAction": {
-    "TEXT": ["Choose any number of cards to Exhaust"]
+    "TEXT": ["Choose up to ", " cards to Exhaust from your draw pile."]
   },
   "theShowman:GrandGambitAction": {
-    "TEXT": ["Exhaust"]
+    "TEXT": ["Exhaust. You will draw a number of cards equal to the number exhausted.", "Exhaust. You will draw a number of cards equal to the number exhausted + ", "."]
   },
   "theShowman:BottomDoubleDealAction": {
-    "TEXT": ["Choose a Skill or Attack to put into your hand.", "Choose a Skill to put into your hand.", "Choose an Attack to put into your hand."]
+    "TEXT": ["Choose a Skill or Attack to put into your hand.", "Choose a Skill to put into your hand from your draw pile.", "Choose an Attack to put into your hand."]
   }
 }

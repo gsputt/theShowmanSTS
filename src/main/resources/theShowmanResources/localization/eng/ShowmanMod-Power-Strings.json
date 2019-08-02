@@ -168,5 +168,23 @@
       " additional time.",
       " additional times."
     ]
+  },
+  "theShowman:DisembodiedHandPower": {
+    "NAME": "Disembodied Hand",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, play a ",
+      " card."
+    ]
+  },
+  "theShowman:VentriloquismPower": {
+    "NAME": "Ventriloquism",
+    "DESCRIPTIONS": [
+      "At the start of your turn, pick a random card in your Exhaust and draw pile. When you play one for the first time this turn, play a copy of the other.",
+      "At the start of your turn, pick a random card in your Exhaust and draw pile. When you play one this turn, play a copy of the other.",
+      "At the start of your turn, pick a random card in your Exhaust and draw pile #b",
+      " times. When you play one of the picked cards for the first time this turn, play a copy of the other one it's paired with.",
+      " times. When you play one of the picked cards this turn, play a copy of the other one it's paired with."
+
+    ]
   }
 }

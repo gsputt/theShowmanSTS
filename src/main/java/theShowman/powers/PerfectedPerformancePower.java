@@ -42,10 +42,10 @@ public class PerfectedPerformancePower extends TwoAmountPower implements Cloneab
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
-        this.amount2 = -1;
+        //this.amount2 += this.amount; // ??
         this.canGoNegative2 = false;
 
-        this.alreadySet = false;
+        //this.alreadySet = false;
 
         this.updateDescription();
     }
@@ -57,11 +57,11 @@ public class PerfectedPerformancePower extends TwoAmountPower implements Cloneab
             this.amount2--;
             updateDescription();
         }
-        if(this.amount2 == -1 && !this.alreadySet)
+        if(this.amount2 < 0 && !this.alreadySet)
         {
             updateDescription();
             this.alreadySet = true;
-            ImproviseField.ImproviseRecording.set(AbstractDungeon.player, false);
+            ImproviseField.ImproviseRecording.set(AbstractDungeon.player, ImproviseField.ImproviseRecording.get(AbstractDungeon.player) - 1);
         }
     }
 
@@ -71,15 +71,32 @@ public class PerfectedPerformancePower extends TwoAmountPower implements Cloneab
     }
 
     @Override
+    public void onInitialApplication() {
+        ImproviseField.ImproviseRecording.set(AbstractDungeon.player, ImproviseField.ImproviseRecording.get(AbstractDungeon.player) + 1);
+        this.amount2 = this.amount;
+        this.alreadySet = false;
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer)
+    {
+        if(!this.alreadySet)
+        {
+            this.alreadySet = true;
+            ImproviseField.ImproviseRecording.set(AbstractDungeon.player, ImproviseField.ImproviseRecording.get(AbstractDungeon.player) - 1);
+        }
+    }
+
+    @Override
     public void atStartOfTurn() {
-        ImproviseField.ImproviseRecording.set(AbstractDungeon.player, true);
+        ImproviseField.ImproviseRecording.set(AbstractDungeon.player, ImproviseField.ImproviseRecording.get(AbstractDungeon.player) + 1);
         this.amount2 = this.amount;
         this.alreadySet = false;
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + 6 + DESCRIPTIONS[2] + 6 + DESCRIPTIONS[3] + 1 + DESCRIPTIONS[4] + DESCRIPTIONS[5] +  this.amount2 + DESCRIPTIONS[6];
+        description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + 6 + DESCRIPTIONS[2] + 6 + DESCRIPTIONS[3] + 1 + DESCRIPTIONS[4] + DESCRIPTIONS[5] + Math.max(this.amount2, 0) + DESCRIPTIONS[6];
     }
 
     @Override
