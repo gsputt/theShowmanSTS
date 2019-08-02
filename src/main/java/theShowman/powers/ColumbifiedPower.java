@@ -3,10 +3,7 @@ package theShowman.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.actions.utility.HideHealthBarAction;
@@ -18,15 +15,13 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.BufferPower;
-import com.megacrit.cardcrawl.powers.ThornsPower;
 import theShowman.ShowmanMod;
 import theShowman.util.TextureLoader;
 
 import static theShowman.ShowmanMod.makePowerPath;
 
 
-public class ColumbifiedPower extends AbstractPower implements CloneablePowerInterface
+public class ColumbifiedPower extends AbstractPower implements CloneablePowerInterface, onDeathBeforeStuffInterface
 //, OnReceivePowerPower
 {
 
@@ -35,7 +30,6 @@ public class ColumbifiedPower extends AbstractPower implements CloneablePowerInt
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private boolean justApplied = false;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
@@ -57,7 +51,6 @@ public class ColumbifiedPower extends AbstractPower implements CloneablePowerInt
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         this.updateDescription();
-        this.justApplied = true;
     }
 
     /*@Override
@@ -80,9 +73,20 @@ public class ColumbifiedPower extends AbstractPower implements CloneablePowerInt
     }
 
     @Override
-    public void onDeath() {
-        AbstractDungeon.actionManager.addToBottom(new SuicideAction((AbstractMonster)this.linked, false));
+    public boolean beforeDoingOtherStuffOnDead(boolean triggerStuff)
+    {
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
+                this.isDone = true;
+                linked.drawY = linked.drawY - 5000;
+                linked.halfDead = false;
+                linked.damage(new DamageInfo((AbstractCreature) null, 1, DamageInfo.DamageType.THORNS));
+            }
+        });
+        return false;
     }
+
 
     @Override
     public void atEndOfRound() {
