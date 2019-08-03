@@ -3,9 +3,7 @@ package theShowman.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.status.Dazed;
@@ -20,7 +18,7 @@ import theShowman.util.TextureLoader;
 import static theShowman.ShowmanMod.makePowerPath;
 
 
-public class NothingInMyHandsPower extends AbstractPower implements CloneablePowerInterface, NonStackablePower {
+public class NothingInMyHandsPower extends AbstractPower implements CloneablePowerInterface {
 
     public static final String POWER_ID = ShowmanMod.makeID("NothingInMyHandsPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -53,21 +51,44 @@ public class NothingInMyHandsPower extends AbstractPower implements CloneablePow
     public void atEndOfTurn(boolean isPlayer) {
         if(isPlayer)
         {
+            int powerAmount = this.amount;
             AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
                 @Override
                 public void update() {
                     this.isDone = true;
-                    for(AbstractCard c: AbstractDungeon.player.hand.group)
+                    int handSize = AbstractDungeon.player.hand.size();
+                    if(upgraded)
                     {
-                        if(upgraded)
-                        {
-                            AbstractCard dazed = new Dazed();
-                            AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(dazed, AbstractDungeon.player.hand, true));
-                            AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(dazed));
-                        }
-                        AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand, true));
-                    }
+                        AbstractCard dazed = new Dazed();
+                        AbstractDungeon.actionManager.addToTop(new AbstractGameAction() {
+                            @Override
+                            public void update() {
+                                this.isDone = true;
+                                for(int i = 0; i < powerAmount; i++) {
+                                    AbstractDungeon.actionManager.addToTop(new AbstractGameAction() {
+                                        @Override
+                                        public void update() {
+                                            this.isDone = true;
+                                            while (AbstractDungeon.player.hand.size() > 0) {
+                                                AbstractDungeon.player.hand.moveToExhaustPile(AbstractDungeon.player.hand.getTopCard());
+                                            }
+                                        }
+                                    });
+                                    AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(dazed, handSize));
+                                }
+                            }
+                        });
 
+                    }
+                    AbstractDungeon.actionManager.addToTop(new AbstractGameAction() {
+                        @Override
+                        public void update() {
+                            this.isDone = true;
+                            while (AbstractDungeon.player.hand.size() > 0) {
+                                AbstractDungeon.player.hand.moveToExhaustPile(AbstractDungeon.player.hand.getTopCard());
+                            }
+                        }
+                    });
                 }
             });
 

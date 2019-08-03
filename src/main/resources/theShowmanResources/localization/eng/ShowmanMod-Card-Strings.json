@@ -347,8 +347,8 @@
   },
   "theShowman:SubtleMisdirections": {
     "NAME": "Subtle Misdirections",
-    "DESCRIPTION": "Whenever you draw a status for the first time in a turn, Exhaust it and draw a card.",
-    "UPGRADE_DESCRIPTION": "Whenever you draw a status for the first two times in a turn, Exhaust it and draw a card."
+    "DESCRIPTION": "Whenever you draw a Status for the first time in a turn, Exhaust it and draw a card.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw a Status for the first two times in a turn, Exhaust it and draw a card."
   },
   "theShowman:RaptMisdirection": {
     "NAME": "Juxtaposed Juggling",
@@ -360,7 +360,7 @@
   },
   "theShowman:MischiefManaged": {
     "NAME": "Mischief Managed",
-    "DESCRIPTION": "Deal !D! damage. NL If this deals unblocked damage to a Vulnerable enemy, gain that much temporary Strength next turn equal to that enemy's Vulnerable."
+    "DESCRIPTION": "Deal !D! damage. NL If this deals unblocked damage to a Vulnerable enemy, gain temporary Strength next turn equal to that enemy's Vulnerable."
   },
   "theShowman:KiblerFlick": {
     "NAME": "Kibler Flick",
@@ -428,6 +428,6 @@
   "theShowman:ShowOfStrength": {
     "NAME": "Show Of Strength",
     "DESCRIPTION": "Whenever you Exhaust a card, at the start of next turn, gain !M! Strength until end of turn.",
-    "UPGRADE_DESCRIPTION": "Whenever you Exhaust a card, gain !theshowman:SecondMagic! Strength until end of turn and at the start of next turn, gain !M! Strength until end of turn."
+    "UPGRADE_DESCRIPTION": "Whenever you Exhaust a card, gain !theShowman:SecondMagic! Strength until end of turn and at the start of next turn, gain !M! Strength until end of turn."
   }
 }

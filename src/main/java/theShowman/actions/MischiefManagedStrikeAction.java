@@ -23,19 +23,20 @@ public class MischiefManagedStrikeAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (this.duration == 0.5F) {
-            AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect));
-        }
+        if(this.target != null) {
+            if (this.duration == 0.5F) {
+                AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect));
+            }
 
-        this.tickDuration();
-        if (this.isDone) {
-            this.gainStrength(this.damage);
-            this.target.damage(this.damage);
-            if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-                AbstractDungeon.actionManager.clearPostCombatActions();
+            this.tickDuration();
+            if (this.isDone) {
+                this.gainStrength(this.damage);
+                this.target.damage(this.damage);
+                if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
+                    AbstractDungeon.actionManager.clearPostCombatActions();
+                }
             }
         }
-
     }
 
     private void gainStrength(DamageInfo damage) {

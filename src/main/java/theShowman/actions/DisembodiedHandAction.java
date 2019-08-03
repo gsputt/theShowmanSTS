@@ -2,7 +2,6 @@ package theShowman.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -81,7 +80,13 @@ public class DisembodiedHandAction extends AbstractGameAction {
 
     private void doStuff(AbstractCard card)
     {
-        AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, this.p.hand));
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
+                this.isDone = true;
+                p.hand.moveToExhaustPile(card);
+            }
+        });
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DisembodiedHandPower(p, card)));
     }
 }
