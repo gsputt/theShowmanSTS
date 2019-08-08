@@ -18,7 +18,7 @@ public class GotYourNose extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("GotYourNose");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("GotYourNose.png");
     // /TEXT DECLARATION/
 
 

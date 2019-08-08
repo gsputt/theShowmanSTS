@@ -18,7 +18,7 @@ public class OpenTheCurtain extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("OpenTheCurtain");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("OpenTheCurtain.png");
     // /TEXT DECLARATION/
 
 

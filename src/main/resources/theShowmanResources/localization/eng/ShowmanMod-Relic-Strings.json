@@ -3,7 +3,14 @@
     "NAME": "3rd Time Charm",
     "FLAVOR": "33% of the time, it works, every time.",
     "DESCRIPTIONS": [
-      "Every 3rd card you play draws an additional card and #yexhausts itself."
+      "Every #b3rd card you play draws an additional card and #yExhausts itself."
+    ]
+  },
+  "theShowman:TrigonOfTrickery": {
+    "NAME": "Trigon Of Trickery",
+    "FLAVOR": "Tricks to trick even the trickiest of tricksters.",
+    "DESCRIPTIONS": [
+      "Replaces #y3rd #yTime #yCharm. Every #b3rd card you play #yExhausts itself. Whenever you #yExhaust a card, draw a card."
     ]
   },
   "theShowman:PlaceholderRelic": {

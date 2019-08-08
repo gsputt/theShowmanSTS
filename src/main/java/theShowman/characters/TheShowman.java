@@ -73,28 +73,11 @@ public class TheShowman extends CustomPlayer {
     // =============== /STRINGS/ =================
 
 
-    // =============== TEXTURES OF BIG ENERGY ORB ===============
-
-    public static final String[] orbTextures = {
-            "theShowmanResources/images/char/showmanCharacter/orb/layer1.png",
-            "theShowmanResources/images/char/showmanCharacter/orb/layer2.png",
-            "theShowmanResources/images/char/showmanCharacter/orb/layer3.png",
-            "theShowmanResources/images/char/showmanCharacter/orb/layer4.png",
-            "theShowmanResources/images/char/showmanCharacter/orb/layer5.png",
-            "theShowmanResources/images/char/showmanCharacter/orb/layer6.png",
-            "theShowmanResources/images/char/showmanCharacter/orb/layer1d.png",
-            "theShowmanResources/images/char/showmanCharacter/orb/layer2d.png",
-            "theShowmanResources/images/char/showmanCharacter/orb/layer3d.png",
-            "theShowmanResources/images/char/showmanCharacter/orb/layer4d.png",
-            "theShowmanResources/images/char/showmanCharacter/orb/layer5d.png",};
-
-    // =============== /TEXTURES OF BIG ENERGY ORB/ ===============
 
     // =============== CHARACTER CLASS START =================
 
     public TheShowman(String name, PlayerClass setClass) {
-        super(name, setClass, orbTextures,
-                "theShowmanResources/images/char/showmanCharacter/orb/vfx.png", null,
+        super(name, setClass, new ShowmanEnergyOrb(),
                 new SpriterAnimation(
                         "theShowmanResources/images/char/showmanCharacter/ShowmanSpriter/Spriter.scml"));
 

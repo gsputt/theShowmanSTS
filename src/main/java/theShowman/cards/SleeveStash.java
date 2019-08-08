@@ -16,7 +16,7 @@ public class SleeveStash extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("SleeveStash");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("SleeveStash.png");
     // /TEXT DECLARATION/
 
 

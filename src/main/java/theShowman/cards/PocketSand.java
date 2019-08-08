@@ -2,7 +2,6 @@ package theShowman.cards;
 
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -19,7 +18,7 @@ public class PocketSand extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("PocketSand");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("PocketSand.png");
     // /TEXT DECLARATION/
 
 

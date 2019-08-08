@@ -15,7 +15,7 @@ public class ExtraWideSleeves extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("ExtraWideSleeves");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("ExtraWideSleeves.png");
     // /TEXT DECLARATION/
 
 

@@ -16,7 +16,7 @@ public class BafflingShuffle extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("BafflingShuffle");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("BafflingShuffle.png");
     // /TEXT DECLARATION/
 
 

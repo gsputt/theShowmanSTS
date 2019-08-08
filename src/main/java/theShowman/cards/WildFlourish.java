@@ -28,7 +28,7 @@ public class WildFlourish extends AbstractDynamicCard {
     public static final CardColor COLOR = COLOR_PURPLE;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 9;
+    private static final int DAMAGE = 7;
     private static final int UPGRADE_PLUS_DAMAGE = 3;
 
     // /STAT DECLARATION/

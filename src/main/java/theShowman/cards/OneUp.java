@@ -18,7 +18,7 @@ public class OneUp extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("OneUp");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("OneUp.png");
     // /TEXT DECLARATION/
 
 

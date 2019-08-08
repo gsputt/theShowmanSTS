@@ -28,6 +28,7 @@ import theShowman.characters.TheShowman;
 import theShowman.effects.RenderOverEverythingInterface;
 import theShowman.patches.ImproviseField;
 import theShowman.relics.ThirdTimeCharm;
+import theShowman.relics.TrigonOfTrickery;
 import theShowman.util.IDCheckDontTouchPls;
 import theShowman.util.TextureLoader;
 import theShowman.variables.DefaultCustomVariable;
@@ -372,6 +373,7 @@ public class ShowmanMod implements
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
         BaseMod.addRelicToCustomPool(new ThirdTimeCharm(), COLOR_PURPLE);
+        BaseMod.addRelicToCustomPool(new TrigonOfTrickery(), COLOR_PURPLE);
         //BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), COLOR_PURPLE);
         //BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), COLOR_PURPLE);
 
@@ -380,6 +382,7 @@ public class ShowmanMod implements
 
         // Mark relics as seen (the others are all starters so they're marked as seen in the character file
         UnlockTracker.markRelicAsSeen(ThirdTimeCharm.ID);
+        UnlockTracker.markRelicAsSeen(TrigonOfTrickery.ID);
         logger.info("Done adding relics!");
     }
 

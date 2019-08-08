@@ -3,7 +3,6 @@ package theShowman.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,12 +14,6 @@ import static theShowman.ShowmanMod.makeRelicOutlinePath;
 import static theShowman.ShowmanMod.makeRelicPath;
 
 public class ThirdTimeCharm extends CustomRelic {
-
-    /*
-     * https://github.com/daviscook477/BaseMod/wiki/Custom-Relics
-     *
-     * Gain 1 energy.
-     */
 
     // ID, images, text.
     public static final String ID = ShowmanMod.makeID("ThirdTimeCharm");
@@ -51,10 +44,6 @@ public class ThirdTimeCharm extends CustomRelic {
         if(this.counter >= 3)
         {
             this.counter = 0;
-            if(AbstractDungeon.player.drawPile.isEmpty())
-            {
-                AbstractDungeon.actionManager.addToBottom(new EmptyDeckShuffleAction());
-            }
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
             useCardAction.exhaustCard = true;
             this.flash();
