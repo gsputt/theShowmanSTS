@@ -13,6 +13,8 @@ public class ShowmanEnergyOrb extends CustomEnergyOrb {
     private static final float ORB_IMG_SCALE;
     private static final String rabbitTextureString = "theShowmanResources/images/char/showmanCharacter/orb/rabbit.png";
     private static final Texture rabbitTexture = new Texture(rabbitTextureString);
+    private static final String hatBackString = "theShowmanResources/images/char/showmanCharacter/orb/orb_hat_back.png";
+    private static final Texture hatBackTexture = new Texture(hatBackString);
 
     private static final String[] orbTextures = {
             "theShowmanResources/images/char/showmanCharacter/orb/layer1.png",
@@ -49,16 +51,16 @@ public class ShowmanEnergyOrb extends CustomEnergyOrb {
                 this.angles[1] -= 360F;
             }
         }
-        if(this.angles[1] > 45 && this.angles[1] < 225)
+        if(this.angles[1] > 90 && this.angles[1] < 270)
         {
             renderRabbit = true;
-            if(this.angles[1] > 45 && this.angles[1] < 75)
+            if(this.angles[1] > 90 && this.angles[1] < 120)
             {
-                YShift = Interpolation.linear.apply(0, 100F, (this.angles[1]-45) / 30);
+                YShift = Interpolation.linear.apply(0, 85F, (this.angles[1]-90) / 30);
             }
-            else if(this.angles[1] > 195 && this.angles[1] < 225)
+            else if(this.angles[1] > 240 && this.angles[1] < 270)
             {
-                YShift = Interpolation.linear.apply(100F, 0, (this.angles[1]-195) / 30);
+                YShift = Interpolation.linear.apply(85F, 0, (this.angles[1]-240) / 30);
             }
         }
         else {
@@ -69,13 +71,15 @@ public class ShowmanEnergyOrb extends CustomEnergyOrb {
     @Override
     public void renderOrb(SpriteBatch sb, boolean enabled, float current_x, float current_y)
     {
+        sb.draw(hatBackTexture, current_x - 64F, current_y - 64F, 64.0F, 64.0F, 128.0F, 128.0F, ORB_IMG_SCALE, ORB_IMG_SCALE, this.angles[1], 0, 0, 128, 128, false, false);
+
         if(renderRabbit)
         {
             Vector2 vector = new Vector2(0, YShift);
-            vector.rotate(this.angles[1] - 135);
+            vector.rotate(this.angles[1] - 180);
             vector.scl(Settings.scale);
 
-            sb.draw(rabbitTexture, current_x - 64F + vector.x, current_y - 64F + vector.y, 64.0F, 64.0F, 128.0F, 128.0F, ORB_IMG_SCALE, ORB_IMG_SCALE, this.angles[1] - 135, 0, 0, 128, 128, false, false);
+            sb.draw(rabbitTexture, current_x - 64F + vector.x, current_y - 64F + vector.y, 64.0F, 64.0F, 128.0F, 128.0F, ORB_IMG_SCALE, ORB_IMG_SCALE, this.angles[1] - 180, 0, 0, 128, 128, false, false);
         }
         super.renderOrb(sb, enabled, current_x, current_y);
     }
