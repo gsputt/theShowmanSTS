@@ -18,7 +18,7 @@ public class AndBehindCurtain extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("AndBehindCurtain");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("BehindCurtainNumberThree.png");
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     // /TEXT DECLARATION/

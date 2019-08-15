@@ -5,20 +5,18 @@ import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import theShowman.ShowmanMod;
 import theShowman.actions.ReappearingTrickAction;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
-import static theShowman.patches.StackedField.Stacked;
 
 public class ReappearingTrick extends AbstractDynamicCard {
 
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("ReappearingTrick");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("ReappearingAct.png");
     // /TEXT DECLARATION/
 
 

@@ -10,7 +10,6 @@ import theShowman.ShowmanMod;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
-
 import static theShowman.patches.StackedField.Stacked;
 
 public class BlackJack extends AbstractDynamicCard {
@@ -18,7 +17,7 @@ public class BlackJack extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("BlackJack");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("BlackJack.png");
     // /TEXT DECLARATION/
 
 

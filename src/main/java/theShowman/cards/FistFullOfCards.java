@@ -18,7 +18,7 @@ public class FistFullOfCards extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("FistFullOfCards");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("FistFullOfCards.png");
     // /TEXT DECLARATION/
 
 

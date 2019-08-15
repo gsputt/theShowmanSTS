@@ -16,7 +16,7 @@ public class RaptMisdirection extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("RaptMisdirection");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("JuxtaposedJuggling.png");
     // /TEXT DECLARATION/
 
 

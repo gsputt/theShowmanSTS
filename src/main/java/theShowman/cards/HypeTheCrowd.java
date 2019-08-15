@@ -17,7 +17,7 @@ public class HypeTheCrowd extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("HypeTheCrowd");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("HypeTheCrowd.png");
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     // /TEXT DECLARATION/

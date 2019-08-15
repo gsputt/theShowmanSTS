@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.monsters.city.Byrd;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.FlightPower;
 import theShowman.powers.ColumbifiedPower;
+import theShowman.powers.IAmAByrd;
 
 public class ColumbifyAction extends AbstractGameAction {
 
@@ -43,7 +44,7 @@ public class ColumbifyAction extends AbstractGameAction {
                     public void update() {
                         this.isDone = true;
                         m.drawY = m.drawY + 5000;
-                        m.halfDead = true;
+                        //m.halfDead = true;
                     }
                 });
                 AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(Byrd, false));
@@ -60,6 +61,14 @@ public class ColumbifyAction extends AbstractGameAction {
                     }
                 });
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(Byrd, p, new ColumbifiedPower(Byrd, m)));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, m, new IAmAByrd(m, Byrd)));
+                AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        this.isDone = true;
+                        m.halfDead = true;
+                    }
+                });
             }
             else
             {

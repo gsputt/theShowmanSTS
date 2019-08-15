@@ -16,7 +16,7 @@ public class MirrorMirror extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("MirrorMirror");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("Encore.png");
     // /TEXT DECLARATION/
 
 

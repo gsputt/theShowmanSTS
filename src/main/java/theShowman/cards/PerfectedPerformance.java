@@ -16,7 +16,7 @@ public class PerfectedPerformance extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("PerfectedPerformance");
-    public static final String IMG = makeCardPath("Power.png");
+    public static final String IMG = makeCardPath("PerfectedPerformance.png");
     // /TEXT DECLARATION/
 
 

@@ -16,7 +16,7 @@ public class WillingVolunteerEffect extends AbstractGameEffect {
     public static final String CURTAIN_LEFT_STRING = ShowmanMod.makeEffectPath("curtain_left.png");
     public static final String CURTAIN_RIGHT_STRING = ShowmanMod.makeEffectPath("curtain_right.png");
     private static final Texture CURTAIN_LEFT_TEXTURE = new Texture(CURTAIN_LEFT_STRING);
-    private static final Texture CURTAIN_RIGHT_TEXTURE = new Texture(CURTAIN_RIGHT_STRING);;
+    private static final Texture CURTAIN_RIGHT_TEXTURE = new Texture(CURTAIN_RIGHT_STRING);
 
     private TextureRegion CURTAIN_LEFT = null;
     private TextureRegion CURTAIN_RIGHT = null;

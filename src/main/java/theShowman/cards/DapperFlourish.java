@@ -18,7 +18,7 @@ public class DapperFlourish extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("DapperFlourish");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("DapperFlourish.png");
     // /TEXT DECLARATION/
 
 

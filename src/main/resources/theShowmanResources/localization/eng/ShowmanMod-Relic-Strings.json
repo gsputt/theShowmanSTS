@@ -10,7 +10,21 @@
     "NAME": "Trigon Of Trickery",
     "FLAVOR": "Tricks to trick even the trickiest of tricksters.",
     "DESCRIPTIONS": [
-      "Replaces #y3rd #yTime #yCharm. Every #b3rd card you play #yExhausts itself. Whenever you #yExhaust a card, draw a card."
+      "Replaces #y3rd #yTime #yCharm [REMOVE_SPACE]. Every #b3rd card you play #yExhausts itself. Whenever you #yExhaust a card, draw a card."
+    ]
+  },
+  "theShowman:Millstone": {
+    "NAME": "Millstone",
+    "FLAVOR": "For milling your cards",
+    "DESCRIPTIONS": [
+      "#ytheshowman:Stacked reduces a card's effect by #b2 less."
+    ]
+  },
+  "theShowman:ImprovRelic": {
+    "NAME": "Improv for Dummies Vol2",
+    "FLAVOR": "The entire book is improvised by its author.",
+    "DESCRIPTIONS": [
+      "The first #b2 cards you draw each combat #ytheshowman:Improvise [REMOVE_SPACE]."
     ]
   },
   "theShowman:PlaceholderRelic": {
@@ -25,24 +39,6 @@
     "FLAVOR": "You feel stronger.",
     "DESCRIPTIONS": [
       "At the start of each combat, gain #b1 #yStrength."
-    ]
-  },
-  "theShowman:DefaultClickableRelic": {
-    "NAME": "Right-Clicky Relic",
-    "FLAVOR": "The more you right-click it, the more orbs you've evoked in your lifetime.",
-    "DESCRIPTIONS": [
-      "[#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]turn.[] NL #yEvoke your rightmost Orb.",
-      "YOU ARE MINE!"
-    ]
-  },
-  "theShowman:BottledPlaceholderRelic": {
-    "NAME": "Bottled Placeholder",
-    "FLAVOR": "What is this?",
-    "DESCRIPTIONS": [
-      "Choose a card. Whenever you take play any card, draw the chosen card.",
-      "Whenever you play a card, draw ",
-      ".",
-      "Select a card to bottle for "
     ]
   }
 }

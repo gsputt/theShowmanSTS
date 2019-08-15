@@ -16,7 +16,7 @@ public class HareBrainedScheme extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("HareBrainedScheme");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("HareBrainedScheme.png");
     // /TEXT DECLARATION/
 
 

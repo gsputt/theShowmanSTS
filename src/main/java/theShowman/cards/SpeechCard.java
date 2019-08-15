@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
 import theShowman.effects.CurtainVFX;
+import theShowman.effects.CurtainVFX2;
 import theShowman.patches.ImproviseField;
 
 import static theShowman.ShowmanMod.makeCardPath;
@@ -49,25 +50,30 @@ public class SpeechCard extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainVFX()));
-        screwYourFastMode();
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[0], 2.0F, 2.0F));
-        screwYourFastMode();
-
-        int i = (int)(Math.random() * 9) + 1;
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
-        screwYourFastMode();
-
-        i = (int)(Math.random() * 9) + 10;
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
-        screwYourFastMode();
-
-        i = (int)(Math.random() * 9) + 19;
-        if(i == 21)
-        {
-            i = (int)(Math.random() * 9) + 19;
+        if(this.upgraded) {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainVFX2()));
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[28], 1.5F, 1.5F));
         }
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
+        else {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainVFX()));
+            screwYourFastMode();
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[0], 2.0F, 2.0F));
+            screwYourFastMode();
+
+            int i = (int) (Math.random() * 9) + 1;
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
+            screwYourFastMode();
+
+            i = (int) (Math.random() * 9) + 10;
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
+            screwYourFastMode();
+
+            i = (int) (Math.random() * 9) + 19;
+            if (i == 21) {
+                i = (int) (Math.random() * 9) + 19;
+            }
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
+        }
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             @Override
             public void update() {
@@ -103,6 +109,9 @@ public class SpeechCard extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            this.exhaust = true;
+            FleetingField.fleeting.set(this, false);
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

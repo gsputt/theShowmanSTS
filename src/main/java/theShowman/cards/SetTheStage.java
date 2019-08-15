@@ -19,7 +19,8 @@ public class SetTheStage extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("SetTheStage");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("SetTheStage1.png");
+    public static final String IMG2 = makeCardPath("SetTheStage2.png");
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     // /TEXT DECLARATION/
@@ -63,6 +64,8 @@ public class SetTheStage extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            this.textureImg = IMG2;
+            this.loadCardImage(IMG2);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

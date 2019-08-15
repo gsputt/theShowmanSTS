@@ -27,6 +27,8 @@ import theShowman.cards.*;
 import theShowman.characters.TheShowman;
 import theShowman.effects.RenderOverEverythingInterface;
 import theShowman.patches.ImproviseField;
+import theShowman.relics.ImprovRelic;
+import theShowman.relics.Millstone;
 import theShowman.relics.ThirdTimeCharm;
 import theShowman.relics.TrigonOfTrickery;
 import theShowman.util.IDCheckDontTouchPls;
@@ -64,7 +66,8 @@ public class ShowmanMod implements
         EditCharactersSubscriber,
         PostInitializeSubscriber,
         PostRenderSubscriber,
-        OnStartBattleSubscriber
+        OnStartBattleSubscriber,
+        PostBattleSubscriber
         {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
@@ -374,6 +377,8 @@ public class ShowmanMod implements
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
         BaseMod.addRelicToCustomPool(new ThirdTimeCharm(), COLOR_PURPLE);
         BaseMod.addRelicToCustomPool(new TrigonOfTrickery(), COLOR_PURPLE);
+        BaseMod.addRelicToCustomPool(new Millstone(), COLOR_PURPLE);
+        BaseMod.addRelicToCustomPool(new ImprovRelic(), COLOR_PURPLE);
         //BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), COLOR_PURPLE);
         //BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), COLOR_PURPLE);
 
@@ -383,6 +388,8 @@ public class ShowmanMod implements
         // Mark relics as seen (the others are all starters so they're marked as seen in the character file
         UnlockTracker.markRelicAsSeen(ThirdTimeCharm.ID);
         UnlockTracker.markRelicAsSeen(TrigonOfTrickery.ID);
+        UnlockTracker.markRelicAsSeen(Millstone.ID);
+        UnlockTracker.markRelicAsSeen(ImprovRelic.ID);
         logger.info("Done adding relics!");
     }
 
@@ -709,6 +716,16 @@ public class ShowmanMod implements
 
     @Override
     public void receiveOnBattleStart(AbstractRoom room)
+    {
+        ImproviseField.ImproviseRecording.set(AbstractDungeon.player, 0);
+        if(AbstractDungeon.player instanceof TheShowman)
+        {
+            ((TheShowman) AbstractDungeon.player).resetFloatingCards();
+        }
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom room)
     {
         ImproviseField.ImproviseRecording.set(AbstractDungeon.player, 0);
     }

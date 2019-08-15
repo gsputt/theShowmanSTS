@@ -19,7 +19,7 @@ public class VanDeGraaffsRevenge extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("VanDeGraaffsRevenge");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("VanDeGraafsRevenge.png");
     // /TEXT DECLARATION/
 
 

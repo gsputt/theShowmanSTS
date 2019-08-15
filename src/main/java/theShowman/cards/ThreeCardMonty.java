@@ -15,7 +15,7 @@ public class ThreeCardMonty extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("ThreeCardMonty");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("ThreeCardMonty.png");
     // /TEXT DECLARATION/
 
 

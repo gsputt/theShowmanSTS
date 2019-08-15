@@ -314,7 +314,8 @@
   },
   "theShowman:Showstopper": {
     "NAME": "Showstopper",
-    "DESCRIPTION": "Replay in a random order, ALL theshowman:Class cards in your Exhaust pile."
+    "DESCRIPTION": "Replay in a random order, ALL theshowman:Class cards in your Exhaust pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Replay in a random order, ALL theshowman:Class cards in your Exhaust pile."
   },
   "theShowman:ItsShowtime": {
     "NAME": "It's Showtime",
@@ -369,12 +370,12 @@
   "theShowman:SpeechCard": {
     "NAME": "Ladies and Gentlemen...",
     "DESCRIPTION": "Make a speech. NL Draw a card. NL theshowman:Improvise. NL Innate. NL Fleeting.",
-    "UPGRADE_DESCRIPTION":"Make a speech. NL Draw a card. NL theshowman:Improvise. NL Innate. NL Fleeting.",
+    "UPGRADE_DESCRIPTION":"Make a speech. NL Draw a card. NL theshowman:Improvise. NL Innate. NL Exhaust.",
     "EXTENDED_DESCRIPTION": ["Ladies and Gentlemen...",
       "Aragolts and Arthropods", "KDX and Potatoes", "Sneckos and Slimes", "Byrds and Byrds", "Boys and Girls", "Constructs and Cultists", "Nobs and Gentlenobs", "Slavers and... Uhh. Slavers?", "BD and BD's stupid Pylons",
       "This is no Jedi trick! This is", "You'll certainly be Vex'd by", "Welcome to", "CAW CAW CAW", "Without futher ado", "We're diving right into", "Prepare to be inSPIREd by", "Please shackle your attention to", "Let your eyes devour",
       "BIIIIG DAMAGE", "The vivacious Vixen's fiery finale!", "Yes", "CAW CAW CAW CAW!", "The Spectacle of Spires", "Enriching the Emporium!", "Putting the Shopkeep to Sleep!", "The Plundering of the Pillar", "The Toppling of the Tower",
-      "I HAVE NO IDEA WHAT I'M SAYING"]
+      "Blah blah blah"]
   },
   "theShowman:SleightedFlourish": {
     "NAME": "Sleighted Flourish",
@@ -413,8 +414,8 @@
   },
   "theShowman:ParadigmPerformance": {
     "NAME": "Paradigm Sift",
-    "DESCRIPTION": "Deal !D! damage. NL Gain [E] [E]. NL Exhaust your draw pile and shuffle your Exhaust pile into your draw pile simultaneously. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain [E] [E] [E]. NL Exhaust your draw pile and shuffle your Exhaust pile into your draw pile simultaneously. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL Gain [E]. NL Exhaust your draw pile and shuffle your Exhaust pile into your draw pile simultaneously. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain [E] [E]. NL Exhaust your draw pile and shuffle your Exhaust pile into your draw pile simultaneously. NL Exhaust."
   },
   "theShowman:ImpromptuFlourish": {
     "NAME": "Impromptu Flourish",

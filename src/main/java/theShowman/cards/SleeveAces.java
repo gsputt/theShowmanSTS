@@ -16,7 +16,7 @@ public class SleeveAces extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("SleeveAces");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("SleeveAces.png");
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     // /TEXT DECLARATION/

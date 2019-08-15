@@ -17,7 +17,7 @@ public class ItsShowtime extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("ItsShowtime");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("ItsShowtime.png");
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     // /TEXT DECLARATION/

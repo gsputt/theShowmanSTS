@@ -10,7 +10,6 @@ import theShowman.ShowmanMod;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
-
 import static theShowman.patches.StackedField.Stacked;
 
 public class StrongArm extends AbstractDynamicCard {
@@ -18,7 +17,7 @@ public class StrongArm extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("StrongArm");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("StrongArm.png");
     // /TEXT DECLARATION/
 
 

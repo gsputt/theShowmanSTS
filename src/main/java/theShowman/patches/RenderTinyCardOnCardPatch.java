@@ -25,9 +25,11 @@ public class RenderTinyCardOnCardPatch {
                 show.drawScale = __instance.drawScale * 0.4F;
 
                 Vector2 tmp = new Vector2(135F, 185F);
+                tmp.rotate(__instance.angle);
                 tmp.scl(__instance.drawScale * Settings.scale);
                 show.current_x = __instance.current_x + tmp.x;
                 show.current_y = __instance.current_y + tmp.y;
+                show.angle = __instance.angle;
                 show.render(sb);
             }
         }

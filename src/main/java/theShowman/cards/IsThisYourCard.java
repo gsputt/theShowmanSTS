@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
 import theShowman.effects.PrepareSayCardEffect;
-import theShowman.effects.SayCardEffect;
 import theShowman.effects.TossCardEffect;
 
 import static theShowman.ShowmanMod.makeCardPath;
@@ -21,7 +20,7 @@ public class IsThisYourCard extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("IsThisYourCard");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("IsThisYourCard.png");
     // /TEXT DECLARATION/
 
 

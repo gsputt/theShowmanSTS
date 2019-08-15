@@ -17,7 +17,7 @@ public class MaximumDistraction extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("MaximumDistraction");
-    public static final String IMG = makeCardPath("Power.png");
+    public static final String IMG = makeCardPath("MaximumDistraction.png");
     // /TEXT DECLARATION/
 
 

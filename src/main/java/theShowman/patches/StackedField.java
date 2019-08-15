@@ -1,9 +1,12 @@
 package theShowman.patches;
 
-import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.evacipated.cardcrawl.modthespire.lib.SpireField;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theShowman.relics.Millstone;
 
 @SpirePatch(
         clz = AbstractCard.class,
@@ -101,12 +104,17 @@ public class StackedField {
                         }
                         __instance.magicNumber = __instance.baseMagicNumber;
 
-                        if (AbstractDungeon.player.drawPile.size() > 0) {
+                        int millstone = 0;
+                        if(AbstractDungeon.player.hasRelic(Millstone.ID))
+                        {
+                            millstone = Millstone.MILLSTONE_BONUS;
+                        }
+                        if (AbstractDungeon.player.drawPile.size() - millstone > 0) {
                             __instance.isMagicNumberModified = true;
                             for (int i = 0; i < Stacked.get(__instance); i++) {
-                                __instance.baseDamage = __instance.baseDamage - AbstractDungeon.player.drawPile.size();
-                                __instance.baseBlock = __instance.baseBlock - AbstractDungeon.player.drawPile.size();
-                                __instance.magicNumber = __instance.magicNumber - AbstractDungeon.player.drawPile.size();
+                                __instance.baseDamage = __instance.baseDamage - (AbstractDungeon.player.drawPile.size() - millstone);
+                                __instance.baseBlock = __instance.baseBlock - (AbstractDungeon.player.drawPile.size() - millstone);
+                                __instance.magicNumber = __instance.magicNumber - (AbstractDungeon.player.drawPile.size() - millstone);
                             }
                             if (__instance.baseDamage < 0) {
                                 __instance.baseDamage = 0;

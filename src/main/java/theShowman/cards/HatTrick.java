@@ -16,7 +16,7 @@ public class HatTrick extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("HatTrick");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("HatTrick.png");
     // /TEXT DECLARATION/
 
 

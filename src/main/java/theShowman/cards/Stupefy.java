@@ -18,7 +18,7 @@ public class Stupefy extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("Stupefy");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("Stupefy.png");
     // /TEXT DECLARATION/
 
 

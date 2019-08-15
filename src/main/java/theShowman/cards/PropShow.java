@@ -17,7 +17,7 @@ public class PropShow extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("PropShow");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("PropShow.png");
     // /TEXT DECLARATION/
 
 

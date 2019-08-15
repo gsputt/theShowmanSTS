@@ -103,7 +103,7 @@
     "NAME": "Begone Thought",
     "DESCRIPTIONS": [
       "At the end of your turn, #yExhaust your hand instead of discarding it.",
-      " Then create and exhaust a #yDaze for each card."
+      " Then create and exhaust a #yDazed for each card."
     ]
   },
   "theShowman:ThrowingCardsPower": {
@@ -196,6 +196,12 @@
       "at the start of next turn, gain #b",
       " #yStrength until end of turn."
 
+    ]
+  },
+  "theShowman:IAmAByrd": {
+    "NAME": "Columbified",
+    "DESCRIPTIONS": [
+      "You should not be seeing this"
     ]
   }
 }

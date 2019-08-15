@@ -17,7 +17,7 @@ public class KnockThePile extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("KnockThePile");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("KnockThePile.png");
 
     // /TEXT DECLARATION/
 

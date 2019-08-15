@@ -17,7 +17,7 @@ public class BasicStrike extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("BasicStrike");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("ShowmanStrike.png");
     // /TEXT DECLARATION/
 
 

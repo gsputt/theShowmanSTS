@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.CardGlowBorder;
 import theShowman.relics.ThirdTimeCharm;
+import theShowman.relics.TrigonOfTrickery;
 
 @SpirePatch(
         clz = CardGlowBorder.class,
@@ -24,6 +25,13 @@ public class CardGlowBorderPatch {
             if(AbstractDungeon.player.hasRelic(ThirdTimeCharm.ID))
             {
                 if(AbstractDungeon.player.getRelic(ThirdTimeCharm.ID).counter == 2)
+                {
+                    ReflectionHacks.setPrivate(__instance, AbstractGameEffect.class, "color", Color.RED.cpy());
+                }
+            }
+            else if(AbstractDungeon.player.hasRelic(TrigonOfTrickery.ID))
+            {
+                if(AbstractDungeon.player.getRelic(TrigonOfTrickery.ID).counter == 2)
                 {
                     ReflectionHacks.setPrivate(__instance, AbstractGameEffect.class, "color", Color.RED.cpy());
                 }

@@ -15,7 +15,7 @@ public class ParlorTrick extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("ParlorTrick");
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("ParlorTrick.png");
     // /TEXT DECLARATION/
 
 

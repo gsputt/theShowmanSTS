@@ -3,8 +3,10 @@ package theShowman.characters;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -27,6 +29,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theShowman.ShowmanMod;
 import theShowman.cards.*;
+import theShowman.effects.FloatingCardCharEffect;
 import theShowman.relics.ThirdTimeCharm;
 
 import java.util.ArrayList;
@@ -36,6 +39,16 @@ import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
 
 public class TheShowman extends CustomPlayer {
     public static final Logger logger = LogManager.getLogger(ShowmanMod.class.getName());
+
+    private static final String LEFT_CARD_STRING;
+    private static final String MIDDLE_CARD_STRING;
+    private static final String RIGHT_CARD_STRING;
+    private static final TextureRegion LEFT_CARD;
+    private static final TextureRegion MIDDLE_CARD;
+    private static final TextureRegion RIGHT_CARD;
+
+    private ArrayList<FloatingCardCharEffect> floatingCards = new ArrayList<>();
+    private ArrayList<TextureRegion> floatingCardsTexture = new ArrayList<>();
 
     private int playerTimeUntilIdle = 0;
 
@@ -81,20 +94,12 @@ public class TheShowman extends CustomPlayer {
                 new SpriterAnimation(
                         "theShowmanResources/images/char/showmanCharacter/ShowmanSpriter/Spriter.scml"));
 
-
-        // =============== TEXTURES, ENERGY, LOADOUT =================  
-
         initializeClass(null,
 
                 THE_SHOWMAN_SHOULDER_1, // campfire pose
                 THE_SHOWMAN_SHOULDER_2, // another campfire pose
                 THE_SHOWMAN_CORPSE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
-
-        // =============== /TEXTURES, ENERGY, LOADOUT/ =================
-
-
-        // =============== ANIMATIONS =================  
 
         loadAnimation(
                 THE_DEFAULT_SKELETON_ATLAS,
@@ -103,16 +108,15 @@ public class TheShowman extends CustomPlayer {
         AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
         e.setTime(e.getEndTime() * MathUtils.random());
 
-        // =============== /ANIMATIONS/ =================
-
-
-        // =============== TEXT BUBBLE LOCATION =================
-
         dialogX = (drawX + 0.0F * Settings.scale); // set location for text bubbles
         dialogY = (drawY + 220.0F * Settings.scale); // you can just copy these values
 
-        // =============== /TEXT BUBBLE LOCATION/ =================
+        resetFloatingCards();
 
+        floatingCardsTexture.clear();
+        floatingCardsTexture.add(LEFT_CARD);
+        floatingCardsTexture.add(MIDDLE_CARD);
+        floatingCardsTexture.add(RIGHT_CARD);
     }
 
     // =============== /CHARACTER CLASS END/ =================
@@ -307,7 +311,7 @@ public class TheShowman extends CustomPlayer {
     }
 
     @Override
-    public void render(SpriteBatch sb)
+    public void renderPlayerImage(SpriteBatch sb)
     {
         if(this.animation instanceof SpriterAnimation) {
             //System.out.println(((SpriterAnimation) this.animation).myPlayer.getFirstPlayer().getTime());
@@ -319,8 +323,40 @@ public class TheShowman extends CustomPlayer {
                 ((SpriterAnimation) this.animation).myPlayer.getFirstPlayer().setTime(0);
             }
         }
-        super.render(sb);
+        this.renderFloatingCards(sb);
+        super.renderPlayerImage(sb);
     }
+
+    public void renderFloatingCards(SpriteBatch sb)
+    {
+        sb.setColor(Color.WHITE.cpy());
+        for(int i = 0; i < floatingCards.size(); i++)
+        {
+            sb.draw(
+                    floatingCardsTexture.get(i), //TextureRegion
+                    floatingCards.get(i).currentX - floatingCardsTexture.get(i).getRegionWidth() / 2.0F, //X
+                    floatingCards.get(i).currentY - floatingCardsTexture.get(i).getRegionHeight() / 2.0F, // Y
+                    floatingCardsTexture.get(i).getRegionWidth() / 2.0F, //originX
+                    floatingCardsTexture.get(i).getRegionHeight() / 2.0F, //originY
+                    floatingCardsTexture.get(i).getRegionWidth(), //Width
+                    floatingCardsTexture.get(i).getRegionHeight(), //Height
+                    0.5F * Settings.scale, //scaleX
+                    0.5F * Settings.scale, //scaleY
+                    floatingCards.get(i).rotation //rotation
+            );
+        }
+    }
+
+    @Override
+    public void updateAnimations()
+    {
+        super.updateAnimations();
+        for(FloatingCardCharEffect effect : floatingCards)
+        {
+            effect.update();
+        }
+    }
+
 
     @Override
     public void useCard(AbstractCard c, AbstractMonster m, int energyOnUse)
@@ -333,7 +369,34 @@ public class TheShowman extends CustomPlayer {
                 ((SpriterAnimation) this.animation).myPlayer.getFirstPlayer().setTime(0);
                 this.playerTimeUntilIdle = 500; //animation lasts 500 ms, 500 ms after is placeholder, total of 1000ms
             }
+            if(m != null) {
+                for (FloatingCardCharEffect effect : floatingCards) {
+                    effect.sendToLocation(m.hb.cX, m.hb.cY);
+                }
+            }
         }
         super.useCard(c, m, energyOnUse);
+    }
+
+    public void resetFloatingCards()
+    {
+        floatingCards.clear();
+        int multiplier = 1;
+        /*if(this.flipHorizontal) {
+            multiplier = -1;
+        }*/
+        floatingCards.add(new FloatingCardCharEffect(this.hb.cX - (100.0F * Settings.scale) - (20F * Settings.scale * multiplier), this.hb.cY + 180F * Settings.scale, 0.0F, 20.0F * Settings.scale, 1.0F, 45.0F)); //0 - left
+        floatingCards.add(new FloatingCardCharEffect(this.hb.cX - (20F * Settings.scale * multiplier), this.hb.cY + 180F * Settings.scale, 0.0F, -20.0F * Settings.scale, 1.0F, 0.0F)); //1 - middle
+        floatingCards.add(new FloatingCardCharEffect(this.hb.cX + (100.0F * Settings.scale) - (20F * Settings.scale * multiplier), this.hb.cY + 180F * Settings.scale, 0.0F, 20.0F * Settings.scale, 1.0F, -45.0F)); //2 - right
+    }
+
+    static
+    {
+        LEFT_CARD_STRING = ShowmanMod.makeEffectPath("card_face_clubs.png");
+        MIDDLE_CARD_STRING = ShowmanMod.makeEffectPath("card_back_mk2.png");
+        RIGHT_CARD_STRING = ShowmanMod.makeEffectPath("heart_ace.png");
+        LEFT_CARD = new TextureRegion(new Texture(LEFT_CARD_STRING));
+        MIDDLE_CARD = new TextureRegion(new Texture(MIDDLE_CARD_STRING));
+        RIGHT_CARD = new TextureRegion(new Texture(RIGHT_CARD_STRING));
     }
 }
