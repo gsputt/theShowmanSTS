@@ -21,10 +21,17 @@
     ]
   },
   "theShowman:ImprovRelic": {
-    "NAME": "Improv for Dummies Vol2",
+    "NAME": "Improv for Dummies Vol. 2",
     "FLAVOR": "The entire book is improvised by its author.",
     "DESCRIPTIONS": [
       "The first #b2 cards you draw each combat #ytheshowman:Improvise [REMOVE_SPACE]."
+    ]
+  },
+  "theShowman:MagnetizedGloves": {
+    "NAME": "Magnetized Gloves",
+    "FLAVOR": "Lets you hold on to more cards.",
+    "DESCRIPTIONS": [
+      "Increase your maximum hand size by #b3 [REMOVE_SPACE]."
     ]
   },
   "theShowman:PlaceholderRelic": {

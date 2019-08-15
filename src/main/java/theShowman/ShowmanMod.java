@@ -27,10 +27,7 @@ import theShowman.cards.*;
 import theShowman.characters.TheShowman;
 import theShowman.effects.RenderOverEverythingInterface;
 import theShowman.patches.ImproviseField;
-import theShowman.relics.ImprovRelic;
-import theShowman.relics.Millstone;
-import theShowman.relics.ThirdTimeCharm;
-import theShowman.relics.TrigonOfTrickery;
+import theShowman.relics.*;
 import theShowman.util.IDCheckDontTouchPls;
 import theShowman.util.TextureLoader;
 import theShowman.variables.DefaultCustomVariable;
@@ -379,6 +376,7 @@ public class ShowmanMod implements
         BaseMod.addRelicToCustomPool(new TrigonOfTrickery(), COLOR_PURPLE);
         BaseMod.addRelicToCustomPool(new Millstone(), COLOR_PURPLE);
         BaseMod.addRelicToCustomPool(new ImprovRelic(), COLOR_PURPLE);
+        BaseMod.addRelicToCustomPool(new MagnetizedGloves(), COLOR_PURPLE);
         //BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), COLOR_PURPLE);
         //BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), COLOR_PURPLE);
 
@@ -390,6 +388,7 @@ public class ShowmanMod implements
         UnlockTracker.markRelicAsSeen(TrigonOfTrickery.ID);
         UnlockTracker.markRelicAsSeen(Millstone.ID);
         UnlockTracker.markRelicAsSeen(ImprovRelic.ID);
+        UnlockTracker.markRelicAsSeen(MagnetizedGloves.ID);
         logger.info("Done adding relics!");
     }
 
