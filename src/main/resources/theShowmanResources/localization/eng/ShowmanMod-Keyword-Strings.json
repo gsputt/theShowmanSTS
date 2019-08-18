@@ -52,6 +52,15 @@
     "DESCRIPTION": "Deal 6 damage to ALL enemies for each Attack drawn. Gain 6 block for each Skill drawn. Gain [E] for each Power drawn. Apply 1 Weak and 1 Vulnerable to ALL enemies for each Status or Curse drawn."
   },
   {
+    "PROPER_NAME": "Overdraw",
+    "NAMES": [
+      "Overdraw",
+      "overdraw",
+      "overdrawn"
+    ],
+    "DESCRIPTION": "When you attempt to draw a card while your hand is full, you #yOverdraw that card."
+  },
+  {
     "PROPER_NAME": "Temporary",
     "NAMES": [
       "Temporary",

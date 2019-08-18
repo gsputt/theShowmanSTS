@@ -34,6 +34,20 @@
       "Increase your maximum hand size by #b3 [REMOVE_SPACE]."
     ]
   },
+  "theShowman:ChaosConfetti": {
+    "NAME": "Chaos Confetti",
+    "FLAVOR": "No performance is complete without some CHAOS CONFETTI!",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. The first card you play each combat #rremoves #ritself from your deck."
+    ]
+  },
+  "theShowman:HeartOfTheCards": {
+    "NAME": "Heart Of The Cards",
+    "FLAVOR": "Believe in the heart of the cards!",
+    "DESCRIPTIONS": [
+      "The first card you would #ytheshowman:Overdraw each turn is instead played."
+    ]
+  },
   "theShowman:PlaceholderRelic": {
     "NAME": "Placeholder Energy Relic",
     "FLAVOR": "The snake is a friend.",

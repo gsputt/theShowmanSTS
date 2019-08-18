@@ -23,7 +23,7 @@ public class ImprovRelic extends CustomRelic {
     private boolean triggerOnce = false;
 
     public ImprovRelic() {
-        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.FLAT);
     }
 
     @Override

@@ -160,8 +160,8 @@
   },
   "theShowman:StackTheDeck": {
     "NAME": "Stack The Deck",
-    "DESCRIPTION": "At the end of your turn, put up to !M! card from your hand on top of your deck.",
-    "UPGRADE_DESCRIPTION": "At the end of your turn, put up to !M! cards from your hand on top of your deck."
+    "DESCRIPTION": "At the end of your turn, put up to !M! card from your hand on top of your draw pile.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, put up to !M! cards from your hand on top of your draw pile."
   },
   "theShowman:ByrdBGone": {
     "NAME": "Byrd-B-Gone",
