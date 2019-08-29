@@ -36,7 +36,7 @@ public class Showstopper extends AbstractDynamicCard {
 
     public Showstopper() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
+        this.purgeOnUse = true;
     }
 
 
@@ -57,9 +57,8 @@ public class Showstopper extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.exhaust = false;
             this.upgradeBaseCost(UPGRADE_COST);
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            //this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

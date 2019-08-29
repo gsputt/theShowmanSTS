@@ -26,8 +26,8 @@ public class HatTrickPower extends AbstractPower implements CloneablePowerInterf
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("BufferDown84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("BufferDown32.png"));
 
     public HatTrickPower(final AbstractCreature owner, final int amount) {
         this.name = NAME;

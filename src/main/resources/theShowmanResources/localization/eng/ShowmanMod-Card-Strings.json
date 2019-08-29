@@ -314,13 +314,13 @@
   },
   "theShowman:Showstopper": {
     "NAME": "Showstopper",
-    "DESCRIPTION": "Replay in a random order, ALL theshowman:Class cards in your Exhaust pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Replay in a random order, ALL theshowman:Class cards in your Exhaust pile."
+    "DESCRIPTION": "Replay in a random order, ALL theshowman:Class cards in your Exhaust pile. NL Purge.",
+    "UPGRADE_DESCRIPTION": "Replay in a random order, ALL theshowman:Class cards in your Exhaust pile. NL Purge."
   },
   "theShowman:ItsShowtime": {
     "NAME": "It's Showtime",
     "DESCRIPTION": "Replay X random theshowman:Class cards from your Exhaust pile.",
-    "UPGRADE_DESCRIPTION": "Replay X+1 theshowman:Class cards from your Exhaust pile."
+    "UPGRADE_DESCRIPTION": "Replay X+1 random theshowman:Class cards from your Exhaust pile."
   },
   "theShowman:BaitedBreath": {
     "NAME": "Baited Breath",

@@ -26,8 +26,8 @@ public class NothingInMyHandsPower extends AbstractPower implements CloneablePow
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("BegoneThoughts84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("BegoneThoughts32.png"));
 
     private boolean upgraded;
 

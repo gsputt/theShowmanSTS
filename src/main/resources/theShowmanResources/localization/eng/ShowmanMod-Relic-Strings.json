@@ -48,6 +48,13 @@
       "The first card you would #ytheshowman:Overdraw each turn is instead played."
     ]
   },
+  "theShowman:DetachableThumb": {
+    "NAME": "Detachable Thumb",
+    "FLAVOR": "A must have for every performer.",
+    "DESCRIPTIONS": [
+      "Whenever you #yexhaust a card, it costs #b0 until played."
+    ]
+  },
   "theShowman:PlaceholderRelic": {
     "NAME": "Placeholder Energy Relic",
     "FLAVOR": "The snake is a friend.",

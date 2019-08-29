@@ -29,8 +29,8 @@ public class ThrowingCardsPower extends AbstractPower implements CloneablePowerI
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ThrowingCards84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ThrowingCards32.png"));
 
     public ThrowingCardsPower(final AbstractCreature owner, final int amount) {
         this.name = NAME;

@@ -14,8 +14,8 @@ public class MagnetizedGloves extends CustomRelic {
     // ID, images, text.
     public static final String ID = ShowmanMod.makeID("MagnetizedGloves");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("MagnetizedGloves.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("MagnetizedGlovesOutline.png"));
 
     public static final int BONUS = 3;
 

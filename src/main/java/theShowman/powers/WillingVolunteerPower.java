@@ -1,23 +1,29 @@
 package theShowman.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theShowman.ShowmanMod;
-import theShowman.util.TextureLoader;
-
-import static theShowman.ShowmanMod.makePowerPath;
 
 
 public class WillingVolunteerPower extends AbstractPower implements CloneablePowerInterface, onAttackedExceptItRespectsBlockInterface {
@@ -28,12 +34,15 @@ public class WillingVolunteerPower extends AbstractPower implements CloneablePow
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
+    //private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
+    //private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
-    private AbstractMonster m;
+    public AbstractMonster m;
 
-    public WillingVolunteerPower(final AbstractCreature owner, final int amount, final AbstractMonster m) {
+    //private float scaleFactor;
+    private static FrameBuffer fbo;
+
+    public WillingVolunteerPower(final AbstractCreature owner, final int amount, final AbstractMonster mo) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -41,12 +50,55 @@ public class WillingVolunteerPower extends AbstractPower implements CloneablePow
         this.type = PowerType.BUFF;
         this.isTurnBased = true;
         this.canGoNegative = false;
-        this.m = m;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        if(this.m != mo) {
+            monsterIcon(mo);
+        }
+
+        this.m = mo;
+
 
         this.updateDescription();
+    }
+
+    public void monsterIcon(AbstractMonster mo)
+    {
+        SpriteBatch spriteBatch = new SpriteBatch();
+
+        fbo.begin();
+
+        Gdx.gl.glClearColor(0, 0, 0, 0);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+        Gdx.gl.glColorMask(true, true, true, true);
+
+        spriteBatch.begin();
+        spriteBatch.enableBlending();
+        spriteBatch.setColor(Color.WHITE);
+        spriteBatch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+
+        mo.render(spriteBatch);
+
+        spriteBatch.end();
+
+        fbo.end();
+
+        Texture fboTexture = fbo.getColorBufferTexture();
+
+        this.region128 = new TextureAtlas.AtlasRegion(fboTexture, (int) mo.hb.x, (int) mo.hb.y, (int) mo.hb.width, (int) mo.hb.height);
+        this.region128.flip(false, true);
+        this.region48 = new TextureAtlas.AtlasRegion(fboTexture, (int) mo.hb.x, (int) mo.hb.y, (int) mo.hb.width, (int) mo.hb.height);
+        this.region48.flip(false, true);
+
+        spriteBatch.dispose();
+    }
+
+    @Override
+    public void renderIcons(SpriteBatch sb, float x, float y, Color c)
+    {
+        float scaleBefore = Settings.scale;
+        Settings.scale = (48.0F * Settings.scale / Gdx.graphics.getWidth()) * (1.0F / (m.hb.width / Gdx.graphics.getWidth()));
+        super.renderIcons(sb, x, y, c);
+        Settings.scale = scaleBefore;
     }
 
     @Override
@@ -109,5 +161,10 @@ public class WillingVolunteerPower extends AbstractPower implements CloneablePow
     @Override
     public AbstractPower makeCopy() {
         return new WillingVolunteerPower(owner, amount, this.m);
+    }
+
+    static
+    {
+       fbo = new FrameBuffer(Pixmap.Format.RGBA8888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false, false);
     }
 }

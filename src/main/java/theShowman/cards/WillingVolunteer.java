@@ -46,9 +46,20 @@ public class WillingVolunteer extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(m != null) {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new WillingVolunteerEffect(m)));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WillingVolunteerPower(p, this.magicNumber, m), this.magicNumber));
+        if(p.hasPower(WillingVolunteerPower.POWER_ID))
+        {
+            WillingVolunteerPower power = (WillingVolunteerPower) p.getPower(WillingVolunteerPower.POWER_ID);
+            power.amount += this.magicNumber;
+            power.monsterIcon(m);
+            power.m = m;
+            power.flash();
+            power.updateDescription();
+        }
+        else {
+            if (m != null) {
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new WillingVolunteerEffect(m)));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WillingVolunteerPower(p, this.magicNumber, m), this.magicNumber));
+            }
         }
     }
 

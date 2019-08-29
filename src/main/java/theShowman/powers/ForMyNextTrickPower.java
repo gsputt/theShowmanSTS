@@ -29,8 +29,8 @@ public class ForMyNextTrickPower extends AbstractPower implements CloneablePower
     private static final String[] NIGHTMARE_DESCRIPTIONS = NIGHTMARE.DESCRIPTIONS;
 
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ThreeCards84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ThreeCards32.png"));
 
     private AbstractCard card;
 

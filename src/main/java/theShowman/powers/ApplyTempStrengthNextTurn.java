@@ -1,21 +1,16 @@
 package theShowman.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.red.Flex;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import theShowman.ShowmanMod;
-import theShowman.util.TextureLoader;
-
-import static theShowman.ShowmanMod.makePowerPath;
 
 
 public class ApplyTempStrengthNextTurn extends AbstractPower implements CloneablePowerInterface {
@@ -26,8 +21,8 @@ public class ApplyTempStrengthNextTurn extends AbstractPower implements Cloneabl
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
+    //private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
+    //private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
     public ApplyTempStrengthNextTurn(final AbstractCreature owner, final int amount) {
         this.name = NAME;
@@ -38,8 +33,9 @@ public class ApplyTempStrengthNextTurn extends AbstractPower implements Cloneabl
         this.isTurnBased = false;
         this.canGoNegative = false;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        //this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        //this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        this.loadRegion("flex");
 
         this.updateDescription();
     }

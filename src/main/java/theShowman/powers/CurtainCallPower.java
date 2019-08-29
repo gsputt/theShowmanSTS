@@ -1,8 +1,6 @@
 package theShowman.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,9 +11,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theShowman.ShowmanMod;
-import theShowman.util.TextureLoader;
-
-import static theShowman.ShowmanMod.makePowerPath;
 
 
 public class CurtainCallPower extends AbstractPower implements CloneablePowerInterface, TriggerAfterEtherealInterface{
@@ -26,8 +21,8 @@ public class CurtainCallPower extends AbstractPower implements CloneablePowerInt
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
+    //private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
+    //private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
     public CurtainCallPower(final AbstractCreature owner, final int amount) {
         this.name = NAME;
@@ -38,8 +33,9 @@ public class CurtainCallPower extends AbstractPower implements CloneablePowerInt
         this.isTurnBased = true;
         this.canGoNegative = false;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        //this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        //this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        this.loadRegion("noPain");
 
         this.updateDescription();
     }

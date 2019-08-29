@@ -7,14 +7,13 @@ import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.relics.HeartOfTheCards;
 
 @SpirePatch(
         clz = AbstractPlayer.class,
         method = "createHandIsFullDialog"
 )
-public class HeartOfTheCardsOnDrawPatch {
+public class HeartOfTheCardsOnHandIsFull {
     @SpirePrefixPatch
     public static SpireReturn HeartOfTheCardsPatch(AbstractPlayer __instance)
     {
@@ -28,9 +27,8 @@ public class HeartOfTheCardsOnDrawPatch {
                 {
                     relic.flash();
                     relic.stopPulse();
-                    AbstractMonster monster = AbstractDungeon.getRandomMonster();
-                    AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(monster, relic));
-                    AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction(monster, false));
+                    AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(__instance, relic));
+                    AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction(AbstractDungeon.getRandomMonster(), false));
                     return SpireReturn.Return(null);
                 }
             }

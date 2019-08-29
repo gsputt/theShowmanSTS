@@ -17,7 +17,7 @@ public class WhirlingDervish extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("WhirlingDervish");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("WhirlingDervish.png");
     // /TEXT DECLARATION/
 
 

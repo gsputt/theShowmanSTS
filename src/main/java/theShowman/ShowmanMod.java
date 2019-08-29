@@ -379,6 +379,7 @@ public class ShowmanMod implements
         BaseMod.addRelicToCustomPool(new MagnetizedGloves(), COLOR_PURPLE);
         BaseMod.addRelicToCustomPool(new ChaosConfetti(), COLOR_PURPLE);
         BaseMod.addRelicToCustomPool(new HeartOfTheCards(), COLOR_PURPLE);
+        BaseMod.addRelicToCustomPool(new DetachableThumb(), COLOR_PURPLE);
         //BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), COLOR_PURPLE);
         //BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), COLOR_PURPLE);
 
@@ -393,6 +394,7 @@ public class ShowmanMod implements
         UnlockTracker.markRelicAsSeen(MagnetizedGloves.ID);
         UnlockTracker.markRelicAsSeen(ChaosConfetti.ID);
         UnlockTracker.markRelicAsSeen(HeartOfTheCards.ID);
+        UnlockTracker.markRelicAsSeen(DetachableThumb.ID);
         logger.info("Done adding relics!");
     }
 

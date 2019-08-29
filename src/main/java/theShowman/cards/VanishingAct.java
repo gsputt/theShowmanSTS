@@ -38,6 +38,7 @@ public class VanishingAct extends AbstractDynamicCard {
     public VanishingAct() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = CARD_REMOVE_AMOUNT;
+        this.tags.add(CardTags.HEALING);
         FleetingField.fleeting.set(this, true);
     }
 

@@ -18,7 +18,7 @@ public class KiblerFlick extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("KiblerFlick");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("KiblerFlick.png");
     // /TEXT DECLARATION/
 
 

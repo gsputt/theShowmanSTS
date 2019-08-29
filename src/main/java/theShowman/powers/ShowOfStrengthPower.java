@@ -28,8 +28,8 @@ public class ShowOfStrengthPower extends TwoAmountPower implements CloneablePowe
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ShowOfStrength84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ShowOfStrength32.png"));
 
     public ShowOfStrengthPower(final AbstractCreature owner, final int amount, final int amount2) {
         this.name = NAME;
