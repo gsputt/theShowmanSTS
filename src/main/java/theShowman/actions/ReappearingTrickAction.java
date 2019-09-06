@@ -1,12 +1,9 @@
 package theShowman.actions;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
 
 import java.util.ArrayList;
@@ -42,15 +39,16 @@ public class ReappearingTrickAction extends AbstractGameAction {
         {
             AbstractCard card = exhaustList.get(i);
             //exhaustList.remove(card);
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(card, 1, true, true));
+            //AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(card, 1, true, true));
+            AbstractDungeon.effectsQueue.add(new ShowCardAndAddToDrawPileEffect(card.makeSameInstanceOf(), true, false));
 
-            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
-                @Override
-                public void update() {
+            //AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            //    @Override
+            //    public void update() {
                     AbstractDungeon.player.exhaustPile.removeCard(card);
-                    this.isDone = true;
-                }
-            });
+            //        this.isDone = true;
+            //    }
+            //});
 
             //AbstractDungeon.player.drawPile.addToRandomSpot(card);
         }

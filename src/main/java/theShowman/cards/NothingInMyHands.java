@@ -45,7 +45,12 @@ public class NothingInMyHands extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NothingInMyHandsPower(p, this.upgraded,this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NothingInMyHandsPower(p, this.upgraded, this.magicNumber), this.magicNumber));
+        if(p.hasPower(NothingInMyHandsPower.POWER_ID) && this.upgraded)
+        {
+            NothingInMyHandsPower power = (NothingInMyHandsPower) p.getPower(NothingInMyHandsPower.POWER_ID);
+            power.upgraded = true;
+        }
     }
 
 
