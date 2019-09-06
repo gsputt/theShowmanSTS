@@ -1,11 +1,13 @@
 package theShowman.cards;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BufferPower;
 import theShowman.ShowmanMod;
+import theShowman.effects.HatTrickVFX;
 import theShowman.powers.HatTrickPower;
 
 import static theShowman.ShowmanMod.makeCardPath;
@@ -45,6 +47,7 @@ public class HatTrick extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new HatTrickVFX(p)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BufferPower(p, this.magicNumber), this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new HatTrickPower(p, this.magicNumber), this.magicNumber));
     }
