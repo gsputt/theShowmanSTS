@@ -50,7 +50,7 @@ public class NowYouDontAction extends AbstractGameAction {
             this.isDone = true;
             return;
         }*/
-        else if(this.isRandom)
+        else if(this.isRandom || this.p.drawPile.size() == 1)
         {
             AbstractCard card1 = (AbstractCard)this.p.drawPile.group.get(AbstractDungeon.cardRandomRng.random(AbstractDungeon.player.drawPile.group.size() - 1));
             positionCard(card1);
