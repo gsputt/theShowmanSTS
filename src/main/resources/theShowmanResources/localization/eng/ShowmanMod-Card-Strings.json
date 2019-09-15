@@ -365,7 +365,7 @@
   },
   "theShowman:KiblerFlick": {
     "NAME": "Kibler Flick",
-    "DESCRIPTION": "Deal !D! damage. Apply that much Vulnerable"
+    "DESCRIPTION": "Deal !D! damage. NL Apply that much Vulnerable."
   },
   "theShowman:SpeechCard": {
     "NAME": "Ladies and Gentlemen...",
@@ -414,8 +414,8 @@
   },
   "theShowman:ParadigmPerformance": {
     "NAME": "Paradigm Sift",
-    "DESCRIPTION": "Deal !D! damage. NL Gain [E]. NL Exhaust your draw pile and shuffle your Exhaust pile into your draw pile simultaneously. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain [E] [E]. NL Exhaust your draw pile and shuffle your Exhaust pile into your draw pile simultaneously. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust your draw pile and shuffle your Exhaust pile into your draw pile simultaneously. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust your draw pile and shuffle your Exhaust pile into your draw pile simultaneously. NL Exhaust."
   },
   "theShowman:ImpromptuFlourish": {
     "NAME": "Impromptu Flourish",

@@ -117,25 +117,42 @@ public class VentriloquismPower extends AbstractPower implements CloneablePowerI
         }
 
         ArrayList<AbstractCard> drawPile = new ArrayList<>(AbstractDungeon.player.drawPile.group);
-        if(drawPile.isEmpty())
-        {
-            drawPile = new ArrayList<>(AbstractDungeon.player.drawPile.group);
-        }
         ArrayList<AbstractCard> exhaustPile = new ArrayList<>(AbstractDungeon.player.exhaustPile.group);
         if(!(drawPile.isEmpty() || exhaustPile.isEmpty())) {
             for (int i = 0; i < this.amount; i++) {
                 if (drawPile.size() > 0 && exhaustPile.size() > 0) {
-                    AbstractCard drawPileCard = drawPile.get(AbstractDungeon.cardRandomRng.random(drawPile.size() - 1));
-                    AbstractCard exhaustPileCard = exhaustPile.get(AbstractDungeon.cardRandomRng.random(exhaustPile.size() - 1));
-                    VentriloquismField.linked.set(drawPileCard, exhaustPileCard);
-                    VentriloquismField.linked.set(exhaustPileCard, drawPileCard);
-                    //ShowmanMod.logger.info("Linked: " + drawPileCard + " to " + exhaustPileCard);
-                    drawPile.remove(drawPileCard);
-                    exhaustPile.remove(exhaustPileCard);
+                    AbstractCard drawPileCard = null;
+                    AbstractCard exhaustPileCard = null;
+                    while(drawPile.size() > 0 && (drawPileCard == null || drawPileCard.cost == -2))
+                    {
+                        drawPileCard = pickCard(drawPile);
+                    }
+                    while(exhaustPile.size() > 0 && (exhaustPileCard == null || exhaustPileCard.cost == -2))
+                    {
+                        exhaustPileCard = pickCard(exhaustPile);
+                    }
+                    if(drawPileCard != null && exhaustPileCard != null) {
+                        VentriloquismField.linked.set(drawPileCard, exhaustPileCard);
+                        VentriloquismField.linked.set(exhaustPileCard, drawPileCard);
+                        //ShowmanMod.logger.info("Linked: " + drawPileCard + " to " + exhaustPileCard);
+                    }
                 }
             }
             drawPile.clear();
             exhaustPile.clear();
+        }
+    }
+
+    private AbstractCard pickCard(ArrayList<AbstractCard> chooseFrom)
+    {
+        AbstractCard chosenCard = chooseFrom.get(AbstractDungeon.cardRandomRng.random(chooseFrom.size() - 1));
+        chooseFrom.remove(chosenCard);
+        if(chosenCard.cost == -2)
+        {
+            return null;
+        }
+        else {
+            return chosenCard;
         }
     }
 

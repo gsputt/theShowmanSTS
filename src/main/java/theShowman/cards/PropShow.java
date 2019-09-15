@@ -77,7 +77,7 @@ public class PropShow extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_DRAW);
-            upgradeDamage(UPGRADE_DAMAGE);
+            //upgradeDamage(UPGRADE_DAMAGE);
             initializeDescription();
         }
     }

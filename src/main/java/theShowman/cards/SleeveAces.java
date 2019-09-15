@@ -38,6 +38,7 @@ public class SleeveAces extends AbstractDynamicCard {
     public SleeveAces() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = COPY_AMOUNT;
+        this.exhaust = true;
     }
 
 

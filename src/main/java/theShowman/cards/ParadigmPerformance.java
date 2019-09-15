@@ -2,7 +2,6 @@ package theShowman.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -43,7 +42,7 @@ public class ParadigmPerformance extends AbstractDynamicCard {
     public ParadigmPerformance() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
-        this.baseMagicNumber = this.magicNumber = ENERGY_GAIN;
+        //this.baseMagicNumber = this.magicNumber = ENERGY_GAIN;
         this.exhaust = true;
     }
 
@@ -53,7 +52,7 @@ public class ParadigmPerformance extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.magicNumber));
+        //AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new SwapDrawAndExhaustPileAction());
     }
 
@@ -69,7 +68,7 @@ public class ParadigmPerformance extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
-            upgradeMagicNumber(UPGRADE_ENERGY_GAIN);
+            //upgradeMagicNumber(UPGRADE_ENERGY_GAIN);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

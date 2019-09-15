@@ -1,6 +1,5 @@
 package theShowman.cards;
 
-import basemod.helpers.BaseModCardTags;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -43,7 +42,7 @@ public class VanishingDefend extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
         FleetingField.fleeting.set(this, false);
-        tags.add(BaseModCardTags.BASIC_DEFEND);
+        //tags.add(BaseModCardTags.BASIC_DEFEND);
     }
 
 

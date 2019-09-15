@@ -1,6 +1,5 @@
 package theShowman.cards;
 
-import basemod.helpers.BaseModCardTags;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -45,7 +44,7 @@ public class VanishingStrike extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         FleetingField.fleeting.set(this, false);
-        tags.add(BaseModCardTags.BASIC_STRIKE);
+        //tags.add(BaseModCardTags.BASIC_STRIKE);
         tags.add(CardTags.STRIKE);
     }
 
