@@ -1,21 +1,13 @@
 package theShowman.actions;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
-import com.megacrit.cardcrawl.vfx.combat.CardPoofEffect;
 
 import java.util.ArrayList;
-
-import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
 
 public class CardPickup52Action extends AbstractGameAction {
     AbstractPlayer p;
@@ -60,9 +52,7 @@ public class CardPickup52Action extends AbstractGameAction {
         {
             AbstractCard card = exhaustList.get(AbstractDungeon.cardRng.random(exhaustList.size() - 1));
 
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(card, 1, true, true));
-
-            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            AbstractDungeon.actionManager.addToTop(new AbstractGameAction() {
                 @Override
                 public void update() {
                     AbstractDungeon.player.exhaustPile.removeCard(card);
@@ -70,9 +60,9 @@ public class CardPickup52Action extends AbstractGameAction {
                 }
             });
 
+            AbstractDungeon.actionManager.addToTop(new MakeTempCardInDrawPileAction(card, 1, true, true));
 
             exhaustList.remove(card);
-
 
             this.isDone = true;
         }

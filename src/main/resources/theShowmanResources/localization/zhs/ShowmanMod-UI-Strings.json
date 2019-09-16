@@ -1,0 +1,35 @@
+{
+  "theShowman:NowYouDontAction": {
+    "TEXT": ["从抽牌堆中选择一张牌消耗。", "从抽牌堆中选择任意张牌消耗。"]
+  },
+  "theShowman:AndBehindCurtainAction": {
+    "TEXT": ["选择一张牌加入你的手牌。", "选择 ", " 张牌加入你的手牌。"]
+  },
+  "theShowman:SleeveAcesAction": {
+    "TEXT": ["选择一张牌将它的复制品加入你的弃牌堆和抽牌堆。", "将消耗堆中的一张非状态非诅咒牌的 ", " 份复制品加入你的抽牌堆和弃牌堆。"]
+  },
+  "theShowman:ForMyNextTrickAction": {
+    "TEXT": ["消耗，并将他的耗能降低1的复制品下一回合加入你的手牌。"]
+  },
+  "theShowman:NowYouSeeMeAction": {
+    "TEXT": ["选择你弃牌堆的一张牌消耗。"]
+  },
+  "theShowman:StackTheDeckAction": {
+    "TEXT": ["将它加入你抽牌堆的顶部。"]
+  },
+  "theShowman:VanishingActAction": {
+    "TEXT": ["从手牌和牌组中移出."]
+  },
+  "theShowman:DisembodiedHandAction": {
+    "TEXT": ["消耗，并在下一回合开始时打出。"]
+  },
+  "theShowman:KnockThePileAction": {
+    "TEXT": ["至多选择 ", " 张牌从你的抽牌堆中消耗。"]
+  },
+  "theShowman:GrandGambitAction": {
+    "TEXT": ["消耗。抽消耗数量的牌。", "消耗。抽消耗数量+ ", " 的牌。"]
+  },
+  "theShowman:BottomDoubleDealAction": {
+    "TEXT": ["选择一张技能或攻击牌加入你的手牌。", "选择一张技能牌加入你的手牌。", "选择一张攻击牌加入你的手牌。"]
+  }
+}

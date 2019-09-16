@@ -1,0 +1,434 @@
+{
+  "theShowman:DefaultCommonAttack": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL [#0000ff]这是颜色代码。[]"
+  },
+  "theShowman:DefaultCommonSkill": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点格挡 。 NL theShowman:Multiword_Keyword。"
+  },
+  "theShowman:DefaultCommonPower": {
+    "NAME": "Hold Place",
+    "DESCRIPTION": "获得 !M! theShowman:关键字 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! theShowman:关键字 。"
+  },
+  "theShowman:DefaultUncommonAttack": {
+    "NAME": "打耳光",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "theShowman:DefaultUncommonSkill": {
+    "NAME": "加强防御",
+    "DESCRIPTION": "获得 !B! 层多层护甲 。数值受影响 格挡 的效果加成。"
+  },
+  "theShowman:DefaultUncommonPower": {
+    "NAME": "怪异",
+    "DESCRIPTION": "获得 X theShowman:关键字 。",
+    "UPGRADE_DESCRIPTION": "获得 X +1 theShowman:关键字 。"
+  },
+  "theShowman:DefaultRareAttack": {
+    "NAME": "触摸",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "theShowman:DefaultRareSkill": {
+    "NAME": "对于每个循环 x2",
+    "DESCRIPTION": "给予所有敌人 !M! 层 易伤 2 次。",
+    "UPGRADE_DESCRIPTION": "给予所有敌人 !M! 层 易伤 3 次。"
+  },
+  "theShowman:DefaultRarePower": {
+    "NAME": "任务形态",
+    "DESCRIPTION": "在你的回合开始时，打出一张 触摸 。"
+  },
+  "theShowman:DefaultAttackWithVariable": {
+    "NAME": "特殊打击",
+    "DESCRIPTION": "造成 !D! 点伤害 [E] 次。 NL （共造成 !theShowman:ENERGY_DAMAGE! 点伤害。)"
+  },
+  "theShowman:DefaultSecondMagicNumberSkill": {
+    "NAME": "Cool 2 Number Card",
+    "DESCRIPTION": "给予 !M! 易伤 和 !theShowman:SecondMagic! 层 中毒 。"
+  },
+  "theShowman:OrbSkill": {
+    "NAME": "Get Orb",
+    "DESCRIPTION": "生成 1 默认 充能球。"
+  },
+  "theShowman:ExtraWideSleeves": {
+    "NAME": "超宽袖子",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL theshowman:堆叠 。"
+  },
+  "theShowman:FullHouse": {
+    "NAME": "满堂红",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL theshowman:堆叠 。"
+  },
+  "theShowman:StrongArm": {
+    "NAME": "有力的手臂",
+    "DESCRIPTION": "直到回合结束前获得 !M! 点 力量 。 NL theshowman:堆叠 。"
+  },
+  "theShowman:ExaggeratedArmSweeps": {
+    "NAME": "夸张的手臂扫掠",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL theshowman:堆叠 。 NL theshowman:堆叠 。 NL theshowman:堆叠 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL theshowman:堆叠 。 NL theshowman:堆叠 。"
+  },
+  "theShowman:BasicStrike": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "theShowman:BasicDefend": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
+  },
+  "theShowman:VanishingStrike": {
+    "NAME": "消逝打击",
+    "DESCRIPTION": "造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL  即逝 。"
+  },
+  "theShowman:VanishingDefend": {
+    "NAME": "消逝防御",
+    "DESCRIPTION": "获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 即逝 。"
+  },
+  "theShowman:CardPickup52": {
+    "NAME": "52 牌榜",
+    "DESCRIPTION": "将消耗堆中的随机 !M! 张 theshowman:角色 牌加入你的抽牌堆。"
+  },
+  "theShowman:SleeveStash": {
+    "NAME": "袖套",
+    "DESCRIPTION": "本回合至多保留 !M! 张牌。 NL 抽一张牌。"
+  },
+  "theShowman:NowYouSeeMe": {
+    "NAME": "现在你看见我了",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将你抽牌堆中随机的一张牌 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 将你抽牌堆中的一张牌 消耗 。"
+  },
+  "theShowman:SleightedHand": {
+    "NAME": "灵巧的手",
+    "DESCRIPTION": "目标敌人本回合失去 !M! 点 力量 。",
+    "UPGRADE_DESCRIPTION": "所有敌人本回合失去 !M! 点 力量 。"
+  },
+  "theShowman:PocketSand": {
+    "NAME": "口袋装砂",
+    "DESCRIPTION": "给予 !M! 层 虚弱 和 !M! 层 易伤 。"
+  },
+  "theShowman:FlashyFlourish": {
+    "NAME": "华而不实",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 当这张牌被 消耗 时，给予所有敌人 2 层 易伤 。"
+  },
+  "theShowman:Prestidigitation": {
+    "NAME": "魔术伎俩",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 消耗 你手牌中所有的状态和诅咒牌。"
+  },
+  "theShowman:NowYouDont": {
+    "NAME": "现在你不会了",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将你抽牌堆中随机的一张牌 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 将你抽牌堆中的一张牌 消耗 。"
+  },
+  "theShowman:GotYourNose": {
+    "NAME": "鼻子一击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。"
+  },
+  "theShowman:RazzleDazzle": {
+    "NAME": "迷魂记",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL 抽一张牌。"
+  },
+  "theShowman:WildFlourish": {
+    "NAME": "野蛮发展",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 当这张牌被 消耗 时，对所有敌人造成 !D! 点伤害。"
+  },
+  "theShowman:AndBehindCurtain": {
+    "NAME": "幕后 #3……",
+    "DESCRIPTION": "将消耗堆中的 1 张 theshowman:角色 牌加入你的手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将消耗堆中的 !M! 张 theshowman:角色 牌加入你的手牌。 NL 消耗 。"
+  },
+  "theShowman:ThreeCardMonty": {
+    "NAME": "三牌猜一",
+    "DESCRIPTION": "抽一张牌。将抽到的牌的 !M! 张复制品加入你的手牌。"
+  },
+  "theShowman:PropManacles": {
+    "NAME": "道具手铐",
+    "DESCRIPTION": "你的消耗堆中每有一张牌，将目标敌人的 力量 本回合降低 1 点。",
+    "UPGRADE_DESCRIPTION": "你的消耗堆中每有一张牌，将所有敌人的 力量 本回合降低 1 点。"
+  },
+  "theShowman:ForMyNextTrick": {
+    "NAME": "为了我的下一个戏法！",
+    "DESCRIPTION": "将你手牌中的一张牌 消耗 ， NL 下一回合，将这张牌的 !M! 张复制品加入你的手牌。它们的耗能在加入的回合降低1。 NL 消耗 。"
+  },
+  "theShowman:ParlorTrick": {
+    "NAME": "客厅戏法",
+    "DESCRIPTION": "抽 !M! 张牌。 NL theshowman:堆叠 。"
+  },
+  "theShowman:IsThisYourCard": {
+    "NAME": "这是你的牌？",
+    "DESCRIPTION": "你的消耗堆每有一张牌，造成 !D! 点伤害。"
+  },
+  "theShowman:StackTheDeck": {
+    "NAME": "弄虚作假",
+    "DESCRIPTION": "在你的回合结束时，至多将手牌中的 !M! 张牌加入你的抽牌堆顶部。",
+    "UPGRADE_DESCRIPTION": "在你的回合结束时，至多将手牌中的 !M! 张牌加入你的抽牌堆顶部。"
+  },
+  "theShowman:ByrdBGone": {
+    "NAME": "异鸟已死",
+    "DESCRIPTION": "每当你受到攻击但没有失去生命，获得 !M! 层 荆棘 。"
+  },
+  "theShowman:PotentialUnleashed": {
+    "NAME": "潜力释放",
+    "DESCRIPTION": "每当你抽一张牌时，对所有敌人造成 !M! 点伤害。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": "每当你抽一张牌时，对所有敌人造成 !M! 点伤害。"
+  },
+  "theShowman:DivertingDisplay": {
+    "NAME": "转移视线",
+    "DESCRIPTION": "每当你 消耗 了一张牌，给予所有敌人 !M! 层 易伤 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 每当你 消耗 了一张牌，给予所有敌人 !M! 层 易伤 。"
+  },
+  "theShowman:SetTheStage": {
+    "NAME": "摆好舞台",
+    "DESCRIPTION": "抽满手牌。",
+    "UPGRADE_DESCRIPTION": "抽满手牌。 NL 本回合保留任意数量的手牌。"
+  },
+  "theShowman:VanDeGraaffsRevenge": {
+    "NAME": "范德格拉夫的复仇",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将 !M! 张晕眩加入你的手牌，抽牌堆和弃牌堆。"
+  },
+  "theShowman:CrashingLights": {
+    "NAME": "破坏射线",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将一张晕眩加入你的抽牌堆。"
+  },
+  "theShowman:OpenTheCurtain": {
+    "NAME": "打开幕布",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将一张晕眩加入你的抽牌堆。"
+  },
+  "theShowman:MirrorMirror": {
+    "NAME": "返场！",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将你本回合打出的下一张牌的复制品加入你的手牌。"
+  },
+  "theShowman:SecondAct": {
+    "NAME": "第二幕",
+    "DESCRIPTION": "将手牌中的 2 张牌 消耗 。 NL 获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "将手牌中的 2 张牌 消耗 。 NL 获得 [E] [E] 。 "
+  },
+  "theShowman:HypeTheCrowd": {
+    "NAME": "炒作群众",
+    "DESCRIPTION": "获得 !M! [E] 。 NL theshowman:堆叠 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! [E] 。 NL theshowman:堆叠 。",
+    "EXTENDED_DESCRIPTION": ["获得 ","[E] 。 ", "[E] [E] 。 ", "!M! [E] 。 ", "NL theshowman:堆叠 。"]
+  },
+  "theShowman:SybilFlourish": {
+    "NAME": "西比尔繁茂",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 当这张牌被消耗时，获得 [E] [E] 。"
+  },
+  "theShowman:CurtainCall": {
+    "NAME": "谢幕",
+    "DESCRIPTION": "每当你本回合 消耗 一张牌时，获得 !B! 点 格挡 。 NL 至多 消耗 手牌中的 !M! 张牌。 NL 数值受影响 格挡 的效果加成。"
+  },
+  "theShowman:WardrobeWarding": {
+    "NAME": "衣柜保管",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 本回合至多保留 !M! 张牌。"
+  },
+  "theShowman:AGrossDisplay": {
+    "NAME": "粗俗的表演",
+    "DESCRIPTION": "固有 。 NL 虚无 。 NL 造成 !D! 点伤害 !M! 次。 NL theshowman:堆叠 。",
+    "UPGRADE_DESCRIPTION": "虚无 。 NL 造成 !D! 点伤害 !M! 次。 NL theshowman:堆叠 。"
+  },
+  "theShowman:HatTrick": {
+    "NAME": "帽子戏法",
+    "DESCRIPTION": "本回合获得 !M! theshowman:缓冲 。 消耗 。"
+  },
+  "theShowman:SawnInHalf": {
+    "NAME": "锯成两半",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将目标的力量降低到0。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 将目标的力量降低到0。  NL 给予 !M! 层 虚弱 。"
+  },
+  "theShowman:KnockThePile": {
+    "NAME": "敲打那堆",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 检视你抽牌堆顶部的 !M! 张牌。 NL 将其中任意张牌消耗。"
+  },
+  "theShowman:DapperFlourish": {
+    "NAME": "衣冠楚楚",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 当这张牌被 消耗 时，本回合获得 1 层 theshowman:缓冲 。"
+  },
+  "theShowman:UpMySleeve": {
+    "NAME": "我的袖子",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将消耗堆的一张牌加入你的手牌。"
+  },
+  "theShowman:PropShow": {
+    "NAME": "道具秀",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 抽 !M! 张牌。 NL theshowman:即兴 。"
+  },
+  "theShowman:WhirlingDervish": {
+    "NAME": "回旋舞",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 X 次。 NL theshowman:堆叠 。"
+  },
+  "theShowman:Stupefy": {
+    "NAME": "昏迷咒",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将 !M! 张晕眩加入你的手牌。"
+  },
+  "theShowman:FistFullOfCards": {
+    "NAME": "满手牌",
+    "DESCRIPTION": "每有一张手牌，造成 !D! 点伤害。"
+  },
+  "theShowman:VanishingAct": {
+    "NAME": "消失之法",
+    "DESCRIPTION": "将1张牌从你的手牌和牌组中移除。 NL 即逝 。",
+    "UPGRADE_DESCRIPTION": "将2张牌从你的手牌和牌组中移除。 NL 即逝 。"
+  },
+  "theShowman:WillingVolunteer": {
+    "NAME": "志愿者",
+    "DESCRIPTION": "在敌人回合第一次攻击你的伤害变为攻击敌人自身。 NL 效果持续到你下一回合开始时。",
+    "UPGRADE_DESCRIPTION": "在敌人回合前两次攻击你的伤害变为攻击敌人自身。 NL 效果持续到你下一回合开始时。"
+  },
+  "theShowman:MaximumDistraction": {
+    "NAME": "分散注意力",
+    "DESCRIPTION": "敌人每有 !M! 层 易伤 ，它额外受到 25% 的伤害。"
+  },
+  "theShowman:NothingInMyHands": {
+    "NAME": "开始思考",
+    "DESCRIPTION": "固有 。 NL 在你的回合结束时，将手牌消耗而不是将其丢弃。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 在你的回合结束时，将手牌消耗而不是将其丢弃。 NL 每 消耗 一张牌，将等量的晕眩加入手牌并消耗。"
+  },
+  "theShowman:ThrowingCards": {
+    "NAME": "投掷卡牌",
+    "DESCRIPTION": "每当你 消耗 一张牌时，对随机一名敌人造成 !M! 点伤害。"
+  },
+  "theShowman:Toro": {
+    "NAME": "托罗！",
+    "DESCRIPTION": "每当你受到攻击时，给予攻击者 !M! 层 易伤 。"
+  },
+  "theShowman:BlackJack": {
+    "NAME": "黑杰克",
+    "DESCRIPTION": "造成 !D! 点伤害 !theShowman:SecondMagic! 次。 NL theshowman:堆叠 。 NL （ theshowman:堆叠 只能降低这张牌的伤害）"
+  },
+  "theShowman:OneUp": {
+    "NAME": "胜人一筹",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果敌人带有 易伤 ，抽 !M! 张牌。"
+  },
+  "theShowman:StartlingShowmanship": {
+    "NAME": "惊人的表演技巧",
+    "DESCRIPTION": "给予 !M! 层 易伤 。 NL theshowman:堆叠 。"
+  },
+  "theShowman:BafflingShuffle": {
+    "NAME": "迷惑抽牌",
+    "DESCRIPTION": "抽1张牌。 NL theshowman:即兴 。"
+  },
+  "theShowman:Columbify": {
+    "NAME": "异鸟化",
+    "DESCRIPTION": "本回合将一名敌人替换为异鸟。",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": ["我不能将异鸟异鸟化。"]
+  },
+  "theShowman:Showstopper": {
+    "NAME": "炫耀者",
+    "DESCRIPTION": "随机顺序将耗堆中的所有 theshowman:角色 牌打出。 NL 抹除 。",
+    "UPGRADE_DESCRIPTION": "随机顺序将耗堆中的所有 theshowman:角色 牌打出。 NL 抹除 。"
+  },
+  "theShowman:ItsShowtime": {
+    "NAME": "表演时间",
+    "DESCRIPTION": "随机顺序将耗堆中的X张 theshowman:角色 牌打出。",
+    "UPGRADE_DESCRIPTION": "随机顺序将耗堆中的X+1张 theshowman:角色 牌打出。"
+  },
+  "theShowman:BaitedBreath": {
+    "NAME": "诱饵呼吸",
+    "DESCRIPTION": "获得等于敌人 易伤 层数的 格挡 。",
+    "UPGRADE_DESCRIPTION": "获得等于所有敌人 易伤 层数的 格挡 。"
+  },
+  "theShowman:GrandGambit": {
+    "NAME": "大赌注",
+    "DESCRIPTION": "消耗 任意数量的手牌，抽等量手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "消耗 任意数量的手牌，抽等量+1的手牌。 NL 消耗 。"
+  },
+  "theShowman:ObjectPermanence": {
+    "NAME": "客体永久性",
+    "DESCRIPTION": "本场战斗所有 theshowman:临时 效果变为永久。 NL 抹除 。"
+  },
+  "theShowman:BottomDoubleDeal": {
+    "NAME": "发底牌",
+    "DESCRIPTION": "将抽牌堆中的一张技能或者攻击牌加入手牌。",
+    "UPGRADE_DESCRIPTION": "将抽牌堆中的一张技能和攻击牌加入手牌。",
+    "EXTENDED_DESCRIPTION": ["抽2"]
+  },
+  "theShowman:Presto": {
+    "NAME": "魔术师和兔子",
+    "DESCRIPTION": "将消耗堆中的一张随机非状态非诅咒牌加入你的手牌。 NL 本回合它的耗能变为0。"
+  },
+  "theShowman:SubtleMisdirections": {
+    "NAME": "微妙的误导",
+    "DESCRIPTION": "每当你在回合内前1次抽到状态牌，将其 消耗 并抽一张牌。",
+    "UPGRADE_DESCRIPTION": "每当你在回合内前2次抽到状态牌，将其 消耗 并抽一张牌。"
+  },
+  "theShowman:RaptMisdirection": {
+    "NAME": "并列杂耍",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 易伤 层数增加这张牌的伤害。"
+  },
+  "theShowman:ReappearingTrick": {
+    "NAME": "再现手法",
+    "DESCRIPTION": "对所有敌人造成 !D! 伤害。 NL 将消耗堆中所有的非诅咒非状态牌加入你的抽牌堆。"
+  },
+  "theShowman:MischiefManaged": {
+    "NAME": "恶作剧完毕",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果这张牌对带有 易伤 的敌人造成了未被格挡的伤害， 获得等于这名敌人易伤层数的 临时 力量 。"
+  },
+  "theShowman:KiblerFlick": {
+    "NAME": "基布勒轻弹",
+    "DESCRIPTION": "造成 !D! 点伤害。 给予等量层数的 易伤 。"
+  },
+  "theShowman:SpeechCard": {
+    "NAME": "女士们，先生们……",
+    "DESCRIPTION": "开始表演 。 NL 抽 1 张牌。 NL theshowman:即兴 。 NL 固有 。 NL 即逝 。",
+    "UPGRADE_DESCRIPTION":"开始表演 。 NL 抽 1 张牌。 NL theshowman:即兴 。 NL 固有 。 NL 消耗 。",
+    "EXTENDED_DESCRIPTION": ["Ladies and Gentlemen。。。",
+      "蜘蛛目和节肢动物", "kdx和土豆", "异蛇和史莱姆", "异鸟和异鸟", "男孩和女孩", "建造机和邪教徒", "地精们还有大块头", "奴隶贩子和……嗯……奴隶贩子？", "BD and BD's stupid Pylons",
+      "这不是Jedi的把戏！这是", "你一定会的 Vex'd by", "有请", "咔咔咔", "不费吹灰之力", "我们正在潜入", "准备受到启发", "请把注意力集中在", "让你的眼睛吞噬",
+      "大大大大大伤害", "活泼可爱火狐的火爆终结技！！", "是的", "咔咔咔咔！", "高塔奇观", "充实商场！", "让商店睡觉！", "掠夺柱子", "塔的倒塌",
+      "等等等等"]
+  },
+  "theShowman:SleightedFlourish": {
+    "NAME": "巧夺天工",
+    "DESCRIPTION": "给予 !M! 层 易伤 。 NL 当这张牌被 消耗 时， 将这张牌以及消耗堆中的 !theShowman:SecondMagic! 张随机 theshowman:角色 牌加入你的抽牌堆。"
+  },
+  "theShowman:SleeveAces": {
+    "NAME": "袖王牌",
+    "DESCRIPTION": "将消耗堆中的一张非状态非诅咒牌的1份复制品加入你的抽牌堆和弃牌堆。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将消耗堆中的一张非状态非诅咒牌的 !M! 份复制品加入你的抽牌堆和弃牌堆。 NL 消耗 。"
+  },
+  "theShowman:PerfectedPerformance": {
+    "NAME": "完美的表现",
+    "DESCRIPTION": "每回合抽到的前 !M! 张牌 theshowman:即兴 。"
+  },
+  "theShowman:HareBrainedScheme": {
+    "NAME": "胡思乱想的计划",
+    "DESCRIPTION": "抽 !M! 张牌。 NL theshowman:即兴 。"
+  },
+  "theShowman:ThespianForm": {
+    "NAME": "戏剧形态",
+    "DESCRIPTION": "每当你 消耗 了一张牌，所有消耗相关的效果额外触发 !M! 次。",
+    "UPGRADE_DESCRIPTION": "每当你 消耗 了一张牌，所有消耗相关的效果额外触发 !M! 次。"
+  },
+  "theShowman:StageHook": {
+    "NAME": "布置舞台",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。 NL theshowman:堆叠 。"
+  },
+  "theShowman:TroublingTrope": {
+    "NAME": "令人不安的辞藻",
+    "DESCRIPTION": "固有 。 NL 自动打出 。 NL 对所有敌人造成 !D! 点伤害。 NL 本场战斗将这张牌的伤害提高 !M! 。 NL 将这张牌加入你的抽牌堆。"
+  },
+  "theShowman:DisembodiedHand": {
+    "NAME": "隐秘",
+    "DESCRIPTION": "将手牌中的随机一张牌 消耗 。 NL 在下一回合将它打出。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将手牌中的一张牌 消耗 。 NL 在下一回合将它打出。 NL 消耗 。"
+  },
+  "theShowman:ParadigmPerformance": {
+    "NAME": "范例筛选",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 [E] 。 NL 消耗 你的抽牌堆同时将消耗堆的牌加入你的抽牌堆。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 [E] [E] 。 NL 消耗 你的抽牌堆同时将消耗堆的牌加入你的抽牌堆。 NL 消耗 。"
+  },
+  "theShowman:ImpromptuFlourish": {
+    "NAME": "即兴发挥",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽一张牌。 NL theshowman:即兴 。 NL 当这张牌被消耗时，获得 !B! 点 格挡 并抽一张牌。 NL theshowman:即兴 。"
+  },
+  "theShowman:Ventriloquism": {
+    "NAME": "腹语术",
+    "DESCRIPTION": "你的回合开始时，随机选择消耗堆和抽牌堆的一张牌。 NL 每当你在那个回合第一次打出时，打出另外一张的复制品。",
+    "UPGRADE_DESCRIPTION": "你的回合开始时，随机选择消耗堆和抽牌堆的一张牌。 NL 每当你在那个回合打出时，打出另外一张的复制品。"
+  },
+  "theShowman:ShowOfStrength": {
+    "NAME": "展示力量",
+    "DESCRIPTION": "每当你消耗了一张牌，下一回合开始时，直到回合结束前获得 !M! 点 力量 。",
+    "UPGRADE_DESCRIPTION": "每当你消耗了一张牌，本回合直到回合结束前获得 !theShowman:SecondMagic! 点 力量 。下一回合开始时，直到回合结束前获得 !M! 点 力量 。"
+  }
+}

@@ -1,7 +1,9 @@
 package theShowman.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -53,8 +55,18 @@ public class SleightedFlourish extends AbstractDynamicCard {
     @Override
     public void triggerOnExhaust()
     {
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(this, 1, true, true));
-        AbstractDungeon.actionManager.addToBottom(new RemoveSleightedFlourishFromExhaustPileAction(this));
+        AbstractCard card = this;
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
+                if(AbstractDungeon.player.exhaustPile.contains(card)) {
+                    AbstractDungeon.actionManager.addToTop(new RemoveSleightedFlourishFromExhaustPileAction(card));
+                    AbstractDungeon.actionManager.addToTop(new MakeTempCardInDrawPileAction(card, 1, true, true));
+                }
+                this.isDone = true;
+            }
+        });
+
         AbstractDungeon.actionManager.addToBottom(new CardPickup52Action(this.defaultSecondMagicNumber));
     }
 

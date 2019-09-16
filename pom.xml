@@ -6,7 +6,7 @@
     <groupId>theshowman</groupId>
     <artifactId>TheShowman</artifactId>
     <name>The Showman</name>
-    <version>0.1.25</version>
+    <version>0.1.27</version>
     <description>A tribute to the Original Slay the Spire Characters</description>
 
     <properties>

@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -268,6 +269,20 @@ public class ShowmanMod implements
     @SuppressWarnings("unused")
     public static void initialize() {
         logger.info("Initializing theShowman Mod. Feed Cookies to continue");
+        System.out.println("         _____\n" +
+                "      __/   _/   \n" +
+                "   __/    _/   \n" +
+                "  /      /         \n" +
+                " /     ()\\___\n" +
+                "|            \\__            _\n" +
+                "|               \\___     __/ |\n" +
+                "|   ()        ()    \\___/    |\n" +
+                "|                            |\n" +
+                "|                    ()      |\n" +
+                " \\         ()                /\n" +
+                "  \\__                     __/\n" +
+                "     \\__         ()    __/\n" +
+                "        \\_____________/");
         ShowmanMod defaultmod = new ShowmanMod();
         logger.info("theShowman Mod Initialized - Cookies have been fed");
     }
@@ -632,36 +647,11 @@ public class ShowmanMod implements
         logger.info("FEED DEM COOKIES");
         logger.info("Beginning to edit strings for mod with ID: " + getModID());
 
-        // CardStrings
-        BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/eng/ShowmanMod-Card-Strings.json");
-
-        // PowerStrings
-        BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/eng/ShowmanMod-Power-Strings.json");
-
-        // RelicStrings
-        BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/eng/ShowmanMod-Relic-Strings.json");
-
-        // Event Strings
-        BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/eng/ShowmanMod-Event-Strings.json");
-
-        // PotionStrings
-        BaseMod.loadCustomStringsFile(PotionStrings.class,
-                getModID() + "Resources/localization/eng/ShowmanMod-Potion-Strings.json");
-
-        // CharacterStrings
-        BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/eng/ShowmanMod-Character-Strings.json");
-
-        // OrbStrings
-        BaseMod.loadCustomStringsFile(OrbStrings.class,
-                getModID() + "Resources/localization/eng/ShowmanMod-Orb-Strings.json");
-
-        BaseMod.loadCustomStringsFile(UIStrings.class,
-                        getModID() + "Resources/localization/eng/ShowmanMod-UI-Strings.json");
+        loadStringsWithLoc("eng");
+        if(Settings.language != Settings.GameLanguage.ENG)
+        {
+            loadStringsWithLoc(getLanguageString());
+        }
 
         logger.info("Done editing strings");
     }
@@ -681,7 +671,7 @@ public class ShowmanMod implements
         // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
 
         Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/ShowmanMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(getModID() + "Resources/localization/" + getLanguageString() + "/ShowmanMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
 
         if (keywords != null) {
@@ -730,4 +720,55 @@ public class ShowmanMod implements
     {
         ImproviseField.ImproviseRecording.set(AbstractDungeon.player, 0);
     }
+
+    private static void loadStringsWithLoc(String language)
+    {
+        // CardStrings
+        BaseMod.loadCustomStringsFile(CardStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Card-Strings.json");
+
+        // PowerStrings
+        BaseMod.loadCustomStringsFile(PowerStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Power-Strings.json");
+
+        // RelicStrings
+        BaseMod.loadCustomStringsFile(RelicStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Relic-Strings.json");
+
+        // Event Strings
+        BaseMod.loadCustomStringsFile(EventStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Event-Strings.json");
+
+        // PotionStrings
+        BaseMod.loadCustomStringsFile(PotionStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Potion-Strings.json");
+
+        // CharacterStrings
+        BaseMod.loadCustomStringsFile(CharacterStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Character-Strings.json");
+
+        // OrbStrings
+        BaseMod.loadCustomStringsFile(OrbStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Orb-Strings.json");
+
+        //UIStrings
+        BaseMod.loadCustomStringsFile(UIStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-UI-Strings.json");
+    }
+
+    private static String getLanguageString()
+    {
+        String stringToReturn;
+        switch(Settings.language)
+        {
+            case ZHS:
+                stringToReturn = "zhs";
+                break;
+            default:
+                stringToReturn = "eng";
+                break;
+        }
+        return stringToReturn;
+    }
+
 }

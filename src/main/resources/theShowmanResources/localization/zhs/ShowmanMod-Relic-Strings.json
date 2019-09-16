@@ -1,0 +1,72 @@
+{
+  "theShowman:ThirdTimeCharm": {
+    "NAME": "事不过三",
+    "FLAVOR": "33% of the time, it works, every time.",
+    "DESCRIPTIONS": [
+      "每打出 #b3 张牌，将第三张牌 #y消耗 并抽一张牌。"
+    ]
+  },
+  "theShowman:TrigonOfTrickery": {
+    "NAME": "诡计三角",
+    "FLAVOR": "Tricks to trick even the trickiest of tricksters.",
+    "DESCRIPTIONS": [
+      "替换 #r事不过三 [REMOVE_SPACE]。 NL 每打出 #b3 张牌，将第三张牌 #y消耗 。每消耗一张牌，抽一张牌。"
+    ]
+  },
+  "theShowman:Millstone": {
+    "NAME": "磨石",
+    "FLAVOR": "For milling your cards",
+    "DESCRIPTIONS": [
+      "#ytheshowman:堆叠 降低卡牌效果减少 #b2 。"
+    ]
+  },
+  "theShowman:ImprovRelic": {
+    "NAME": "假人即兴表演Vol. 2",
+    "FLAVOR": "整本书是作者即兴创作的。",
+    "DESCRIPTIONS": [
+      "#ytheshowman:即兴 你每场战斗的前 #b2 张牌。 [REMOVE_SPACE]."
+    ]
+  },
+  "theShowman:MagnetizedGloves": {
+    "NAME": "磁化手套",
+    "FLAVOR": "能让你手持更多的牌。",
+    "DESCRIPTIONS": [
+      "手牌数量上限增加 #b3 [REMOVE_SPACE]."
+    ]
+  },
+  "theShowman:ChaosConfetti": {
+    "NAME": "多彩纸屑",
+    "FLAVOR": "无多彩纸屑不成表演",
+    "DESCRIPTIONS": [
+      "每回合开始时获得 [E] 。每场战斗打出的第一张牌将其从牌组中 #r移除 。"
+    ]
+  },
+  "theShowman:HeartOfTheCards": {
+    "NAME": "纸牌之心",
+    "FLAVOR": "Believe in the heart of the cards!",
+    "DESCRIPTIONS": [
+      "每回合你第一次将要 #ytheshowman:抽牌溢出 时，将其打出。"
+    ]
+  },
+  "theShowman:DetachableThumb": {
+    "NAME": "可拆卸拇指",
+    "FLAVOR": "表演者必备。",
+    "DESCRIPTIONS": [
+      "每当你 #y消耗 了一张牌，它在打出前耗能变为0。"
+    ]
+  },
+  "theShowman:PlaceholderRelic": {
+    "NAME": "Placeholder Energy Relic",
+    "FLAVOR": "The snake is a friend.",
+    "DESCRIPTIONS": [
+      "Gain #b1 [E] ."
+    ]
+  },
+  "theShowman:PlaceholderRelic2": {
+    "NAME": "Placeholder Relic 2",
+    "FLAVOR": "You feel stronger.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b1 #yStrength."
+    ]
+  }
+}

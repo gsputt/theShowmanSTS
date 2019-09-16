@@ -1,0 +1,191 @@
+{
+  "theShowman:RetainThisTurnPower": {
+    "NAME": "本回合保留",
+    "DESCRIPTIONS": [
+      "在回合结束时， 至多 #y保留 ",
+      " 张牌。",
+      " 张牌。"
+    ]
+  },
+  "theShowman:ForMyNextTrickPower": {
+    "NAME": "为了我的下一个戏法！",
+    "DESCRIPTIONS": [
+      "它们的耗能那一个回合降低 #b1 。",
+      "You shouldn't be seeing this (2)"
+    ]
+  },
+  "theShowman:StackTheDeckPower": {
+    "NAME": "弄虚作假",
+    "DESCRIPTIONS": [
+      "在你的回合结束时，至多将 #b",
+      " 张手牌加入抽牌堆顶部。",
+      " 张手牌加入抽牌堆顶部。"
+    ]
+  },
+  "theShowman:ByrdBGonePower": {
+    "NAME": "异鸟已死",
+    "DESCRIPTIONS": [
+      "每当你受到攻击但没有失去生命，获得 #b",
+      " 层 #y荆棘 。"
+    ]
+  },
+  "theShowman:PotentialUnleashedPower": {
+    "NAME": "潜力释放",
+    "DESCRIPTIONS": [
+      "每当你抽一张牌时，对所有敌人造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "theShowman:DivertingDisplayPower": {
+    "NAME": "转移视线",
+    "DESCRIPTIONS": [
+      "每当你 消耗 了一张牌，给予所有敌人 #b",
+      " 层 #y易伤 。"
+    ]
+  },
+  "theShowman:MirrorMirrorPower": {
+    "NAME": "返场！",
+    "DESCRIPTIONS": [
+      "本回合你打出的下 #b",
+      " 张牌将它的复制品到你的手牌。",
+      " 张牌将它的复制品到你的手牌。"
+    ]
+  },
+  "theShowman:CurtainCallPower": {
+    "NAME": "谢幕",
+    "DESCRIPTIONS": [
+      "每当你本回合消耗一张牌时，获得 #b",
+      " 点格挡。"
+    ]
+  },
+  "theShowman:HatTrickPower": {
+    "NAME": "缓冲下降",
+    "DESCRIPTIONS": [
+      "在你的回合开始时，失去 #b",
+      " 层 #y缓冲 。"
+    ]
+  },
+  "theShowman:WillingVolunteerPower": {
+    "NAME": "志愿者",
+    "DESCRIPTIONS": [
+      "直到你下一回合开始前， #r志愿者 将会帮你挡下接下来的 #b",
+      " 次打击。",
+      " 次打击。"
+    ]
+  },
+  "theShowman:MaximumDistractionPower": {
+    "NAME": "分散注意力",
+    "DESCRIPTIONS": [
+      "敌人每有 #b",
+      " 层 #y易伤 ，它额外受到 25% 的伤害。",
+      " （受到 #b",
+      "% 的额外伤害，总共 #b",
+      "% 的伤害。）"
+    ]
+  },
+  "theShowman:NothingInMyHandsPower": {
+    "NAME": "开始思考",
+    "DESCRIPTIONS": [
+      "在你的回合结束时，将手牌 #y消耗 而不是丢弃。",
+      " 然后加入并消耗等量的晕眩。"
+    ]
+  },
+  "theShowman:ThrowingCardsPower": {
+    "NAME": "投掷卡牌",
+    "DESCRIPTIONS": [
+      "每当你 #y消耗 了一张牌，对随机一名敌人造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "theShowman:ToroPower": {
+    "NAME": "托罗！",
+    "DESCRIPTIONS": [
+      "每当你受到攻击时，给予攻击者 #b",
+      " 层 #y易伤 。"
+    ]
+  },
+  "theShowman:ColumbifiedPower": {
+    "NAME": "异鸟化",
+    "DESCRIPTIONS": [
+      "已经变成了一只 #y异鸟 [REMOVE_SPACE]!"
+    ]
+  },
+  "theShowman:ObjectPermanencePower": {
+    "NAME": "客体永久性",
+    "DESCRIPTIONS": [
+      " 给予 ", " 的临时效果将变为永久"
+    ]
+  },
+  "theShowman:SubtleMisdirectionsPower": {
+    "NAME": "微妙的误导",
+    "DESCRIPTIONS": [
+      "每当你在回合内前 #b",
+      " 次抽到状态牌，将其 #y消耗 ",
+      " 并抽一张牌。",
+      "",
+      " （本回合已 #y消耗 了 #b",
+      " ）"
+    ]
+  },
+  "theShowman:ApplyTempStrengthNextTurn": {
+    "NAME": "延迟力量",
+    "DESCRIPTIONS": [
+      "在下一回合开始时，获得 #b", " 点临时 #y力量 。"
+    ]
+  },
+  "theShowman:PerfectedPerformancePower": {
+    "NAME": "完美的表现",
+    "DESCRIPTIONS": [
+      "每回合抽到的前 #b",
+      " 张牌，每有一张：攻击牌则对所有敌人造成 #b",
+      " 点伤害，技能牌则获得 #b",
+      " 点格挡，能力牌则获得 [E] ，状态或诅咒牌则给予所有敌人 #b",
+      " 层虚弱和易伤",
+      " 本回合还剩 #b",
+      " 张牌能在本回合将会起效。"
+    ]
+  },
+  "theShowman:ThespianFormPower": {
+    "NAME": "戏剧形态",
+    "DESCRIPTIONS": [
+      "每当你 #y消耗 了一张牌，所有的 #y消耗相关 的效果额外触发 #b",
+      " 次。",
+      " 次。"
+    ]
+  },
+  "theShowman:DisembodiedHandPower": {
+    "NAME": "隐秘",
+    "DESCRIPTIONS": [
+      "在你下一回合开始时，将 ",
+      " 打出。"
+    ]
+  },
+  "theShowman:VentriloquismPower": {
+    "NAME": "腹语术",
+    "DESCRIPTIONS": [
+      "你的回合开始时，随机选择消耗堆和抽牌堆的一张牌。 NL 每当你在那个回合第一次打出时，打出另外一张的复制品。",
+      "你的回合开始时，随机选择消耗堆和抽牌堆的一张牌。 NL 每当你在那个回合打出时，打出另外一张的复制品。",
+      "你的回合开始时，随机选择消耗堆和抽牌堆的一张牌 #b",
+      " 次。 NL 每当你在那个回合第一次打出时，打出另外一张的复制品。",
+      " 次。 NL 每当你在那个回合打出时，打出另外一张的复制品。"
+
+    ]
+  },
+  "theShowman:ShowOfStrengthPower": {
+    "NAME": "展示力量",
+    "DESCRIPTIONS": [
+      "每当你 #y消耗 了一张牌， ",
+      "直到回合结束前获得 #b",
+      " 点 #y力量 并 ",
+      "在下一回合开始时，直到回合结束前获得 #b",
+      " 点 #y力量 。"
+
+    ]
+  },
+  "theShowman:IAmAByrd": {
+    "NAME": "异鸟化",
+    "DESCRIPTIONS": [
+      "你不应该看到这个的。"
+    ]
+  }
+}

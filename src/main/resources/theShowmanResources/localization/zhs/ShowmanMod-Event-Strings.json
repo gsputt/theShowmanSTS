@@ -1,0 +1,21 @@
+{
+  "theShowman:IdentityCrisisEvent": {
+    "NAME": "Identity Crisis",
+    "DESCRIPTIONS": [
+      "As you move through ~The~ ~City~ you come across a #pPurple #pMirror. NL You look at it, but you see no reflection.",
+      "You see no one but #g~You~ #g~wish~ #g~to~ #g~become~ #g~someone.~",
+      "#r@YOU@ #r@EXIST@ #r@AND@ #r@ARE@ #r@VALID!@",
+      "#yYou #yare #yat #ypeace #ywith #yyour #ypresence.",
+      "You have no hands."
+    ],
+    "OPTIONS": [
+      "[启迪] #gGain #ga #gRandom #gStarting #gRelic.",
+      "[拒绝] #rLose #r",
+      " #rMax #rHP. #gRemove #ga #gCard #gfrom #gyour #gdeck.",
+      "[接受] #gGain #g神化.",
+      "[触摸镜子] TOUCH TOUCH TO#C# TOUCH TO UCH TOUCH #rTOUCH TOUCH",
+      "[Leave]",
+      "Select card to remove."
+    ]
+  }
+}
