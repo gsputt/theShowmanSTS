@@ -1,6 +1,5 @@
 package theShowman.cards;
 
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AutoplayField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
@@ -40,7 +39,7 @@ public class TroublingTrope extends AbstractDynamicCard {
         this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = DAMAGE_INCREASE;
         this.isInnate = true;
-        AutoplayField.autoplay.set(this, true);
+        //AutoplayField.autoplay.set(this, true);
         this.isMultiDamage = true;
     }
 

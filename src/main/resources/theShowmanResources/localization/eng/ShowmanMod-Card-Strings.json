@@ -405,7 +405,7 @@
   },
   "theShowman:TroublingTrope": {
     "NAME": "Troubling Trope",
-    "DESCRIPTION": "Innate. NL Autoplay. NL Deal !D! damage to ALL enemies. NL Increase this card's damage by !M! this combat. NL Shuffle this card into your draw pile."
+    "DESCRIPTION": "Innate. NL Deal !D! damage to ALL enemies. NL Increase this card's damage by !M! this combat. NL Shuffle this card into your draw pile."
   },
   "theShowman:DisembodiedHand": {
     "NAME": "Disembodied Hand",

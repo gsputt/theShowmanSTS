@@ -1,18 +1,12 @@
-package theShowman.cards;
+package theShowman.cards.Deprecated;
 
-import basemod.BaseMod;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.GraveField;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
-import theShowman.powers.ObjectPermanencePower;
-import theShowman.powers.RetainThisTurnPower;
+import theShowman.cards.AbstractDynamicCard;
+import theShowman.powers.Deprecated.ObjectPermanencePower;
 
 import java.util.Iterator;
 

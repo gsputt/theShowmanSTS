@@ -1,4 +1,4 @@
-package theShowman.powers;
+package theShowman.powers.Deprecated;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower;
@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.*;
 import theShowman.ShowmanMod;
+import theShowman.powers.HatTrickPower;
+import theShowman.powers.RetainThisTurnPower;
 
 
 public class ObjectPermanencePower extends AbstractPower implements CloneablePowerInterface, OnReceivePowerPower {
