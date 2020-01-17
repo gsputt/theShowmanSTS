@@ -6,17 +6,13 @@
 package theShowman.actions;
 
 import basemod.BaseMod;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.UIStrings;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -39,10 +35,17 @@ public class PrestoAction extends AbstractGameAction {
         } else {
             AbstractCard c = getRandomCard();
             if(c != null) {
-                c.unfadeOut();
-                this.p.hand.addToHand(c);
+                AbstractCard newCard = c.makeSameInstanceOf();
 
-                c.setCostForTurn(0);
+                newCard.current_x = AbstractDungeon.overlayMenu.exhaustPanel.current_x;
+                newCard.current_y = AbstractDungeon.overlayMenu.exhaustPanel.current_y;
+                newCard.target_x = (Settings.WIDTH / 2.0F);
+                newCard.target_y = (Settings.HEIGHT / 2.0F);
+
+                c.unfadeOut();
+                this.p.hand.addToHand(newCard);
+
+                newCard.setCostForTurn(0);
 
                 this.p.exhaustPile.removeCard(c);
 
@@ -54,8 +57,10 @@ public class PrestoAction extends AbstractGameAction {
         this.isDone = true;
     }
     private AbstractCard getRandomCard() {
-        ArrayList<AbstractCard> tmp = new ArrayList();
+        ArrayList<AbstractCard> tmp = new ArrayList<>();
         Iterator var4 = this.p.exhaustPile.group.iterator();
+
+        //Decompiler why
 
         while(var4.hasNext()) {
             AbstractCard c = (AbstractCard)var4.next();

@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -64,7 +64,7 @@ public class DisembodiedHandPower extends AbstractPower implements CloneablePowe
                         c.freeToPlayOnce = true;
                         c.applyPowers();
                         c.calculateCardDamage(target);
-                        AbstractDungeon.actionManager.addToTop(new QueueCardAction(c, target));
+                        AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(c, target, false, true));
                     }
                 }
             });

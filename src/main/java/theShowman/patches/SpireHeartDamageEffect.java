@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.beyond.SpireHeart;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.vfx.combat.DamageHeartEffect;
+import com.megacrit.cardcrawl.vfx.DamageHeartEffect;
 import javassist.CtBehavior;
 import theShowman.cards.Columbify;
 import theShowman.characters.TheShowman;

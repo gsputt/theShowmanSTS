@@ -1,15 +1,13 @@
 package theShowman.patches;
 
-import com.evacipated.cardcrawl.modthespire.lib.ByRef;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import javassist.CtBehavior;
 import theShowman.cards.RaptMisdirection;
 
-import java.util.Iterator;
 
 
 public class RaptMisdirectionDoingStupidStuffPatch {
@@ -20,12 +18,23 @@ public class RaptMisdirectionDoingStupidStuffPatch {
     )
     public static class whyTho {
         @SpireInsertPatch(
-                loc = 3066,
+                locator = Locator.class,
                 localvars = {"tmp"}
         )
         public static void Insert(AbstractCard __instance, AbstractMonster mo, float tmp) {
             if (__instance instanceof RaptMisdirection) {
-                Iterator iterator = mo.powers.iterator();
+                addedDamage = 0;
+                for (AbstractPower p : mo.powers)
+                {
+                    if(p instanceof VulnerablePower)
+                    {
+                        for(int i = 0; i < p.amount - 1; i++) {
+                            addedDamage += p.atDamageReceive(tmp, __instance.damageTypeForTurn) - tmp;
+                            //System.out.println("DID AN ADD DAMAGE:" + addedDamage);
+                        }
+                    }
+                }
+                /*Iterator iterator = mo.powers.iterator();
                 AbstractPower powerCheck;
                 addedDamage = 0;
                 while (iterator.hasNext()) {
@@ -36,7 +45,7 @@ public class RaptMisdirectionDoingStupidStuffPatch {
                             //System.out.println("DID AN ADD DAMAGE:" + addedDamage);
                         }
                     }
-                }
+                }*/
             }
         }
         @SpirePatch(
@@ -45,7 +54,7 @@ public class RaptMisdirectionDoingStupidStuffPatch {
         )
         public static class whyTho2 {
             @SpireInsertPatch(
-                    loc = 3071,
+                    locator = LocatorTwo.class,
                     localvars = {"tmp"}
             )
             public static void InsertrEEEEEEEEEEE(AbstractCard __instance, AbstractMonster mo, @ByRef float[] tmp) {
@@ -53,6 +62,28 @@ public class RaptMisdirectionDoingStupidStuffPatch {
                 //System.out.println("tmp = " + tmp[0]);
                 addedDamage = 0;
             }
+        }
+    }
+    private static class Locator extends SpireInsertLocator
+    {
+        @Override
+        public int[] Locate(CtBehavior ctBehavior) throws Exception
+        {
+            Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractPower.class, "atDamageReceive");
+            int[] found = LineFinder.findInOrder(ctBehavior, finalMatcher);
+            found[0] -= 1;
+            return found;
+        }
+    }
+    private static class LocatorTwo extends SpireInsertLocator
+    {
+        @Override
+        public int[] Locate(CtBehavior ctBehavior) throws Exception
+        {
+            Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractPower.class, "atDamageReceive");
+            int[] found = LineFinder.findInOrder(ctBehavior, finalMatcher);
+            found[0] += 2;
+            return found;
         }
     }
 }

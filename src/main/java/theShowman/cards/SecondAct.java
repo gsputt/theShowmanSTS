@@ -45,7 +45,7 @@ public class SecondAct extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, NUM_CARDS_EXHAUST, false));
+        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(NUM_CARDS_EXHAUST, false));
         AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.magicNumber));
     }
 

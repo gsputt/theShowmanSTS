@@ -1,6 +1,5 @@
 package theShowman.cards;
 
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -39,7 +38,7 @@ public class BasicStrike extends AbstractDynamicCard {
     public BasicStrike() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
-        tags.add(BaseModCardTags.BASIC_STRIKE);
+        tags.add(CardTags.STARTER_STRIKE);
         tags.add(CardTags.STRIKE);
     }
 

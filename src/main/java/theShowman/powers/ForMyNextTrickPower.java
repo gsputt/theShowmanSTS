@@ -52,7 +52,7 @@ public class ForMyNextTrickPower extends AbstractPower implements CloneablePower
     }
 
     public void atStartOfTurn() {
-        this.card.modifyCostForTurn(-1);
+        this.card.setCostForTurn(this.card.costForTurn - 1);
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(this.card, this.amount));
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }

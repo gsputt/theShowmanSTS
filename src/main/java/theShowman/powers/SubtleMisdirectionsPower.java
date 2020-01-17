@@ -3,7 +3,6 @@ package theShowman.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnCardDrawPower;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -17,7 +16,7 @@ import theShowman.util.TextureLoader;
 import static theShowman.ShowmanMod.makePowerPath;
 
 
-public class SubtleMisdirectionsPower extends AbstractPower implements CloneablePowerInterface, OnCardDrawPower {
+public class SubtleMisdirectionsPower extends AbstractPower implements CloneablePowerInterface{
 
     public static final String POWER_ID = ShowmanMod.makeID("SubtleMisdirectionsPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

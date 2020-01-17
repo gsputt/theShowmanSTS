@@ -47,7 +47,7 @@ public class CurtainCall extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainCallVFX(p)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new CurtainCallPower(p, this.block), this.block));
-        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, this.magicNumber, false, true, true));
+        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(this.magicNumber, false, true, true));
     }
 
 

@@ -1,7 +1,6 @@
 package theShowman.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnCardDrawPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,7 +13,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import theShowman.ShowmanMod;
 
 
-public class PotentialUnleashedPower extends AbstractPower implements CloneablePowerInterface, OnCardDrawPower {
+public class PotentialUnleashedPower extends AbstractPower implements CloneablePowerInterface {
 
     public static final String POWER_ID = ShowmanMod.makeID("PotentialUnleashedPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

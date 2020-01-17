@@ -14,11 +14,12 @@ import theShowman.relics.TrigonOfTrickery;
 
 @SpirePatch(
         clz = CardGlowBorder.class,
-        method = SpirePatch.CONSTRUCTOR
+        method = SpirePatch.CONSTRUCTOR,
+        paramtypez = {AbstractCard.class, Color.class}
 )
 public class CardGlowBorderPatch {
     @SpirePostfixPatch
-    public static void GlowPls(CardGlowBorder __instance, AbstractCard c)
+    public static void GlowPls(CardGlowBorder __instance, AbstractCard c, Color color)
     {
         if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)
         {

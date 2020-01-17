@@ -1,6 +1,5 @@
 package theShowman.cards;
 
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -37,7 +36,7 @@ public class BasicDefend extends AbstractDynamicCard {
     public BasicDefend() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
-        tags.add(BaseModCardTags.BASIC_DEFEND);
+        tags.add(CardTags.STARTER_DEFEND);
     }
 
 
