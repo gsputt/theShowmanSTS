@@ -13,8 +13,8 @@ public class Millstone extends CustomRelic {
     // ID, images, text.
     public static final String ID = ShowmanMod.makeID("Millstone");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("millstone.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("millstoneOutline.png"));
 
     public static final int MILLSTONE_BONUS = 2;
 

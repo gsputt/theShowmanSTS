@@ -40,7 +40,7 @@ public class VentriloquismPower extends AbstractPower implements CloneablePowerI
         this.owner = owner;
         this.amount = amount;
         this.type = PowerType.BUFF;
-        this.isTurnBased = true;
+        this.isTurnBased = false;
         this.upgraded = this.upgraded || upgraded;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -54,15 +54,17 @@ public class VentriloquismPower extends AbstractPower implements CloneablePowerI
     {
         if(VentriloquismField.linked.get(card) != null) {
 
-                AbstractCard cardToCopy = VentriloquismField.linked.get(card);
+                AbstractCard otherCard = VentriloquismField.linked.get(card);
 
-                AbstractCard cardToPlay = cardToCopy.makeStatEquivalentCopy();
+                AbstractCard cardToPlay = otherCard.makeStatEquivalentCopy();
                 VentriloquismField.linked.set(cardToPlay, null);
 
-                if (this.upgraded) {
-                    VentriloquismField.linked.set(cardToCopy, card);
-                } else {
-                    VentriloquismField.linked.set(cardToCopy, null);
+                if (!this.upgraded) { // was if(this.upgraded) before I changed the ventriloquismField to only copy over on makeSameInstanceOf
+                    //VentriloquismField.linked.set(otherCard, card);
+                //} else {
+                    //VentriloquismField.linked.set(otherCard, null);
+                    //VentriloquismField.linked.set(card, null);
+                    VentriloquismField.linked.set(otherCard, null);
                     VentriloquismField.linked.set(card, null);
                 }
 

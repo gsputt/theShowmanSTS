@@ -1,4 +1,4 @@
-package theShowman.patches;
+package theShowman.patches.Deprecated;
 
 
 /*import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -6,7 +6,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import theShowman.powers.Deprecated.ObjectPermanencePower;
+import theShowman.powers.ObjectPermanencePower;
 
 
 public class ObjectPermanenceVulnerableAndWeakPatch {

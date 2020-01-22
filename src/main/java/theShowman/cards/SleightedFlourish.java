@@ -2,7 +2,6 @@ package theShowman.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import theShowman.ShowmanMod;
 import theShowman.actions.CardPickup52Action;
-import theShowman.actions.RemoveSleightedFlourishFromExhaustPileAction;
+import theShowman.effects.CustomShuffleCardFromExhaustPileIntoDrawPileEffect;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
@@ -60,8 +59,9 @@ public class SleightedFlourish extends AbstractDynamicCard {
             @Override
             public void update() {
                 if(AbstractDungeon.player.exhaustPile.contains(card)) {
-                    AbstractDungeon.actionManager.addToTop(new RemoveSleightedFlourishFromExhaustPileAction(card));
-                    AbstractDungeon.actionManager.addToTop(new MakeTempCardInDrawPileAction(card, 1, true, true));
+                    //AbstractDungeon.actionManager.addToTop(new RemoveSleightedFlourishFromExhaustPileAction(card));
+                    //AbstractDungeon.actionManager.addToTop(new MakeTempCardInDrawPileAction(card, 1, true, true));
+                    AbstractDungeon.effectsQueue.add(new CustomShuffleCardFromExhaustPileIntoDrawPileEffect(card, true, false));
                 }
                 this.isDone = true;
             }

@@ -4,6 +4,7 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -66,15 +67,11 @@ public class PerfectedPerformancePower extends TwoAmountPower implements Cloneab
     }
 
     @Override
-    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        updateDescription();
-    }
-
-    @Override
     public void onInitialApplication() {
         ImproviseField.ImproviseRecording.set(AbstractDungeon.player, ImproviseField.ImproviseRecording.get(AbstractDungeon.player) + 1);
         this.amount2 = this.amount;
         this.alreadySet = false;
+        updateDescription();
     }
 
     @Override
@@ -83,15 +80,25 @@ public class PerfectedPerformancePower extends TwoAmountPower implements Cloneab
         if(!this.alreadySet)
         {
             this.alreadySet = true;
+            this.amount2 = -1;
+            this.updateDescription();
             ImproviseField.ImproviseRecording.set(AbstractDungeon.player, ImproviseField.ImproviseRecording.get(AbstractDungeon.player) - 1);
         }
     }
 
     @Override
-    public void atStartOfTurn() {
-        ImproviseField.ImproviseRecording.set(AbstractDungeon.player, ImproviseField.ImproviseRecording.get(AbstractDungeon.player) + 1);
-        this.amount2 = this.amount;
-        this.alreadySet = false;
+    public void atStartOfTurnPostDraw() {
+        PerfectedPerformancePower power = this;
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
+                ImproviseField.ImproviseRecording.set(AbstractDungeon.player, ImproviseField.ImproviseRecording.get(AbstractDungeon.player) + 1);
+                power.amount2 = power.amount;
+                power.alreadySet = false;
+                this.isDone = true;
+                power.updateDescription();
+            }
+        });
     }
 
     @Override

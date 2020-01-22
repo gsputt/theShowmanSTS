@@ -16,8 +16,8 @@ public class ImprovRelic extends CustomRelic {
     // ID, images, text.
     public static final String ID = ShowmanMod.makeID("ImprovRelic");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("improv_for_dummies.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("improv_for_dummiesOutline.png"));
 
     private static final int AMOUNT = 2;
     private boolean triggerOnce = false;

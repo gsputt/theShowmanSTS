@@ -2,7 +2,7 @@
   "theShowman:RetainThisTurnPower": {
     "NAME": "Retain Cards This Turn",
     "DESCRIPTIONS": [
-      "At the end of your turn, #yRetain up to ",
+      "At the end of your turn, #yRetain up to #b",
       " card.",
       " cards."
     ]
@@ -39,7 +39,7 @@
   "theShowman:DivertingDisplayPower": {
     "NAME": "Diverting Display",
     "DESCRIPTIONS": [
-      "Whenever you exhaust a card, apply #b",
+      "Whenever you #yexhaust a card, apply #b",
       " #yVulnerable to a random enemy."
     ]
   },
@@ -87,7 +87,7 @@
     "NAME": "Begone Thought",
     "DESCRIPTIONS": [
       "At the end of your turn, #yExhaust your hand instead of discarding it.",
-      " Then create and exhaust a #yDazed for each card."
+      " Then create and #yexhaust a #yDazed for each card."
     ]
   },
   "theShowman:ThrowingCardsPower": {
@@ -100,8 +100,8 @@
   "theShowman:ToroPower": {
     "NAME": "Toro!",
     "DESCRIPTIONS": [
-      "Whenever you are attacked, apply #b",
-      " Vulnerable to the attacker."
+      "Whenever you play a Skill this turn, apply #b",
+      " #yVulnerable to each enemy that intends to attack."
     ]
   },
   "theShowman:ColumbifiedPower": {
@@ -113,14 +113,22 @@
   "theShowman:ObjectPermanencePower": {
     "NAME": "Object Permanence",
     "DESCRIPTIONS": [
-      "#yTemporary effects applied to ", " become permanent"
+      "The first #b",
+      " #ynon-Curse, #ynon-Status ",
+      "card ",
+      "cards ",
+      "you draw each turn will duplicate to hand when exhausted for the turn.",
+      " Currently duplicating ",
+      " [REMOVE_SPACE], ",
+      "and ",
+      " [REMOVE_SPACE]."
     ]
   },
   "theShowman:SubtleMisdirectionsPower": {
     "NAME": "Subtle Misdirections",
     "DESCRIPTIONS": [
       "Whenever you draw the first #b",
-      " #yStatus cards each turn, exhaust it",
+      " #yStatus cards each turn, #yExhaust it",
       " and draw a card",
       ".",
       " (Has #yExhausted #b",
@@ -128,9 +136,9 @@
     ]
   },
   "theShowman:ApplyTempStrengthNextTurn": {
-    "NAME": "Delayed Flex",
+    "NAME": "Flex Preparations",
     "DESCRIPTIONS": [
-      "Gaining #b", " temporary #yStrength at the start of next turn."
+      "Preparing to FLEX for #b", " temporary #yStrength at the start of next turn."
     ]
   },
   "theShowman:PerfectedPerformancePower": {
@@ -140,7 +148,7 @@
       " cards each turn, deal #b",
       " damage to ALL enemies for each Attack drawn, gain #b",
       " Block for each Skill drawn, gain [E] for each Power drawn, and apply #b",
-      " Weak and Vulnerable to ALL enemies for each Status or Curse drawn.",
+      " #yWeak and #yVulnerable to ALL enemies for each #yStatus or #yCurse drawn.",
       " #b",
       " more cards will be affected this turn."
     ]
@@ -163,9 +171,9 @@
   "theShowman:VentriloquismPower": {
     "NAME": "Ventriloquism",
     "DESCRIPTIONS": [
-      "At the start of your turn, pick a random card in your Exhaust and draw pile. When you play one for the first time this turn, play a copy of the other.",
-      "At the start of your turn, pick a random card in your Exhaust and draw pile. When you play one this turn, play a copy of the other.",
-      "At the start of your turn, pick a random card in your Exhaust and draw pile #b",
+      "At the start of your turn, pick a random card in your #yExhaust and draw pile. When you play one for the first time this turn, play a copy of the other.",
+      "At the start of your turn, pick a random card in your #yExhaust and draw pile. When you play one this turn, play a copy of the other.",
+      "At the start of your turn, pick a random card in your #yExhaust and draw pile #b",
       " times. When you play one of the picked cards for the first time this turn, play a copy of the other one it's paired with.",
       " times. When you play one of the picked cards this turn, play a copy of the other one it's paired with."
 
@@ -186,6 +194,13 @@
     "NAME": "Columbified",
     "DESCRIPTIONS": [
       "You should not be seeing this"
+    ]
+  },
+  "theShowman:NowYouSeeMePower": {
+    "NAME": "Now You See Me",
+    "DESCRIPTIONS": [
+      "Applying #b",
+      " #yVulnerable to enemies that attack you this turn."
     ]
   }
 }

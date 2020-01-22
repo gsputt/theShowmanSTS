@@ -101,8 +101,8 @@ public class SleeveAcesAction extends AbstractGameAction {
                         cardToAdd.setCostForTurn(-9);
                     }
                     //AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(cardToAdd, this.copyAmount));
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(cardToAdd, this.copyAmount));
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(cardToAdd, this.copyAmount, true, true));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(cardToAdd.makeStatEquivalentCopy(), this.copyAmount));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(cardToAdd.makeStatEquivalentCopy(), this.copyAmount, true, true));
 
                     //this.p.exhaustPile.removeCard(noRagrets);
                 }

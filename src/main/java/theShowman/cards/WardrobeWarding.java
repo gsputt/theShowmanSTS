@@ -29,15 +29,15 @@ public class WardrobeWarding extends AbstractDynamicCard {
     private static final int COST = 2;
     private static final int BLOCK = 12;
     private static final int UPGRADE_BLOCK = 4;
-    private static final int RETAIN = 2;
-    private static final int UPGRADE_RETAIN = 2;
+    //private static final int RETAIN = 2;
+    //private static final int UPGRADE_RETAIN = 2;
     // /STAT DECLARATION/
 
 
     public WardrobeWarding() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
-        this.magicNumber = this.baseMagicNumber = RETAIN;
+        //this.magicNumber = this.baseMagicNumber = RETAIN;
     }
 
 
@@ -45,7 +45,7 @@ public class WardrobeWarding extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainThisTurnPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainThisTurnPower(p, 99), 99));
     }
 
 
@@ -60,7 +60,7 @@ public class WardrobeWarding extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeBlock(UPGRADE_BLOCK);
-            this.upgradeMagicNumber(UPGRADE_RETAIN);
+            //this.upgradeMagicNumber(UPGRADE_RETAIN);
             initializeDescription();
         }
     }

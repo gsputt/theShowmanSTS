@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 package theShowman.actions;
 
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
@@ -16,8 +11,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import theShowman.ShowmanMod;
-
-import java.util.Iterator;
 
 
 public class VanishingActAction extends AbstractGameAction {
@@ -83,10 +76,8 @@ public class VanishingActAction extends AbstractGameAction {
         }
 
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-            Iterator var4 = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
 
-            while(var4.hasNext()) {
-                AbstractCard c = (AbstractCard)var4.next();
+            for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
                 doStuff(c);
             }
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;

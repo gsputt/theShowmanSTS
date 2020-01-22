@@ -22,14 +22,15 @@ public class MaximumDistraction extends AbstractDynamicCard {
 
 
     // STAT DECLARATION
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = COLOR_PURPLE;
 
-    private static final int COST = 1;
-    private static final int POWER_AMOUNT = 3;
-    private static final int UPGRADE_POWER_AMOUNT = -1;
+    private static final int COST = 2;
+    private static final int UPGRADE_COST = 1;
+    private static final int POWER_AMOUNT = 2;
+    //private static final int UPGRADE_POWER_AMOUNT = -1;
     // /STAT DECLARATION/
 
 
@@ -69,7 +70,8 @@ public class MaximumDistraction extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeMagicNumber(UPGRADE_POWER_AMOUNT);
+            this.upgradeBaseCost(UPGRADE_COST);
+            //this.upgradeMagicNumber(UPGRADE_POWER_AMOUNT);
             initializeDescription();
         }
     }

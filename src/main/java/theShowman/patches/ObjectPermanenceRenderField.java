@@ -9,23 +9,25 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
         clz = AbstractCard.class,
         method = SpirePatch.CLASS
 )
-public class VentriloquismField {
-    public static SpireField<AbstractCard> linked = new SpireField<>(() -> null);
+
+public class ObjectPermanenceRenderField {
+    public static SpireField<Boolean> ObjectPermanenceFlag = new SpireField<>(() -> false);
 
     @SpirePatch(
             clz = AbstractCard.class,
             method = "makeStatEquivalentCopy"
     )
-    public static class makeStatEquivalentCopy
+    public static class pleaseCopyOverTheObjectPermanenceFieldToTheNewMakeStatEquivalentCopy
     {
-        //                           __result is new card (copy), __instance, is old card (original)
         public static AbstractCard Postfix(AbstractCard __result, AbstractCard __instance)
         {
-            if(linked.get(__instance) != null) {
-                linked.set(__result, linked.get(__instance));
-                //linked.set(linked.get(__instance), __result);
+            if(ObjectPermanenceFlag.get(__instance))
+            {
+                ObjectPermanenceFlag.set(__result, true);
             }
             return __result;
         }
     }
+
+
 }

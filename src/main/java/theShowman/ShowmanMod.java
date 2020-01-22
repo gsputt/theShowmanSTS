@@ -508,7 +508,7 @@ public class ShowmanMod implements
         BaseMod.addCard(new ItsShowtime());
         //BaseMod.addCard(new BaitedBreath());
         BaseMod.addCard(new GrandGambit());
-        //BaseMod.addCard(new ObjectPermanence());
+        BaseMod.addCard(new ObjectPermanence());
         BaseMod.addCard(new BottomDoubleDeal());
         BaseMod.addCard(new Presto());
         BaseMod.addCard(new SubtleMisdirections());
@@ -609,7 +609,7 @@ public class ShowmanMod implements
         UnlockTracker.unlockCard(ItsShowtime.ID);
         //UnlockTracker.unlockCard(BaitedBreath.ID);
         UnlockTracker.unlockCard(GrandGambit.ID);
-        //UnlockTracker.unlockCard(ObjectPermanence.ID);
+        UnlockTracker.unlockCard(ObjectPermanence.ID);
         UnlockTracker.unlockCard(BottomDoubleDeal.ID);
         UnlockTracker.unlockCard(Presto.ID);
         UnlockTracker.unlockCard(SubtleMisdirections.ID);

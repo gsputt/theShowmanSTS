@@ -18,8 +18,8 @@ public class ChaosConfetti extends CustomRelic {
     // ID, images, text.
     public static final String ID = ShowmanMod.makeID("ChaosConfetti");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("confetti.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("confettiOutline.png"));
 
     private static final int AMOUNT = 1;
 

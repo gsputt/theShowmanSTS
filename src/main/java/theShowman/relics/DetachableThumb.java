@@ -14,8 +14,8 @@ public class DetachableThumb extends CustomRelic {
     // ID, images, text.
     public static final String ID = ShowmanMod.makeID("DetachableThumb");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("detachable_thumb.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("detachable_thumbOutline.png"));
 
     public static final int COST = 0;
 

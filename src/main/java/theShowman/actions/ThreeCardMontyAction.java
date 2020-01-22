@@ -19,7 +19,7 @@ public class ThreeCardMontyAction extends AbstractGameAction {
     {
         this.isDone = true;
         AbstractCard c = AbstractDungeon.player.hand.getTopCard();
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c.makeStatEquivalentCopy(), 2));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c.makeStatEquivalentCopy(), this.amount));
     }
 }
 

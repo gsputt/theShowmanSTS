@@ -1,5 +1,6 @@
 package theShowman.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -7,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
-import theShowman.actions.NowYouDontAction;
+import theShowman.powers.NowYouSeeMePower;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
@@ -19,7 +20,7 @@ public class NowYouSeeMe extends AbstractDynamicCard {
     public static final String ID = ShowmanMod.makeID("NowYouSeeMe");
     public static final String IMG = makeCardPath("NowYouSeeMe.png");
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    //public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     // /TEXT DECLARATION/
 
 
@@ -35,12 +36,15 @@ public class NowYouSeeMe extends AbstractDynamicCard {
     //private static final int DAMAGE = 7;
     private static final int BLOCK = 7;
     private static final int UPGRADE_PLUS_BLOCK = 2;
+    private static final int VULNERABLE_AMOUNT = 2;
+    private static final int VULNERABLE_UPGRADE_AMOUNT = 1;
     // /STAT DECLARATION/
 
 
     public NowYouSeeMe() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
+        this.magicNumber = this.baseMagicNumber = VULNERABLE_AMOUNT;
     }
 
 
@@ -48,8 +52,8 @@ public class NowYouSeeMe extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new NowYouDontAction(!upgraded, false));
-
+        //AbstractDungeon.actionManager.addToBottom(new NowYouDontAction(!upgraded, false));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NowYouSeeMePower(p, this.magicNumber), this.magicNumber));
     }
 
 
@@ -64,7 +68,8 @@ public class NowYouSeeMe extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            upgradeMagicNumber(VULNERABLE_UPGRADE_AMOUNT);
+            //this.rawDescription = UPGRADE_DESCRIPTION;
             //upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }

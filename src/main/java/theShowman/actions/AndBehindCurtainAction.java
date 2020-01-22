@@ -55,7 +55,7 @@ public class AndBehindCurtainAction extends AbstractGameAction {
                 while(c.hasNext()) {
                     noRagrets = (AbstractCard)c.next();
 
-                    boolean addThisCard = false;
+                    /*boolean addThisCard = false;
                     AbstractCard.CardColor colorToCheck;
                     for(AbstractPlayer player : CardCrawlGame.characterManager.getAllCharacters()) {
                         colorToCheck = player.getCardColor();
@@ -64,7 +64,8 @@ public class AndBehindCurtainAction extends AbstractGameAction {
                             break;
                         }
                     }
-                    if(!addThisCard)
+                    if(!addThisCard)*/
+                    if(noRagrets.type == CardType.STATUS || noRagrets.type == CardType.CURSE)
                     {
                         c.remove();
                         this.notClassCard.add(noRagrets);

@@ -1,11 +1,10 @@
 package theShowman.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theShowman.effects.CustomShuffleCardFromExhaustPileIntoDrawPileEffect;
 
 import java.util.ArrayList;
 
@@ -30,7 +29,7 @@ public class CardPickup52Action extends AbstractGameAction {
             c.unhover();
             c.unfadeOut();
 
-            boolean addThisCard = false;
+            /*boolean addThisCard = false;
             AbstractCard.CardColor colorToCheck;
             for(AbstractPlayer player : CardCrawlGame.characterManager.getAllCharacters()) {
                 colorToCheck = player.getCardColor();
@@ -38,8 +37,9 @@ public class CardPickup52Action extends AbstractGameAction {
                     addThisCard = true;
                     break;
                 }
-            }
-            if(addThisCard)
+            }*/
+            //if(addThisCard)
+            if(c.type != AbstractCard.CardType.CURSE && c.type != AbstractCard.CardType.STATUS)
             {
                 exhaustList.add(c);
             }
@@ -52,15 +52,16 @@ public class CardPickup52Action extends AbstractGameAction {
         {
             AbstractCard card = exhaustList.get(AbstractDungeon.cardRng.random(exhaustList.size() - 1));
 
-            AbstractDungeon.actionManager.addToTop(new AbstractGameAction() {
+            /*AbstractDungeon.actionManager.addToTop(new AbstractGameAction() {
                 @Override
                 public void update() {
                     AbstractDungeon.player.exhaustPile.removeCard(card);
                     this.isDone = true;
                 }
-            });
+            });*/
 
-            AbstractDungeon.actionManager.addToTop(new MakeTempCardInDrawPileAction(card, 1, true, true));
+            //AbstractDungeon.actionManager.addToTop(new MakeTempCardInDrawPileAction(card, 1, true, true));
+            AbstractDungeon.effectsQueue.add(new CustomShuffleCardFromExhaustPileIntoDrawPileEffect(card, true, false));
 
             exhaustList.remove(card);
 

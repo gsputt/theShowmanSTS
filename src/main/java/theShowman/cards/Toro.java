@@ -24,14 +24,15 @@ public class Toro extends AbstractDynamicCard {
 
 
     // STAT DECLARATION
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = COLOR_PURPLE;
 
-    private static final int COST = 0;
-    private static final int POWER = 2;
-    private static final int UPGRADE_POWER = 1;
+    private static final int COST = 1;
+    private static final int UPGRADE_COST = 0;
+    private static final int POWER = 1;
+    //private static final int UPGRADE_POWER = 1;
     // /STAT DECLARATION/
 
 
@@ -58,7 +59,8 @@ public class Toro extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeMagicNumber(UPGRADE_POWER);
+            this.upgradeBaseCost(UPGRADE_COST);
+            //this.upgradeMagicNumber(UPGRADE_POWER);
             initializeDescription();
         }
     }

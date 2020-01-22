@@ -60,7 +60,7 @@
   },
   "theShowman:StrongArm": {
     "NAME": "Strong Arm",
-    "DESCRIPTION": "Gain !M! Strength until the end of turn. NL theshowman:Stacked."
+    "DESCRIPTION": "Gain !M! Strength. NL at the end of this turn, lose !M! Strength. NL theshowman:Stacked."
   },
   "theShowman:ExaggeratedArmSweeps": {
     "NAME": "Exaggerated Arm Sweeps",
@@ -87,7 +87,7 @@
   },
   "theShowman:CardPickup52": {
     "NAME": "52 Card Pickup",
-    "DESCRIPTION": "Shuffle !M! random theshowman:Class cards from your Exhaust pile into your draw pile."
+    "DESCRIPTION": "Shuffle !M! random theshowman:non-Curse, theshowman:non-Status cards from your Exhaust pile into your draw pile."
   },
   "theShowman:SleeveStash": {
     "NAME": "Sleeve Stash",
@@ -95,7 +95,7 @@
   },
   "theShowman:NowYouSeeMe": {
     "NAME": "Now You See Me",
-    "DESCRIPTION": "Gain !B! Block. NL Exhaust a random card in your draw pile.",
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Vulnerable to enemies that attack you this turn.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust a card in your draw pile."
   },
   "theShowman:SleightedHand": {
@@ -134,8 +134,8 @@
   },
   "theShowman:AndBehindCurtain": {
     "NAME": "Behind Curtain #3...",
-    "DESCRIPTION": "Select a theshowman:Class Card in your Exhaust Pile and add it to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Select !M! theshowman:Class Cards in your Exhaust Pile and add them to your hand. NL Exhaust."
+    "DESCRIPTION": "Select a theshowman:non-Curse, theshowman:non-Status Card in your Exhaust Pile and add it to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Select !M! theshowman:non-Curse, theshowman:non-Status Cards in your Exhaust Pile and add them to your hand. NL Exhaust."
   },
   "theShowman:ThreeCardMonty": {
     "NAME": "Three Card Monty",
@@ -219,7 +219,7 @@
   },
   "theShowman:WardrobeWarding": {
     "NAME": "Wardrobe Warding",
-    "DESCRIPTION": "Gain !B! Block. NL Retain up to !M! cards this turn."
+    "DESCRIPTION": "Gain !B! Block. NL Retain any number of cards this turn."
   },
   "theShowman:AGrossDisplay": {
     "NAME": "A Gross Display",
@@ -288,7 +288,7 @@
   },
   "theShowman:Toro": {
     "NAME": "Toro!",
-    "DESCRIPTION": "Whenever you are attacked, apply !M! Vulnerable to the attacker."
+    "DESCRIPTION": "Whenever you play a Skill this turn, apply !M! Vulnerable to each enemy that intends to attack."
   },
   "theShowman:BlackJack": {
     "NAME": "Black Jack",
@@ -314,13 +314,13 @@
   },
   "theShowman:Showstopper": {
     "NAME": "Showstopper",
-    "DESCRIPTION": "Replay in a random order, ALL theshowman:Class cards in your Exhaust pile. NL Purge.",
-    "UPGRADE_DESCRIPTION": "Replay in a random order, ALL theshowman:Class cards in your Exhaust pile. NL Purge."
+    "DESCRIPTION": "Replay in a random order, ALL theshowman:non-Curse, theshowman:non-Status cards in your Exhaust pile. NL Purge.",
+    "UPGRADE_DESCRIPTION": "Replay in a random order, ALL theshowman:non-Curse, theshowman:non-Status cards in your Exhaust pile. NL Purge."
   },
   "theShowman:ItsShowtime": {
     "NAME": "It's Showtime",
-    "DESCRIPTION": "Replay X random theshowman:Class cards from your Exhaust pile.",
-    "UPGRADE_DESCRIPTION": "Replay X+1 random theshowman:Class cards from your Exhaust pile."
+    "DESCRIPTION": "Replay X random theshowman:non-Curse, theshowman:non-Status cards from your Exhaust pile.",
+    "UPGRADE_DESCRIPTION": "Replay X+1 random theshowman:non-Curse, theshowman:non-Status cards from your Exhaust pile."
   },
   "theShowman:BaitedBreath": {
     "NAME": "Baited Breath",
@@ -334,7 +334,7 @@
   },
   "theShowman:ObjectPermanence": {
     "NAME": "Object Permanence",
-    "DESCRIPTION": "ALL theshowman:temporary effects become permanent for this combat. NL Purge."
+    "DESCRIPTION": "The first theshowman:non-Curse, theshowman:non-Status card you draw each turn duplicates to hand when exhausted for that turn."
   },
   "theShowman:BottomDoubleDeal": {
     "NAME": "Bottom Deal",
@@ -344,7 +344,7 @@
   },
   "theShowman:Presto": {
     "NAME": "Presto!",
-    "DESCRIPTION": "Put a random non-Status, non-Curse card from your Exhaust pile into your hand. NL It costs 0 this turn."
+    "DESCRIPTION": "Put a random theshowman:non-Curse, theShowman:non-Status card from your Exhaust pile into your hand. NL It costs 0 this turn."
   },
   "theShowman:SubtleMisdirections": {
     "NAME": "Subtle Misdirections",
@@ -357,11 +357,11 @@
   },
   "theShowman:ReappearingTrick": {
     "NAME": "Reappearing Trick",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Shuffle ALL non-Curse, non-Status cards from your Exhaust pile into your draw pile."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Shuffle ALL theshowman:non-Curse, theshowman:non-Status cards from your Exhaust pile into your draw pile."
   },
   "theShowman:MischiefManaged": {
     "NAME": "Mischief Managed",
-    "DESCRIPTION": "Deal !D! damage. NL If this deals unblocked damage to a Vulnerable enemy, gain temporary Strength next turn equal to that enemy's Vulnerable."
+    "DESCRIPTION": "Deal !D! damage. NL Gain temporary Strength next turn equal to that enemy's Vulnerable."
   },
   "theShowman:KiblerFlick": {
     "NAME": "Kibler Flick",
@@ -379,12 +379,12 @@
   },
   "theShowman:SleightedFlourish": {
     "NAME": "Sleighted Flourish",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL When this card is Exhausted, shuffle it and !theShowman:SecondMagic! random theshowman:Class cards from your Exhaust pile into your draw pile."
+    "DESCRIPTION": "Apply !M! Vulnerable. NL When this card is Exhausted, shuffle it and !theShowman:SecondMagic! random theshowman:non-Curse, theshowman:non-Status cards from your Exhaust pile into your draw pile."
   },
   "theShowman:SleeveAces": {
     "NAME": "Sleeve Aces",
-    "DESCRIPTION": "Add a copy of a non-Status, non-Curse card from your Exhaust pile to your discard pile and draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add !M! copies of a non-Status, non-Curse card from your Exhaust pile to your discard pile and draw pile. NL Exhaust."
+    "DESCRIPTION": "Add a copy of a theshowman:non-Curse, theshowman:non-Status card from your Exhaust pile to your discard pile and draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !M! copies of a theshowman:non-Curse, theshowman:non-Status card from your Exhaust pile to your discard pile and draw pile. NL Exhaust."
   },
   "theShowman:PerfectedPerformance": {
     "NAME": "Perfected Performance",

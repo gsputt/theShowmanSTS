@@ -67,5 +67,19 @@
       "temporary"
     ],
     "DESCRIPTION": "The following Effects: Strength Down, Shackled, Dexterity Down, Buffer Down, Retain Cards This Turn, Blur, Thorns Down, Weak, Vulnerable."
+  },
+  {
+    "PROPER_NAME": "Curse",
+    "NAMES": [
+      "non-curse"
+    ],
+    "DESCRIPTION": "Curse cards are negative cards that stay in your deck."
+  },
+  {
+    "PROPER_NAME": "Status",
+    "NAMES": [
+      "non-status"
+    ],
+    "DESCRIPTION": "Status cards are removed at the end of combat."
   }
 ]

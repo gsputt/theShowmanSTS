@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
+import theShowman.effects.CustomShuffleCardFromExhaustPileIntoDrawPileEffect;
 
 public class SwapDrawAndExhaustPileAction extends AbstractGameAction {
 
@@ -24,10 +24,10 @@ public class SwapDrawAndExhaustPileAction extends AbstractGameAction {
         {
             exhaust.addToBottom(c);
         }
-        while(AbstractDungeon.player.exhaustPile.size() > 0)
+        /*while(AbstractDungeon.player.exhaustPile.size() > 0)
         {
             AbstractDungeon.player.exhaustPile.removeTopCard();
-        }
+        }*/
         AbstractCard card;
         while(AbstractDungeon.player.drawPile.size() > 0) {
             card = AbstractDungeon.player.drawPile.getTopCard();
@@ -47,7 +47,7 @@ public class SwapDrawAndExhaustPileAction extends AbstractGameAction {
         for(AbstractCard c: exhaust.group)
         {
             //AbstractDungeon.player.drawPile.addToRandomSpot(c.makeSameInstanceOf());
-            AbstractDungeon.effectsQueue.add(new ShowCardAndAddToDrawPileEffect(c.makeSameInstanceOf(), true, false));
+            AbstractDungeon.effectsQueue.add(new CustomShuffleCardFromExhaustPileIntoDrawPileEffect(c, true, false));
         }
         exhaust.clear();
     }
