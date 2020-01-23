@@ -18,19 +18,19 @@ public class CustomShuffleCardFromExhaustPileIntoDrawPileEffect extends Abstract
     public CustomShuffleCardFromExhaustPileIntoDrawPileEffect(AbstractCard srcCard, boolean randomSpot, boolean toBottom) {
         this.card = srcCard;
 
-        this.card.unfadeOut();
-        this.randomSpot = false;
+        this.card.setAngle(0.0F);
+        this.card.drawScale = 0.12F;
+        this.card.targetDrawScale = 0.75F;
+        this.card.current_x = AbstractDungeon.overlayMenu.exhaustPanel.current_x;
+        this.card.current_y = AbstractDungeon.overlayMenu.exhaustPanel.current_y;
+
         this.duration = EFFECT_DUR;
         this.randomSpot = randomSpot;
-        this.card.current_x = srcCard.current_x;
-        this.card.current_y = srcCard.current_y;
         this.card.target_x = MathUtils.random((float) Settings.WIDTH * 0.1F, (float)Settings.WIDTH * 0.9F);
-        this.card.target_y = MathUtils.random((float)Settings.HEIGHT * 0.8F, (float)Settings.HEIGHT * 0.2F);
+        this.card.target_y = MathUtils.random((float) Settings.HEIGHT * 0.2F, (float)Settings.HEIGHT * 0.8F);
         AbstractDungeon.effectsQueue.add(new CardPoofEffect(this.card.target_x, this.card.target_y));
-        this.card.drawScale = 0.01F;
-        this.card.targetDrawScale = 1.0F;
 
-        this.card.untip();
+        AbstractDungeon.player.exhaustPile.removeCard(this.card);
 
         if (toBottom) {
             AbstractDungeon.player.drawPile.addToBottom(this.card);
@@ -40,11 +40,10 @@ public class CustomShuffleCardFromExhaustPileIntoDrawPileEffect extends Abstract
             AbstractDungeon.player.drawPile.addToTop(this.card);
         }
 
-        AbstractDungeon.player.exhaustPile.removeCard(this.card);
-
+        this.card.unfadeOut();
+        this.card.untip();
         this.card.unhover();
-        this.card.fadingOut = false;
-
+        this.card.lighten(true);
     }
 
     public void update()
@@ -56,6 +55,9 @@ public class CustomShuffleCardFromExhaustPileIntoDrawPileEffect extends Abstract
             this.card.shrink();
             AbstractDungeon.getCurrRoom().souls.onToDeck(this.card, this.randomSpot, true);
         }
+        this.card.unfadeOut();
+        this.card.untip();
+        this.card.unhover();
     }
 
     public void render(SpriteBatch sb)

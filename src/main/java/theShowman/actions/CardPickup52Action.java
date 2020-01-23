@@ -48,6 +48,7 @@ public class CardPickup52Action extends AbstractGameAction {
         {
             this.amount = exhaustList.size();
         }
+
         for(int i = 0; i < this.amount; i++)
         {
             AbstractCard card = exhaustList.get(AbstractDungeon.cardRng.random(exhaustList.size() - 1));
@@ -65,7 +66,7 @@ public class CardPickup52Action extends AbstractGameAction {
 
             exhaustList.remove(card);
 
-            this.isDone = true;
         }
+        this.isDone = true;
     }
 }

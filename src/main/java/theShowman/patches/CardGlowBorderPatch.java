@@ -37,7 +37,7 @@ public class CardGlowBorderPatch {
                     ReflectionHacks.setPrivate(__instance, AbstractGameEffect.class, "color", Color.RED.cpy());
                 }
             }
-            if(VentriloquismField.linked.get(c) != null)
+            if(VentriloquismField.linked.get(c) != null || ObjectPermanenceRenderField.ObjectPermanenceFlag.get(c))
             {
                 ReflectionHacks.setPrivate(__instance, AbstractGameEffect.class, "color", Color.YELLOW.cpy());
             }

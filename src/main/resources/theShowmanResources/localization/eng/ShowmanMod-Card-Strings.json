@@ -344,7 +344,7 @@
   },
   "theShowman:Presto": {
     "NAME": "Presto!",
-    "DESCRIPTION": "Put a random theshowman:non-Curse, theShowman:non-Status card from your Exhaust pile into your hand. NL It costs 0 this turn."
+    "DESCRIPTION": "Put a random theshowman:non-Curse, theshowman:non-Status card from your Exhaust pile into your hand. NL It costs 0 this turn."
   },
   "theShowman:SubtleMisdirections": {
     "NAME": "Subtle Misdirections",

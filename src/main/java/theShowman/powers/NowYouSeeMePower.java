@@ -17,8 +17,6 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import theShowman.ShowmanMod;
 import theShowman.util.TextureLoader;
 
-import java.util.ArrayList;
-
 import static theShowman.ShowmanMod.makePowerPath;
 
 
@@ -33,7 +31,7 @@ public class NowYouSeeMePower extends AbstractPower implements CloneablePowerInt
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
-    private ArrayList<AbstractMonster> alreadyHitTheseMonsters;
+    //private ArrayList<AbstractMonster> alreadyHitTheseMonsters;
 
     public NowYouSeeMePower(final AbstractCreature owner, final int amount) {
         this.name = NAME;
@@ -48,7 +46,7 @@ public class NowYouSeeMePower extends AbstractPower implements CloneablePowerInt
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         this.updateDescription();
-        this.alreadyHitTheseMonsters = new ArrayList<>();
+        //this.alreadyHitTheseMonsters = new ArrayList<>();
     }
 
     @Override
@@ -56,12 +54,12 @@ public class NowYouSeeMePower extends AbstractPower implements CloneablePowerInt
     {
         if(info.owner != AbstractDungeon.player && info.type == DamageInfo.DamageType.NORMAL) {
             AbstractMonster m = (AbstractMonster)info.owner;
-            if(!this.alreadyHitTheseMonsters.contains(m))
-            {
-                this.alreadyHitTheseMonsters.add(m);
+            //if(!this.alreadyHitTheseMonsters.contains(m))
+            //{
+                //this.alreadyHitTheseMonsters.add(m);
                 AbstractPlayer p = AbstractDungeon.player;
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.amount, false), this.amount));
-            }
+            //}
         }
         return damageAmount;
     }
@@ -69,7 +67,7 @@ public class NowYouSeeMePower extends AbstractPower implements CloneablePowerInt
     @Override
     public void atStartOfTurn()
     {
-        this.alreadyHitTheseMonsters.clear();
+        //this.alreadyHitTheseMonsters.clear();
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }
 
