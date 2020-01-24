@@ -29,6 +29,7 @@ public class WardrobeWarding extends AbstractDynamicCard {
     private static final int COST = 2;
     private static final int BLOCK = 12;
     private static final int UPGRADE_BLOCK = 4;
+    private static final int RETAIN_AMOUNT = 99;
     //private static final int RETAIN = 2;
     //private static final int UPGRADE_RETAIN = 2;
     // /STAT DECLARATION/
@@ -45,7 +46,7 @@ public class WardrobeWarding extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainThisTurnPower(p, 99), 99));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainThisTurnPower(p, RETAIN_AMOUNT), RETAIN_AMOUNT));
     }
 
 

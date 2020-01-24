@@ -130,12 +130,19 @@ public class ObjectPermanencePower extends AbstractPower implements CloneablePow
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-        description += DESCRIPTIONS[3];
+        description = DESCRIPTIONS[0]; //The first
+        if(this.amount == 1)
+        {
+            description += DESCRIPTIONS[1] + DESCRIPTIONS[2];// The first non-Curse, non-Status card
+        }
+        else
+        {
+            description += this.amount + DESCRIPTIONS[1] + DESCRIPTIONS[3]; // The first 2 non-Curse, non-Status cards
+        }
         description += DESCRIPTIONS[4];
 
         if(duplicateThis.size() > 0) {
-            description += DESCRIPTIONS[5]; // Currently Duplicating
+            description += DESCRIPTIONS[5]; // Currently affecting
             if(duplicateThis.size() > 1) {
                 for (int i = duplicateThis.size() - 1; i > 0; i--) {
                     description += FontHelper.colorString(duplicateThis.get(i).name, "y") + DESCRIPTIONS[6]; // Card Name,

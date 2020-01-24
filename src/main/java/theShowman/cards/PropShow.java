@@ -4,7 +4,9 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
 import theShowman.patches.ImproviseField;
@@ -18,6 +20,8 @@ public class PropShow extends AbstractDynamicCard {
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("PropShow");
     public static final String IMG = makeCardPath("PropShow.png");
+    public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     // /TEXT DECLARATION/
 
 
@@ -77,6 +81,7 @@ public class PropShow extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_DRAW);
+            rawDescription = UPGRADE_DESCRIPTION;
             //upgradeDamage(UPGRADE_DAMAGE);
             initializeDescription();
         }

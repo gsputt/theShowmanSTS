@@ -91,7 +91,8 @@
   },
   "theShowman:SleeveStash": {
     "NAME": "Sleeve Stash",
-    "DESCRIPTION": "Retain up to !M! cards this turn. NL Draw a card."
+    "DESCRIPTION": "Retain up to !M! card this turn. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "Retain up to !M! cards this turn. NL Draw a card."
   },
   "theShowman:NowYouSeeMe": {
     "NAME": "Now You See Me",
@@ -249,7 +250,8 @@
   },
   "theShowman:PropShow": {
     "NAME": "Prop Show",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Draw !M! cards. NL theshowman:Improvise."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Draw !M! card. NL theshowman:Improvise.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Draw !M! cards. NL theshowman:Improvise."
   },
   "theShowman:WhirlingDervish": {
     "NAME": "Whirling Dervish",
@@ -334,7 +336,7 @@
   },
   "theShowman:ObjectPermanence": {
     "NAME": "Object Permanence",
-    "DESCRIPTION": "The first theshowman:non-Curse, theshowman:non-Status card you draw each turn duplicates to hand when exhausted for that turn."
+    "DESCRIPTION": "The first theshowman:non-Curse, theshowman:non-Status card you draw each turn adds a copy of itself to your hand when exhausted for that turn."
   },
   "theShowman:BottomDoubleDeal": {
     "NAME": "Bottom Deal",

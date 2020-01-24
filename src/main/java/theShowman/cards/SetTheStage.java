@@ -33,6 +33,7 @@ public class SetTheStage extends AbstractDynamicCard {
     public static final CardColor COLOR = COLOR_PURPLE;
 
     private static final int COST = 1;
+    private static final int RETAIN_AMOUNT = 99;
     // /STAT DECLARATION/
 
 
@@ -49,7 +50,7 @@ public class SetTheStage extends AbstractDynamicCard {
 
         if(this.upgraded)
         {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainThisTurnPower(p, BaseMod.MAX_HAND_SIZE), BaseMod.MAX_HAND_SIZE));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainThisTurnPower(p, RETAIN_AMOUNT), RETAIN_AMOUNT));
         }
     }
 

@@ -117,8 +117,8 @@
       " #ynon-Curse, #ynon-Status ",
       "card ",
       "cards ",
-      "you draw each turn will duplicate to hand when exhausted for the turn.",
-      " Currently duplicating ",
+      "you draw each turn will add a copy of itself to your hand when exhausted for the turn.",
+      " Currently affecting ",
       " [REMOVE_SPACE], ",
       "and ",
       " [REMOVE_SPACE]."
