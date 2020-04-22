@@ -1,9 +1,10 @@
-package theShowman.powers;
+package theShowman.powers.Deprecated;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -45,6 +46,12 @@ public class IAmAByrd extends AbstractPower implements CloneablePowerInterface
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         this.updateDescription();
+    }
+
+    @Override
+    public float atDamageFinalReceive(float damage, DamageInfo.DamageType type)
+    {
+        return damage;
     }
 
     @Override

@@ -1,9 +1,12 @@
-package theShowman.patches;
+/*package theShowman.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import javassist.CtBehavior;
-import theShowman.powers.IAmAByrd;
+import theShowman.powers.ColumbifiedPower;
+import theShowman.powers.Deprecated.IAmAByrd;
 
 import java.util.ArrayList;
 
@@ -17,10 +20,15 @@ public class targetMonsterColumbifiedPatch {
             )
     public static void insert(GameActionManager __instance)
     {
-        if(__instance.cardQueue.get(0) != null) {
-            if (__instance.cardQueue.get(0).monster != null) {
-                if (__instance.cardQueue.get(0).monster.hasPower(IAmAByrd.POWER_ID)) {
-                    __instance.cardQueue.get(0).monster = ((IAmAByrd)__instance.cardQueue.get(0).monster.getPower(IAmAByrd.POWER_ID)).linked;
+        CardQueueItem queuedCard = __instance.cardQueue.get(0);
+        if(queuedCard != null) {
+            AbstractMonster targetMonster = queuedCard.monster;
+            if (targetMonster != null) {
+                if (targetMonster.hasPower(IAmAByrd.POWER_ID)) {
+                    if(((IAmAByrd)targetMonster.getPower(IAmAByrd.POWER_ID)).linked.hasPower(ColumbifiedPower.POWER_ID))
+                    {
+                        queuedCard.monster = ((IAmAByrd)queuedCard.monster.getPower(IAmAByrd.POWER_ID)).linked;
+                    }
                 }
             }
         }
@@ -38,3 +46,4 @@ public class targetMonsterColumbifiedPatch {
         }
     }
 }
+*/

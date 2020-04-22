@@ -13,8 +13,8 @@ public class HeartOfTheCards extends CustomRelic {
     // ID, images, text.
     public static final String ID = ShowmanMod.makeID("HeartOfTheCards");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("heart_of_the_cards.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("heart_of_the_cardsOutline.png"));
 
     public static final int AMOUNT = 1;
 

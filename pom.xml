@@ -6,16 +6,16 @@
     <groupId>theshowman</groupId>
     <artifactId>TheShowman</artifactId>
     <name>The Showman</name>
-    <version>0.2.4</version>
+    <version>0.2.5</version>
     <description>A tribute to the Original Slay the Spire Characters</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <SlayTheSpire.version>01-14-2020</SlayTheSpire.version>
-        <ModTheSpire.version>3.15.0</ModTheSpire.version>
-        <BaseMod.version>5.17.0</BaseMod.version>
-        <StSLib.version>1.17.2</StSLib.version>
+        <SlayTheSpire.version>01-27-2020</SlayTheSpire.version>
+        <ModTheSpire.version>3.16.0</ModTheSpire.version>
+        <BaseMod.version>5.22.0</BaseMod.version>
+        <StSLib.version>1.19.3</StSLib.version>
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path>C:/Program Files (x86)/Steam/steamapps</Steam.path>
     </properties>

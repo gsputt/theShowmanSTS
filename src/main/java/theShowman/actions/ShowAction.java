@@ -2,7 +2,6 @@ package theShowman.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -10,6 +9,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.cards.ItsShowtime;
 import theShowman.cards.Showstopper;
+
+import java.util.ArrayList;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.cardRandomRng;
 
 public class ShowAction extends AbstractGameAction {
 
@@ -27,7 +30,7 @@ public class ShowAction extends AbstractGameAction {
     @Override
     public void update()
     {
-        CardGroup exhaustList = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        ArrayList<AbstractCard> exhaustList = new ArrayList<>();
         for(AbstractCard c : p.exhaustPile.group)
         {
             if(c.type != AbstractCard.CardType.CURSE && c.type != AbstractCard.CardType.STATUS && !(c instanceof Showstopper) && !(c instanceof ItsShowtime))
@@ -43,7 +46,7 @@ public class ShowAction extends AbstractGameAction {
                 }*/
                 //if(addThisCard)
                 //{
-                    exhaustList.addToRandomSpot(c.makeSameInstanceOf());
+                    exhaustList.add(c.makeSameInstanceOf());
                 //}
             }
         }
@@ -53,7 +56,8 @@ public class ShowAction extends AbstractGameAction {
         }
         for(int i = 0; i < this.amount; i++)
         {
-            AbstractCard card = exhaustList.getTopCard().makeSameInstanceOf();
+            AbstractCard original = exhaustList.get(cardRandomRng.random(exhaustList.size() - 1));
+            AbstractCard card = original.makeSameInstanceOf();
             AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
                 @Override
                 public void update() {
@@ -77,7 +81,7 @@ public class ShowAction extends AbstractGameAction {
 
                 }
             });
-            exhaustList.removeCard(exhaustList.getTopCard());
+            exhaustList.remove(original);
         }
         exhaustList.clear();
         this.isDone = true;

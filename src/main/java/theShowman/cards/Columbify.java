@@ -45,15 +45,11 @@ public class Columbify extends AbstractDynamicCard {
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m)
     {
-        boolean canUse = super.canUse(p, m);
-        if (!canUse) {
-            return false;
-        }
         if(m != null && m.hasPower(ColumbifiedPower.POWER_ID)){
             this.cantUseMessage = NO_BYRDING;
             return false;
         }
-        return true;
+        return super.canUse(p, m);
     }
 
 
