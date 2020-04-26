@@ -2,19 +2,17 @@ package theShowman.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShowman.ShowmanMod;
-import theShowman.effects.CurtainVFX;
-import theShowman.effects.CurtainVFX2;
+import theShowman.actions.QueueSpeechEffect;
 import theShowman.patches.ImproviseField;
+
+import java.util.ArrayList;
 
 import static theShowman.ShowmanMod.makeCardPath;
 import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
@@ -51,28 +49,38 @@ public class SpeechCard extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainVFX2()));
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[28], 1.5F, 1.5F));
-        }
-        else {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainVFX()));
-            screwYourFastMode();
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[0], 2.0F, 2.0F));
-            screwYourFastMode();
-
+            //AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainVFX2()));
+            //AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[28], 0.1F, 0.1F));
+            ArrayList<String> sayThis = new ArrayList<>();
+            sayThis.add(EXTENDED_DESCRIPTION[0]);
             int i = (int) (Math.random() * 9) + 1;
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
-            screwYourFastMode();
-
+            sayThis.add(EXTENDED_DESCRIPTION[i]);
             i = (int) (Math.random() * 9) + 10;
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
-            screwYourFastMode();
-
+            sayThis.add(EXTENDED_DESCRIPTION[i]);
             i = (int) (Math.random() * 9) + 19;
             if (i == 21) {
                 i = (int) (Math.random() * 9) + 19;
             }
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[i], 2.0F, 2.0F));
+            sayThis.add(EXTENDED_DESCRIPTION[i]);
+
+            AbstractDungeon.effectList.add(new QueueSpeechEffect(sayThis, 0.75F, true));
+        }
+        else {
+            //AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainVFX()));
+
+            ArrayList<String> talkList = new ArrayList<>();
+            talkList.add(EXTENDED_DESCRIPTION[0]);
+            int i = (int) (Math.random() * 9) + 1;
+            talkList.add(EXTENDED_DESCRIPTION[i]);
+            i = (int) (Math.random() * 9) + 10;
+            talkList.add(EXTENDED_DESCRIPTION[i]);
+            i = (int) (Math.random() * 9) + 19;
+            if (i == 21) {
+                i = (int) (Math.random() * 9) + 19;
+            }
+            talkList.add(EXTENDED_DESCRIPTION[i]);
+
+            AbstractDungeon.effectList.add(new QueueSpeechEffect(talkList, 2.0F, false));
         }
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             @Override
@@ -91,13 +99,14 @@ public class SpeechCard extends AbstractDynamicCard {
         });
     }
 
-    private void screwYourFastMode()
+    /*
+    private void waitForShortTime()
     {
         for(int i = 0; i < 5; i++)
         {
             AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1F));
         }
-    }
+    }*/
 
     @Override
     public AbstractDynamicCard makeCopy() {

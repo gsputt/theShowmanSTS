@@ -25,9 +25,6 @@ public class CurtainVFX2 extends AbstractGameEffect {
 
     private float graphicsAnimation;
 
-    private float drawYStartMonster;
-
-
     public CurtainVFX2()
     {
 
@@ -42,7 +39,7 @@ public class CurtainVFX2 extends AbstractGameEffect {
 
         this.color = Color.WHITE.cpy();
         this.color.a = 1.0F;
-        this.duration = this.startingDuration = 2.0F;
+        this.duration = this.startingDuration = 1.0F;
         this.graphicsAnimation = 0.0F;
         this.offSetRightX = 0.0F;
         this.offSetLeftX = 0.0F;
@@ -58,14 +55,14 @@ public class CurtainVFX2 extends AbstractGameEffect {
         this.duration -= Gdx.graphics.getDeltaTime();
         this.graphicsAnimation += Gdx.graphics.getDeltaTime();
 
-        if(this.graphicsAnimation <= 0.5F) {
-            offSetLeftX = Interpolation.fade.apply(0, CURTAIN_LEFT.getRegionWidth(), this.graphicsAnimation / 0.5F);
-            offSetRightX = Interpolation.fade.apply(0, 0 - CURTAIN_RIGHT.getRegionWidth(), this.graphicsAnimation / 0.5F);
+        if(this.graphicsAnimation <= 0.25F) {
+            offSetLeftX = Interpolation.fade.apply(0, CURTAIN_LEFT.getRegionWidth(), this.graphicsAnimation / 0.25F);
+            offSetRightX = Interpolation.fade.apply(0, 0 - CURTAIN_RIGHT.getRegionWidth(), this.graphicsAnimation / 0.25F);
         }
-        if(this.graphicsAnimation >= 1.5F)
+        if(this.graphicsAnimation >= 0.75F)
         {
-            offSetLeftX = Interpolation.fade.apply(CURTAIN_LEFT.getRegionWidth(), 0, (this.graphicsAnimation - 1.5F) / 0.5F);
-            offSetRightX = Interpolation.fade.apply(0 - CURTAIN_RIGHT.getRegionWidth(), 0, (this.graphicsAnimation - 1.5F) / 0.5F);
+            offSetLeftX = Interpolation.fade.apply(CURTAIN_LEFT.getRegionWidth(), 0, (this.graphicsAnimation - 0.75F) / 0.25F);
+            offSetRightX = Interpolation.fade.apply(0 - CURTAIN_RIGHT.getRegionWidth(), 0, (this.graphicsAnimation - 0.75F) / 0.25F);
         }
         if(this.duration <= 0.0F)
         {

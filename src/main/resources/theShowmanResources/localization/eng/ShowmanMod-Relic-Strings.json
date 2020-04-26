@@ -45,7 +45,8 @@
     "NAME": "Heart Of The Cards",
     "FLAVOR": "Believe in the heart of the cards!",
     "DESCRIPTIONS": [
-      "The first card you would #ytheshowman:Overdraw each turn is instead played."
+      "The first card you would #ytheshowman:Overdraw each turn is instead played.",
+      "I believe in the heart of the cards!"
     ]
   },
   "theShowman:DetachableThumb": {

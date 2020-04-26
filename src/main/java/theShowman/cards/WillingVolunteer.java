@@ -16,7 +16,6 @@ import static theShowman.characters.TheShowman.Enums.COLOR_PURPLE;
 
 public class WillingVolunteer extends AbstractDynamicCard {
 
-
     // TEXT DECLARATION
     public static final String ID = ShowmanMod.makeID("WillingVolunteer");
     public static final String IMG = makeCardPath("WillingVolunteer.png");

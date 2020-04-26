@@ -1,6 +1,7 @@
 package theShowman.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Ghosts;
 import theShowman.characters.TheShowman;
@@ -10,7 +11,8 @@ import theShowman.characters.TheShowman;
         method = "initializeCardPools"
 )
 public class removeApparitionEventPatch {
-    public static void prefix(AbstractDungeon __instance)
+    @SpirePrefixPatch
+    public static void idkThisMightHaveBeenBrokenTheEntireTime(AbstractDungeon __instance)
     {
         if(AbstractDungeon.player instanceof TheShowman)
         {

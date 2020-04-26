@@ -1,14 +1,10 @@
 package theShowman.patches;
 
-import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.common.DiscardAtEndOfTurnAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import javassist.CtBehavior;
 import theShowman.powers.TriggerAfterEtherealInterface;
-
-import java.util.ArrayList;
 
 public class RemovePowerAfterEtherealHook {
     @SpirePatch(

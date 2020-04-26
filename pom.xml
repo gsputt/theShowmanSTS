@@ -6,7 +6,7 @@
     <groupId>theshowman</groupId>
     <artifactId>TheShowman</artifactId>
     <name>The Showman</name>
-    <version>0.2.5</version>
+    <version>0.2.6</version>
     <description>A tribute to the Original Slay the Spire Characters</description>
 
     <properties>
@@ -18,6 +18,8 @@
         <StSLib.version>1.19.3</StSLib.version>
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path>C:/Program Files (x86)/Steam/steamapps</Steam.path>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
