@@ -28,7 +28,6 @@ public class SpeechCard extends AbstractDynamicCard {
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     // /TEXT DECLARATION/
 
-
     // STAT DECLARATION
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.NONE;
@@ -51,34 +50,52 @@ public class SpeechCard extends AbstractDynamicCard {
         if(this.upgraded) {
             //AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainVFX2()));
             //AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[28], 0.1F, 0.1F));
+
             ArrayList<String> sayThis = new ArrayList<>();
-            sayThis.add(EXTENDED_DESCRIPTION[0]);
-            int i = (int) (Math.random() * 9) + 1;
-            sayThis.add(EXTENDED_DESCRIPTION[i]);
-            i = (int) (Math.random() * 9) + 10;
-            sayThis.add(EXTENDED_DESCRIPTION[i]);
-            i = (int) (Math.random() * 9) + 19;
-            if (i == 21) {
-                i = (int) (Math.random() * 9) + 19;
+            if(CardCrawlGame.playerName.equals("sneakyteak"))
+            {
+                sayThis.add(EXTENDED_DESCRIPTION[0]);
+                sayThis.add(EXTENDED_DESCRIPTION[29]);
+                sayThis.add(EXTENDED_DESCRIPTION[30]);
+                sayThis.add(EXTENDED_DESCRIPTION[31]);
             }
-            sayThis.add(EXTENDED_DESCRIPTION[i]);
+            else {
+                sayThis.add(EXTENDED_DESCRIPTION[0]);
+                int i = (int) (Math.random() * 9) + 1;
+                sayThis.add(EXTENDED_DESCRIPTION[i]);
+                i = (int) (Math.random() * 9) + 10;
+                sayThis.add(EXTENDED_DESCRIPTION[i]);
+                i = (int) (Math.random() * 9) + 19;
+                if (i == 21) {
+                    i = (int) (Math.random() * 9) + 19;
+                }
+                sayThis.add(EXTENDED_DESCRIPTION[i]);
+            }
 
             AbstractDungeon.effectList.add(new QueueSpeechEffect(sayThis, 0.75F, true));
         }
         else {
             //AbstractDungeon.actionManager.addToBottom(new VFXAction(new CurtainVFX()));
-
             ArrayList<String> talkList = new ArrayList<>();
-            talkList.add(EXTENDED_DESCRIPTION[0]);
-            int i = (int) (Math.random() * 9) + 1;
-            talkList.add(EXTENDED_DESCRIPTION[i]);
-            i = (int) (Math.random() * 9) + 10;
-            talkList.add(EXTENDED_DESCRIPTION[i]);
-            i = (int) (Math.random() * 9) + 19;
-            if (i == 21) {
-                i = (int) (Math.random() * 9) + 19;
+            if(CardCrawlGame.playerName.equals("sneakyteak"))
+            {
+                talkList.add(EXTENDED_DESCRIPTION[0]);
+                talkList.add(EXTENDED_DESCRIPTION[29]);
+                talkList.add(EXTENDED_DESCRIPTION[30]);
+                talkList.add(EXTENDED_DESCRIPTION[31]);
             }
-            talkList.add(EXTENDED_DESCRIPTION[i]);
+            else {
+                talkList.add(EXTENDED_DESCRIPTION[0]);
+                int i = (int) (Math.random() * 9) + 1;
+                talkList.add(EXTENDED_DESCRIPTION[i]);
+                i = (int) (Math.random() * 9) + 10;
+                talkList.add(EXTENDED_DESCRIPTION[i]);
+                i = (int) (Math.random() * 9) + 19;
+                if (i == 21) {
+                    i = (int) (Math.random() * 9) + 19;
+                }
+                talkList.add(EXTENDED_DESCRIPTION[i]);
+            }
 
             AbstractDungeon.effectList.add(new QueueSpeechEffect(talkList, 2.0F, false));
         }

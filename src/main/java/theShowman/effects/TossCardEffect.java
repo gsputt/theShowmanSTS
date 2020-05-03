@@ -164,9 +164,9 @@ public class TossCardEffect extends AbstractGameEffect {
 
         if (this.duration < 0.0F) {
             int j = this.damage;
-            if(j > 20)
+            if(j > 8)
             {
-                j = 20;
+                j = 8;
             }
             for (int i = 0; i < j; i++) {
                 AbstractDungeon.effectsQueue.add(new ExplodeCardEffect(this.targetX, this.targetY, this.img));
