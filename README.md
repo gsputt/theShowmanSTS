@@ -1,5 +1,5 @@
-# theShowmanSTS
-theShowman
+# The Showman (Slay the Spire Character Mod)
+the Showman
 
 The Showman: A slay the spire mod created by ComingVirus, DontTakeMyKidneys and Left Click.
 Steam page:
