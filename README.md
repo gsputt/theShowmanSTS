@@ -2,6 +2,7 @@
 the Showman
 
 The Showman: A slay the spire mod created by ComingVirus, DontTakeMyKidneys and Left Click.
+
 Steam page:
 https://steamcommunity.com/sharedfiles/filedetails/?id=1854380319
 
